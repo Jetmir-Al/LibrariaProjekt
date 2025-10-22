@@ -1,6 +1,3 @@
 @LibrariaProjekt.Server_HostAddress = http://localhost:5172
 
-GET {{LibrariaProjekt.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
 ###
