@@ -1,42 +1,153 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/*reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/*Variables  need to  change*/
+
+:root {
+    --text: oklch(0.9619 0 0);
+    --text-muted: oklch(0.7652 0 0);
+    
+    --green: #28a745;
+    --gold: #ffc107;
+    --red: #e60000;
+    --redHover: #c40000;
+    
+  
+    --ff: "Times New Roman", Times, sans-serif;
+    --ff2: "Times New Roman", Times, sans-serif;
+    --p: 1rem/1.5rem var(--ff);
+    --h1: 600 3rem/1.2em var(--ff2);
+    --h2: 550 2.2rem/1.2em var(--ff2);
+    --h3: 500 2rem/1.2em var(--ff2);
+    --h4: 450 1.3rem/1.2rem var(--ff);
+    --h5: 400 1.2rem/1.2rem var(--ff);
+    --tlt: 400 1.3rem/0.8em var(--ff2);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* global styles */
+
+html {
+    scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h3 {
+    font: var(--h3);
 }
 
-.card {
-  padding: 2em;
+body {
+    text-wrap: balance;
+    font: var(--p);
+    list-style-type: none;
+    color: var(--text);
+    background-color: black;
 }
 
-.read-the-docs {
-  color: #888;
+a {
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.3s ease-in;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    font: var(--p);
+    transition: 0.2s ease-in;
+}
+
+
+/* badinfo */
+.badInfo {
+    text-align: center;
+    color: var(--red);
+    font: var(--tlt);
+}
+
+h4 {
+    font: var(--h4);
+}
+
+h5 {
+    font: var(--h5);
+}
+
+.error-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 450px;
+}
+
+
+.loading-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.loading {
+    font: var(--h2);
+    animation: 2s rotate infinite ease-in-out;
+    margin: 20px;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* animacion per fade in qe mund te thirret 
+me von ne file tjera me an te klases
+*/
+.fade-in {
+    animation: fadeIn ease-in;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animacion per bounce to activate on hover */
+
+.bounce:hover {
+    animation: bounce 2s infinite ease-in;
+}
+
+@keyframes bounce {
+
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }

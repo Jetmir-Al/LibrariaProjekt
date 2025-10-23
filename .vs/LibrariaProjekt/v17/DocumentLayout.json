@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.server\\librariaprojekt.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\librariaprojekt.server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\src\\components\\navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\src\\components\\navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LibrariaProjekt.Server.http",
-              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\LibrariaProjekt.Server\\LibrariaProjekt.Server.http",
-              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\LibrariaProjekt.Server.http",
-              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\LibrariaProjekt.Server\\LibrariaProjekt.Server.http",
-              "RelativeToolTip": "LibrariaProjekt.Server\\LibrariaProjekt.Server.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-10-22T20:08:42.876Z",
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\App.jsx",
+              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\App.jsx",
+              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\App.jsx",
+              "RelativeToolTip": "librariaprojekt.client\\src\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-22T20:36:39.013Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\.gitignore",
-              "RelativeDocumentMoniker": "librariaprojekt.client\\.gitignore",
-              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\.gitignore",
-              "RelativeToolTip": "librariaprojekt.client\\.gitignore",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-22T20:08:02.095Z",
+              "Title": "Navbar.jsx",
+              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Components\\Navbar.jsx",
+              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\Components\\Navbar.jsx",
+              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Components\\Navbar.jsx",
+              "RelativeToolTip": "librariaprojekt.client\\src\\Components\\Navbar.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-23T19:19:32.07Z",
               "EditorCaption": ""
             },
             {

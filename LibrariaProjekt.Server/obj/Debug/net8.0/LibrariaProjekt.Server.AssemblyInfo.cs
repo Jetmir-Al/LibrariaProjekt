@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibrariaProjekt.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49ee87273bc9d3156a1be3e554dc6c8d2b3905db")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+edee4989b65ea6bbc451cd82c20af5d8674e44b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibrariaProjekt.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibrariaProjekt.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
