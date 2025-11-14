@@ -1,5 +1,8 @@
 import './BodyStyles/body.css';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import Services from './Services';
+import Featured from './Featured';
+import NewBooks from './NewBooks';
 
 function Body() {
 
@@ -26,7 +29,6 @@ function Body() {
                     </div>
 
                     <div className="home__images">
-                        <div className="home__swiper swiper">
                             <div className="swiper-wrapper">
 
                                 <article className="home__article swiper-slide">
@@ -34,22 +36,23 @@ function Body() {
                                 </article>
 
                                 <article className="home__article swiper-slide">
-                                    <img src="src/assets/imgs/home-book-2.png" alt="image" className="home__img"/>
+                                    <img src="src/assets/imgs/home-book-2.png" alt="image" className="home__img mainImg"/>
                                 </article>
 
                                 <article className="home__article swiper-slide">
                                     <img src="src/assets/imgs/home-book-3.png" alt="image" className="home__img" />
                                 </article>
 
-                                <article className="home__article swiper-slide">
-                                    <img src="src/assets/imgs/home-book-4.png" alt="image" className="home__img"/>
-                                </article>
 
                             </div>
-                        </div>
+                       
                     </div>
                 </div>
             </section>
+
+            <Services />
+            <Featured />
+            <NewBooks />
         </main>
     );
 }

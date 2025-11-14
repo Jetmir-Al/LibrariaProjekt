@@ -76,7 +76,7 @@ function Navbar() {
     return (
         <>
             <header className="header" id="header">
-                <nav className="nav container">
+                <nav className="nav">
                     <Link to="/" className="nav__logo">
                         <FontAwesomeIcon className="MainIcon" icon={faBook} /> E book
                     </Link>

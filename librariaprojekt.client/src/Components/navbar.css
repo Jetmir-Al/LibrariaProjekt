@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: space-between;
     column-gap: 1.5rem;
+    margin-inline: 1.5rem;
 }
 .nav__menu {
     width: 380px;

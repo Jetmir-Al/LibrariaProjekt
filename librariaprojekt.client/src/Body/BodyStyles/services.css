@@ -1,0 +1,27 @@
+.services__container {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap:wrap;
+}
+
+.services__card {
+    text-align: center;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+    .serviceIcon {
+        display: block;
+        font-size: 3rem;
+        color: var(--first-color);
+        margin-bottom: 1rem;
+    }
+
+.services__title {
+    font-size: var(--h3-font-size);
+    margin-bottom: .5rem;
+}
+
