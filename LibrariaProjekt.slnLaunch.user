@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "librariaprojekt.client\\librariaprojekt.client.esproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
