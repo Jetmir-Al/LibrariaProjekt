@@ -23,7 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 
+# Visual Studio cache
+.vs/
 
+# Build output
 bin/
 obj/
-.vs/
+

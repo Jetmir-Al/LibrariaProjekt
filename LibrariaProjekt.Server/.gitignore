@@ -17,6 +17,14 @@
 *.log
 *.rpt
 
+# Visual Studio cache
+.vs/
+
+# Build output
+bin/
+obj/
+
+
 # ASP.NET Core-specific
 /wwwroot/dist/
 /wwwroot/lib/
