@@ -77,53 +77,54 @@ function Navbar() {
         <>
             <header className="header" id="header">
                 <nav className="nav container">
-                    <a href="/" className="nav__logo">
-                        <FontAwesomeIcon className="icon" icon={faBook} /> E book
-                    </a>
+                    <Link to="/" className="nav__logo">
+                        <FontAwesomeIcon className="MainIcon" icon={faBook} /> E book
+                    </Link>
 
                     <div className="nav_menu">
                         <ul className="nav__list">
 
                             <li className="nav__item">
 
-                                <a href="#home" className="nav__link active-link">
+                                <Link to="#home" className="nav__link active-link">
                                     <FontAwesomeIcon className="icon" icon={faHouse} />
                                     <span>Home</span>
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#featured" className="nav__link">
+                                <Link to="#featured" className="nav__link">
                                     <FontAwesomeIcon className="icon" icon={faBookBookmark} />
                                     <span>Featured</span>
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#new" className="nav__link">
+                                <Link to="#new" className="nav__link">
                                 <FontAwesomeIcon className="icon" icon={faBookmark} />
                                     <span>New Books</span>
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="nav__item">
 
-                                <a href="#testimonial" className="nav__link">
+                                <Link to="#testimonial" className="nav__link">
                                     <FontAwesomeIcon className="icon" icon={faReply} />
                                     <span>Testimonial</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
 
                     <div className="nav__actions">
 
-                    <div onClick={() => setIsAccountMenuOpen(a => !a)}>
+                        <div className="navAction" onClick={() => setIsAccountMenuOpen(a => !a)}>
                         <FontAwesomeIcon className="icon" icon={faCircleUser} />
                     </div>
-                       
-                        
-                        <FontAwesomeIcon className="icon" icon={faMoon} />
+
+                        <div className="navAction">
+                            <FontAwesomeIcon className="icon" icon={faMoon} />
+                    </div>
 
                     </div>
                 </nav>

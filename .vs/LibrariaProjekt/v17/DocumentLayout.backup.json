@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< Updated upstream
   "WorkspaceRootPath": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\",
   "Documents": [
     {
@@ -73,6 +74,13 @@
     {
       "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+  "WorkspaceRootPath": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\src\\body\\body.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\src\\body\\body.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -82,15 +90,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+=======
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< Updated upstream
               "Title": "ReviewRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\ReviewRepository.cs",
               "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\ReviewRepository.cs",
@@ -320,6 +341,16 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-14T15:38:23.84Z",
+=======
+              "Title": "Body.jsx",
+              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Body\\Body.jsx",
+              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\Body\\Body.jsx",
+              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Body\\Body.jsx",
+              "RelativeToolTip": "librariaprojekt.client\\src\\Body\\Body.jsx",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAACMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-14T16:47:56.161Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             }
           ]

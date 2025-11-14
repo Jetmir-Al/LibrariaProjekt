@@ -31,7 +31,7 @@ function LogIn() {
                         <span className="login__signup">
                             You do not have an account? <a onClick={() => setToggleAccount(t => !t)}>Sign up</a>
                         </span> 
-
+                        <br/>
                         <button type="submit" className="login__button button">Login</button>
                     </div>
                 </form>

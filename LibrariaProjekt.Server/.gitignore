@@ -1,0 +1,22 @@
+﻿## Build and project files to ignore
+# Visual Studio metadata and cache
+.vs/
+.vsix/
+*.vsixmanifest
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+
+# Binaries and object files
+[Bb]in/
+[Oo]bj/
+*.pdb
+*.pidb
+*.vspdb
+*.log
+*.rpt
+
+# ASP.NET Core-specific
+/wwwroot/dist/
+/wwwroot/lib/

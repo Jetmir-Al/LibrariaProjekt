@@ -85,8 +85,6 @@
 }
 
 
-@media query screen and (max-width: 768px) {
-    .signup__form {
-        min-width: 80%;
-    }
+@media screen and (max-width: 768px) {
+   
 }

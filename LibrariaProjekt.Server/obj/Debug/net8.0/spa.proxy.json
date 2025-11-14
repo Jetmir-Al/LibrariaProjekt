@@ -3,7 +3,11 @@
 "ServerUrl": "https://localhost:50984",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
+<<<<<<< Updated upstream
 "WorkingDirectory": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\..\\librariaprojekt.client",
+=======
+"WorkingDirectory": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\LibrariaProjekt.Server\\..\\librariaprojekt.client",
+>>>>>>> Stashed changes
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

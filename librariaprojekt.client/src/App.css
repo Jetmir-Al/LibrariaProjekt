@@ -137,7 +137,7 @@ body.dark-theme {
 /*Reuse css classes*/
 
 .container {
-    max-width: 1220px;
+/*    max-width: 1220px;*/
     margin-inline: 1.5rem;
 }
 

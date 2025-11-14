@@ -22,6 +22,7 @@
     border: 2px solid var(--border-color);
     row-gap: 1.25rem;
     max-width: 100%;
+    min-width: 500px;
 }
 
 .login__title {
@@ -81,3 +82,8 @@
 }
 
 
+@media screen and (max-width: 768px) {
+    .login__form {
+        min-width: 350px;
+    }
+}
