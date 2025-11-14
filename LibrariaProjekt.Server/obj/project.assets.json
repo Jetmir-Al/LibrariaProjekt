@@ -484,11 +484,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt-main\\LibrariaProjekt\\LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj",
       "projectName": "LibrariaProjekt.Server",
-      "projectPath": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt-main\\LibrariaProjekt\\LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj",
+      "projectPath": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt-main\\LibrariaProjekt\\LibrariaProjekt.Server\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -554,12 +554,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< Updated upstream
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
->>>>>>> Stashed changes
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

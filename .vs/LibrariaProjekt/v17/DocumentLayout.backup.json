@@ -1,23 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\",
+  "WorkspaceRootPath": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\",
   "Documents": [
     {
-<<<<<<< Updated upstream
-      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\src\\account\\signup.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\src\\account\\signup.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\src\\account\\login.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\src\\account\\login.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-=======
-      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
->>>>>>> Stashed changes
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\borrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\borrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\donaa\\desktop\\viti 3 s1\\akitektura e webit\\librariaprojekt\\librariaprojekt.client\\src\\components\\navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\src\\components\\navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.client\\librariaprojekt.client.esproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{97F1C155-A030-01B4-546E-8FF1FD2D2918}|librariaprojekt.client\\librariaprojekt.client.esproj|solutionrelative:librariaprojekt.client\\librariaprojekt.client.esproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,90 +38,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< Updated upstream
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-=======
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "App.jsx",
-              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\App.jsx",
-              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\App.jsx",
-              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\App.jsx",
-              "RelativeToolTip": "librariaprojekt.client\\src\\App.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-22T20:36:39.013Z",
-              "IsPinned": true,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Review.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Review.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Review.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:24:56.718Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Navbar.jsx",
-              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Components\\Navbar.jsx",
-              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\Components\\Navbar.jsx",
-              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Components\\Navbar.jsx",
-              "RelativeToolTip": "librariaprojekt.client\\src\\Components\\Navbar.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-10-23T19:19:32.07Z",
-              "EditorCaption": ""
-            },
-            {
->>>>>>> Stashed changes
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-<<<<<<< Updated upstream
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LogIn.jsx",
-              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Account\\LogIn.jsx",
-              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\Account\\LogIn.jsx",
-              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Account\\LogIn.jsx",
-              "RelativeToolTip": "librariaprojekt.client\\src\\Account\\LogIn.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-14T11:12:51.279Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SignUp.jsx",
-              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Account\\SignUp.jsx",
-              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\Account\\SignUp.jsx",
-              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Account\\SignUp.jsx",
-              "RelativeToolTip": "librariaprojekt.client\\src\\Account\\SignUp.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-14T11:08:24.727Z",
+              "Title": "Borrow.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:24:42.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Navbar.jsx",
-              "DocumentMoniker": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Components\\Navbar.jsx",
-              "RelativeDocumentMoniker": "librariaprojekt.client\\src\\Components\\Navbar.jsx",
-              "ToolTip": "C:\\Users\\donaa\\Desktop\\Viti 3 S1\\Akitektura e webit\\LibrariaProjekt\\librariaprojekt.client\\src\\Components\\Navbar.jsx*",
-              "RelativeToolTip": "librariaprojekt.client\\src\\Components\\Navbar.jsx*",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAAAIIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-13T19:43:37.004Z",
+              "Title": "Purchase.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:24:29.612Z",
               "EditorCaption": ""
-=======
->>>>>>> Stashed changes
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Book.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Book.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:24:14.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\User.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:24:01.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Admin.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:23:46.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "librariaprojekt.client",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\librariaprojekt.client\\librariaprojekt.client.esproj",
+              "RelativeDocumentMoniker": "librariaprojekt.client\\librariaprojekt.client.esproj",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\librariaprojekt.client\\librariaprojekt.client.esproj*",
+              "RelativeToolTip": "librariaprojekt.client\\librariaprojekt.client.esproj*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-14T13:19:56.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             }
           ]
         }
