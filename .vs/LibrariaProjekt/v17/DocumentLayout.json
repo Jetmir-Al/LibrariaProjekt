@@ -1,0 +1,330 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\borrowrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\borrowrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\purchaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\purchaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\adminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\adminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\iadminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\iadminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\iborrowrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\iborrowrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\ipurchaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\ipurchaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\repositories\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\repositories\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\borrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\borrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|c:\\users\\admin\\onedrive\\desktop\\librariaprojekt\\librariaprojekt.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F46695A9-2100-41D1-9B70-3E12167EFCD6}|LibrariaProjekt.Server\\LibrariaProjekt.Server.csproj|solutionrelative:librariaprojekt.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReviewRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\ReviewRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\ReviewRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\ReviewRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\ReviewRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:47:08.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BorrowRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\BorrowRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\BorrowRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\BorrowRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\BorrowRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:46:18.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PurchaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\PurchaseRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\PurchaseRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\PurchaseRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\PurchaseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:45:59.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\BookRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\BookRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\BookRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\BookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:45:38.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:45:07.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\AdminRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\AdminRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\AdminRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\AdminRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:44:50.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAdminRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IAdminRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\IAdminRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IAdminRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\IAdminRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:42:29.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:41:49.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IReviewRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IReviewRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\IReviewRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IReviewRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\IReviewRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:40:44.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IBorrowRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IBorrowRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\IBorrowRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IBorrowRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\IBorrowRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:39:33.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IPurchaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IPurchaseRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\IPurchaseRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IPurchaseRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\IPurchaseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:37:23.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IBookRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IBookRepository.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Repositories\\IBookRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Repositories\\IBookRepository.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Repositories\\IBookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:28:57.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Borrow.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Borrow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T15:39:51.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Book.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Book.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T15:36:43.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\User.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T15:33:10.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Review.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Review.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Review.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:24:56.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Admin.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T15:31:38.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Purchase.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "RelativeDocumentMoniker": "LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Desktop\\LibrariaProjekt\\LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "RelativeToolTip": "LibrariaProjekt.Server\\Models\\Purchase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T15:38:23.84Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
