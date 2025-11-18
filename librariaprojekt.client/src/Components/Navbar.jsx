@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark, faHouse} from "@fortawesome/free-solid-svg-icons";
+import { faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark} from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
 import SignUp from "../Account/SignUp";
 import LogIn from "../Account/LogIn";
@@ -84,13 +84,6 @@ function Navbar() {
                     <div className="nav_menu">
                         <ul className="nav__list">
 
-                            <li className="nav__item">
-
-                                <Link to="#home" className="nav__link active-link">
-                                    <FontAwesomeIcon className="icon" icon={faHouse} />
-                                    <span>Home</span>
-                                </Link>
-                            </li>
 
                             <li className="nav__item">
                                 <Link to="#featured" className="nav__link">
