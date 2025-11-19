@@ -1,6 +1,49 @@
-﻿namespace LibrariaProjekt.Server.Repositories
+﻿/*using LibrariaProjekt.Server.Models;
+
+namespace LibrariaProjekt.Server.Repositories
 {
-    public class AdminRepository  
+    public class AdminRepository : IAdminRepository
     {
+        private readonly ApplicationDbContext _context;
+        public AdminRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        public List<Admin> GetAll()
+        {
+            List<Admin> admins = _context.Admins.ToList();
+            return admins;
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
+        public void Insert(Admin admin)
+        {
+            _context.Admins.Add(admin);
+            Save();
+        }
+
+        public void Update(Admin admin)
+        {
+            _context.Admins.Update(admin);
+            Save();
+        }
+
+        public void Delete(Admin admin)
+        {
+            _context.Admins.Remove(admin);
+            Save();
+        }
+
+        public Admin AdminById(int id)
+        {
+            Admin? admin = _context.Admins.Find(id);
+            Save();
+            return admin;
+        }
     }
 }
+*/

@@ -4,20 +4,20 @@ using LibrariaProjekt.Server.Repositories;
 
 namespace LibrariaProjekt.Server.Controllers
 {
-    public class LibriControllers : Controller
+    public class BookController : Controller
     {
-        private readonly ILibriRepository _libriRepository;
+        private readonly IBookRepository _bookRepository;
 
-        public StudentController(IStudentRepository
-            studentRepository)
+        public BookController(IBookRepository
+            bookRepository)
         {
-            _libriRepository = libriRepository;
+            _bookRepository = bookRepository;
         }
 
 
         public IActionResult Index()
         {
-            var entries = _libriRepository.GetAll().ToList();
+            var entries = _bookRepository.GetAll().ToList();
             return View(entries);
         }
 
@@ -30,9 +30,9 @@ namespace LibrariaProjekt.Server.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Libri obj)
+        public IActionResult Create(Book obj)
         {
-            _libriRepository.Insert(obj);
+            _bookRepository.Insert(obj);
             return RedirectToAction("Index");
         }
 
@@ -40,27 +40,27 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            Libri s1 = _libriRepository.GetById(id);
+            Book s1 = _bookRepository.GetById(id);
             return View(s1);
         }
 
         [HttpPost]
-        public IActionResult Edit(Libri libri)
+        public IActionResult Edit(Book book)
         {
-            _libriRepository.Update(libri);
+            _bookRepository.Update(book);
             return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            Libri s1 = _libriRepository.GetById(id);
+            Book s1 = _bookRepository.GetById(id);
             return View(s1);
         }
 
         [HttpPost]
-        public IActionResult Delete(Libri libri)
+        public IActionResult Delete(Book book)
         {
-            _studentRepository.Delete(libri);
+            _bookRepository.Delete(book);
             return RedirectToAction("Index");
         }
     }

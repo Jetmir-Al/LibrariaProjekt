@@ -1,10 +1,15 @@
-﻿namespace LibrariaProjekt.Server.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LibrariaProjekt.Server.Models
 {
     public class Admin
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
+        [Required(ErrorMessage = "Shkruani Emrin")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Shkruani Email")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Shkruani Fjalëkalimin")]
         public string Password { get; set; }
     }
 }
