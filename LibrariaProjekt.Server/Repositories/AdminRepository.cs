@@ -1,6 +1,6 @@
 ﻿namespace LibrariaProjekt.Server.Repositories
 {
-    public class AdminRepository
+    public class AdminRepository  
     {
     }
 }
