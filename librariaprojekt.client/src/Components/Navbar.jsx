@@ -17,62 +17,10 @@ function Navbar() {
     const [toggleAccount, setToggleAccount] = useState(false);
     //const { user, setUser } = useContext(UserContext);
     
-
-    //function logOut() {
-    //    localStorage.removeItem('user');
-    //    setUser(null);
-    //    navigate('/');
-    //    console.log("User loged out");
-    //}
     
 
 
-        if (location.pathname === "/logIn") {
-            accountLinks =
-                <li>
-                    <Link className="activeLink" to={"/signUp"}>Sign-Up</Link>
-                </li>
-        }
-        else if (location.pathname === "/signUp") {
-            accountLinks =
-                <li>
-                    <Link className="activeLink" to={"/logIn"}>Log-In</Link>
-                </li>
-        }
-        else {
-            accountLinks =
-                <>
-                    <li>
-                        <Link to={"/logIn"}>Login</Link>
-                    </li>
-                    <li>
-                        <Link className="activeLink" to={"/signUp"}>Sign up</Link>
-                    </li>
-                </>
-        }
-    //} else if (user.role == "klient" || user.role == "agent") {
-    //    accountLinks =
-    //        <>
-    //            <li>
-    //                <Link to={"/user"}>Profile</Link>
-    //            </li>
-    //            <li>
-    //                <a className="activeLink" onClick={() => logOut()}>Log-Out</a>
-    //            </li>
-    //        </>
-    //}
-    //else if (user.role == "admin") {
-    //    accountLinks =
-    //        <>
-    //            <li>
-    //                <Link to={"/admin"}>Profile</Link>
-    //            </li>
-    //            <li>
-    //                {/*<a className="activeLink" onClick={() => logOut()}>Log-Out</a>*/}
-    //            </li>
-    //        </>
-    //}
-    //  className="account-container"
+      
     return (
         <>
             <header className="header" id="header">
