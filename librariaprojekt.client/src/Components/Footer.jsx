@@ -104,10 +104,6 @@ function Footer() {
                             </div>
                         </div>
                 </div>
-
-                <span className="footer__copy">
-                    &#169; 2025 E-Book. All rights Reserved By .
-                </span>
         </footer>
     );
 }

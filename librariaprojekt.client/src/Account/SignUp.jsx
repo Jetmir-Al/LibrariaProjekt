@@ -14,19 +14,19 @@ function SignUp() {
 
                 <div className="signup__group grid">
                     <div>
-                        <label for="signup-name" className="signup__label">Name</label>
+                        <label htmlFor="signup-name" className="signup__label">Name</label>
                         <input type="text" placeholder="Write your name"
                             id="signup-name" className="signup__input" name="emri" required />
                     </div>
 
                     <div>
-                        <label for="signup-email" className="signup__label">Email</label>
+                        <label htmlFor="signup-email" className="signup__label">Email</label>
                         <input type="email" placeholder="Write your email" id="signup-email"
                             className="signup__input" name="email" required/>
                     </div>
 
                     <div>
-                        <label for="signup-pass" className="signup__label">Password</label>
+                        <label htmlFor="signup-pass" className="signup__label">Password</label>
                         <input type="password" placeholder="Create a password"
                             id="signup-pass" className="signup__input" name="fjalekalimi" required/>
                     </div>

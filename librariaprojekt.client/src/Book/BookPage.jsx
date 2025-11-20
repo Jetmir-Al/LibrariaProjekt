@@ -35,19 +35,19 @@ const BookPage = () => {
                         <form className="sortForm">
                             <h4>Sort by: </h4>
                             <div className="sortForm-inputs">
-                                <label for="name">Name
+                                <label htmlFor="name">Name
                                     <input type="radio" name="sort" id="name"
                                         value="name" />
                                 </label>
-                                <label for="price">Price
+                                <label htmlFor="price">Price
                                     <input type="radio" name="sort" id="price"
                                         value="price" />
                                 </label>
-                                <label for="new">New
+                                <label htmlFor="new">New
                                     <input type="radio" name="sort" id="new"
                                         value="new" />
                                 </label>
-                                <label for="old">Old
+                                <label htmlFor="old">Old
                                     <input type="radio" name="sort" id="old"
                                         value="old" />
                                 </label>

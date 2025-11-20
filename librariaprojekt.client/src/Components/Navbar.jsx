@@ -1,14 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark} from "@fortawesome/free-solid-svg-icons";
+import { faSun, faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark} from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
 import SignUp from "../Account/SignUp";
 import LogIn from "../Account/LogIn";
-import { ToggleAccountContext } from "../Context/toggleContext";
-
+import { ToggleAccountContext, ToggleLightDarkContext } from "../Context/toggleContext";
 function Navbar() {
     let location = useLocation();
         //const navigate = useNavigate();
@@ -16,8 +15,9 @@ function Navbar() {
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
     const [toggleAccount, setToggleAccount] = useState(false);
     //const { user, setUser } = useContext(UserContext);
-    
-    
+
+    const { lightDark, setLightDark } = useContext(ToggleLightDarkContext);
+
 
 
       
@@ -34,25 +34,25 @@ function Navbar() {
 
 
                             <li className="nav__item">
-                                <Link to="#featured" className="nav__link">
+                                <a href="/#featured" className="nav__link">
                                     <FontAwesomeIcon className="icon" icon={faBookBookmark} />
                                     <span>Featured</span>
-                                </Link>
+                                </a>
                             </li>
 
                             <li className="nav__item">
-                                <Link to="#new" className="nav__link">
+                                <a href="/#new" className="nav__link">
                                 <FontAwesomeIcon className="icon" icon={faBookmark} />
                                     <span>New Books</span>
-                                </Link>
+                                </a>
                             </li>
 
                             <li className="nav__item">
 
-                                <Link to="#testimonial" className="nav__link">
+                                <a href="/#testimonial" className="nav__link">
                                     <FontAwesomeIcon className="icon" icon={faReply} />
                                     <span>Testimonial</span>
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -64,7 +64,15 @@ function Navbar() {
                     </div>
 
                         <div className="navAction">
-                            <FontAwesomeIcon className="icon" icon={faMoon} />
+                            {
+                                lightDark ?
+                                    <FontAwesomeIcon className="icon" icon={faSun}
+                                        onClick={() => setLightDark(d => !d)} />
+                                    :
+                                    <FontAwesomeIcon className="icon" icon={faMoon}
+                                        onClick={() => setLightDark(d => !d)} />
+                                           
+                            }
                     </div>
 
                     </div>

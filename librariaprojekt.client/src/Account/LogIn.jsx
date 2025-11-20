@@ -15,13 +15,13 @@ function LogIn() {
 
                     <div className="login__group grid">
                         <div>
-                            <label for="login-email" className="login__label">Email</label>
+                            <label htmlFor="login-email" className="login__label">Email</label>
                             <input type="email" placeholder="Write your email" id="login-email"
                                 className="login__input" name="email" required />
                         </div>
 
                         <div>
-                            <label for="login-pass" className="login__label">Password</label>
+                            <label htmlFor="login-pass" className="login__label">Password</label>
                             <input type="password" placeholder="Enter your password" id="login-pass"
                                 className="login__input" name="password" required />
                         </div>

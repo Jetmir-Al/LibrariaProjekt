@@ -53,7 +53,7 @@ button {
     font-size: var(--normal-font-size);
 }
 
-body {
+.body {
     background-color: var(--body-color);
     color: var(--text-color);
     transition: background-color .4s;
@@ -87,7 +87,7 @@ img {
 }
 
 /* Variables Dark theme */
-body.dark-theme {
+.dark-theme {
     --title-color: hsl(230, 48%, 85%);
     --text-color: hsl(230, 16%, 70%);
     --border-color: hsl(230, 12%, 18%);

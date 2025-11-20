@@ -1,13 +1,28 @@
 import './bookDetails.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import StarRating from 'star-rating.js';
+import 'star-rating.js/dist/star-rating.css';
+
+import Reviews from './Reviews/Reviews.jsx';
+
 function BookDetails() {
 
     const [addReview, setAddReview] = useState(false);
     const [toggleBuy, setToggleBuy] = useState(false);
     const [toggleBorrow, setToggleBorrow] = useState(false);
+
+    useEffect(() => {
+        //const rating
+        new StarRating('.star-rating', {
+            maxStars: 5,
+            starSize: 25
+        });
+    }, []);
+
     return (
+
         <div className="bookDetails-container">
 
             <div className="bookDetails">
@@ -23,7 +38,7 @@ function BookDetails() {
                     <h4><span>Kategori:</span> <span></span></h4>
                     <h4><span>Price:</span> <span></span></h4>
                     <h4><span>Sasia:</span> <span></span></h4>
-                    
+
                     <div className='bookBtns'>
                         <button type='button' id='buy'
                             onClick={() => setToggleBuy(b => !b)}
@@ -32,7 +47,7 @@ function BookDetails() {
                             onClick={() => setToggleBorrow(b => !b)}
                         >Borrow</button>
                     </div>
-       </div>
+                </div>
 
                 <div className="grid" id="buyContent"
                     style={{ display: toggleBuy ? "flex" : "none" }}>
@@ -47,17 +62,17 @@ function BookDetails() {
 
                             </div>
                             <div>
-                                <label for="login-email" className="login__label">Name:</label>
+                                <label htmlFor="login-email" className="login__label">Name:</label>
                                 <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required />
                             </div>
 
                             <div>
-                                <label for="login-pass" className="login__label">Card number:</label>
+                                <label htmlFor="login-pass" className="login__label">Card number:</label>
                                 <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required />
                             </div>
 
                             <div>
-                                <label for="login-pass" className="login__label">Password:</label>
+                                <label htmlFor="login-pass" className="login__label">Password:</label>
                                 <input type="password" placeholder="Enter your card password!" className="login__input" name="cardPsw" required />
                             </div>
                         </div>
@@ -68,7 +83,7 @@ function BookDetails() {
                     </form>
                     <FontAwesomeIcon icon={faXmark} className="login__close"
                         onClick={() => setToggleBuy(b => !b)}
-/>
+                    />
                 </div>
 
                 <div className="grid" id="borrowContent"
@@ -84,16 +99,16 @@ function BookDetails() {
 
                             </div>
                             <div>
-                                <label for="login-email" className="login__label">Name:</label>
+                                <label htmlFor="login-email" className="login__label">Name:</label>
                                 <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required />
                             </div>
 
                             <div>
-                                <label for="login-pass" className="login__label">Card number:</label>
+                                <label htmlFor="login-pass" className="login__label">Card number:</label>
                                 <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required />
                             </div>
                             <div>
-                                <label for="login-pass" className="login__label">Password:</label>
+                                <label htmlFor="login-pass" className="login__label">Password:</label>
                                 <input type="password" placeholder="Enter your card password!" className="login__input" name="cardPsw" required />
                             </div>
                             <div>
@@ -120,10 +135,9 @@ function BookDetails() {
 
             <div className="bookReviews-container">
                 <h2 className="testimonial__title">Reviews</h2>
-                <div className="bookReviews">
-                    {/*include_once('./book/getReviews.php');*/}
-                </div>
 
+                <Reviews />
+                
                 <button id="addReview" className="addReview" type="button"
                     style={{ display: addReview ? 'none' : 'block' }}
                     onClick={() => setAddReview(r => !r)}>ADD YOUR REVIEW</button>
@@ -137,12 +151,12 @@ function BookDetails() {
                         <input type="hidden" name="libriID" value="" />
                         <input type="hidden" name="userID" value="" />
 
-                        <label for="comment">
+                        <label htmlFor="comment">
                             Comment: <br />
                             <textarea name="comment" id="comment"
                                 cols="28" rows="5" required></textarea>
                         </label>
-                        <select className="star-rating" data-direction="rtl" name="rating" required>
+                        <select className="star-rating" name="rating" required>
                             <option value="">Select a rating</option>
                             <option value="5">Excellent</option>
                             <option value="4">Very Good</option>
