@@ -1,12 +1,14 @@
-﻿/*using LibrariaProjekt.Server.Data;
+﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LibrariaProjekt.Server.Repositories
 {
     public class BorrowRepository : IBorrowRepository
     {
-        private readonly ApplicationDBContext _context;
-        public BorrowRepository(ApplicationDBContext context)
+        private readonly ApplicationDbContext _context;
+        public BorrowRepository(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -44,4 +46,3 @@ namespace LibrariaProjekt.Server.Repositories
         }
     }
 }
-*/

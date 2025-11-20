@@ -1,5 +1,7 @@
-﻿/*using LibrariaProjekt.Server.Data;
+﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LibrariaProjekt.Server.Repositories
 {
@@ -44,4 +46,3 @@ namespace LibrariaProjekt.Server.Repositories
         }
     }
 }
-*/

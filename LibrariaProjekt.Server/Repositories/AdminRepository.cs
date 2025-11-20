@@ -1,4 +1,7 @@
-﻿/*using LibrariaProjekt.Server.Models;
+﻿using LibrariaProjekt.Server.Models;
+using LibrariaProjekt.Server.Data;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LibrariaProjekt.Server.Repositories
 {
@@ -38,7 +41,7 @@ namespace LibrariaProjekt.Server.Repositories
             Save();
         }
 
-        public Admin AdminById(int id)
+        public Admin GetById(int id)
         {
             Admin? admin = _context.Admins.Find(id);
             Save();
@@ -46,4 +49,3 @@ namespace LibrariaProjekt.Server.Repositories
         }
     }
 }
-*/

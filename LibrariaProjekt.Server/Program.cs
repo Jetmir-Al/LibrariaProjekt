@@ -1,6 +1,19 @@
+using LibrariaProjekt.Server.Data;
+using LibrariaProjekt.Server.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBorrowRepository, BorrowRepository>();
+builder.Services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 builder.Services.AddControllers();

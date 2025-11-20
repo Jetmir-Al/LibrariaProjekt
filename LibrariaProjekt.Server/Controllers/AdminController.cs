@@ -1,6 +1,7 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
+using LibrariaProjekt.Server.Data;
 
 namespace LibrariaProjekt.Server.Controllers
 {
@@ -9,7 +10,7 @@ namespace LibrariaProjekt.Server.Controllers
         private readonly IAdminRepository _adminRepository;
 
         public AdminController(IAdminRepository
-            AdminRepository)
+            adminRepository)
         {
             _adminRepository = adminRepository;
         }
@@ -24,8 +25,6 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-
-
             return View();
         }
 
@@ -65,4 +64,3 @@ namespace LibrariaProjekt.Server.Controllers
         }
     }
 }
-*/

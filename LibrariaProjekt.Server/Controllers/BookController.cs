@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
 
@@ -65,4 +65,3 @@ namespace LibrariaProjekt.Server.Controllers
         }
     }
 }
-*/

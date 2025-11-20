@@ -1,4 +1,9 @@
-﻿/*namespace LibrariaProjekt.Server.Repositories
+﻿using LibrariaProjekt.Server.Data;
+using LibrariaProjekt.Server.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace LibrariaProjekt.Server.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -41,4 +46,3 @@
         }
     }
 }
-*/
