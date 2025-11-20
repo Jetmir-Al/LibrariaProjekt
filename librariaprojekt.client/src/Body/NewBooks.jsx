@@ -72,6 +72,7 @@ function NewBooks() {
                         </a>
 
 
+
                     </div>
                 </div>
             </div>

@@ -41,10 +41,16 @@ function BookDetails() {
 
                     <div className='bookBtns'>
                         <button type='button' id='buy'
-                            onClick={() => setToggleBuy(b => !b)}
+                            onClick={() => {
+                                setToggleBuy(b => !b);
+                                setToggleBorrow(false);
+                            }}
                         >Buy</button>
                         <button type='button' id='borrow'
-                            onClick={() => setToggleBorrow(b => !b)}
+                            onClick={() => {
+                                setToggleBorrow(b => !b);
+                                setToggleBuy(false);
+                            }}
                         >Borrow</button>
                     </div>
                 </div>

@@ -168,6 +168,54 @@
     position: absolute; 
     z-index: 9999;
 }
+.testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem 0rem 2rem;
+}
+.testimonial__card {
+    text-align: center;
+    padding: 2rem 3rem 2.5rem;
+    background-color: var(--container-color);
+    border: 2px solid var(--border-color);
+    transition: border .4s, background-color .4s;
+    min-width: 300px;
+}
+
+.testimonial__title {
+    font-size: var(--h2-font-size);
+    margin-bottom: .75rem;
+}
+
+.testimonial__description {
+    font-style: var(--first-color);
+    margin-bottom: 1.5rem;
+}
+
+
+.starIcons {
+    color: gold;
+}
+
+@media only screen and (max-width: 1024px)  {
+
+    .testimonial__container {
+        padding-top: 2rem;
+    }
+
+    .testimonial__card {
+        padding-inline: 2rem;
+    }
+
+    .testimonial__title {
+        font-size: var(--h3-font-size);
+    }
+
+    .testimonial__description {
+        font-size: var(--normal-font-size);
+    }
+}
 
 @media screen and (max-width: 758px) {
     .bookDetails {
@@ -197,4 +245,9 @@
     .bookInfo {
         width: 85%;
     }
+    .testimonial__card {
+        padding-inline: 1rem;
+    }
 }
+
+

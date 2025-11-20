@@ -8,7 +8,7 @@ function SignUp() {
     const { setToggleAccount, setIsAccountMenuOpen } = useContext(ToggleAccountContext); 
 
     return (
-        <div className="signup grid" id="signup-content">
+        <div className="login signup grid" id="signup-content">
             <form className="signup__form grid">
                 <h3 className="signup__title">Sign Up</h3>
 

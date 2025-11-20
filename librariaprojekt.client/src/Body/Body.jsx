@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Services from './Services';
 import Featured from './Featured';
 import NewBooks from './NewBooks';
+import NewReviews from './NewReviews';
 
 function Body() {
 
@@ -53,6 +54,7 @@ function Body() {
             <Services />
             <Featured />
             <NewBooks />
+            <NewReviews />
         </main>
     );
 }

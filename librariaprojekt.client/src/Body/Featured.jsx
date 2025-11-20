@@ -15,7 +15,7 @@ function Featured() {
                 <div className="featured__swiper swiper">
                     <div className="swiperFeatured">
 
-                        <article className="featured__card swiper-slide ">
+                        <article className="featured__card swiper-slide item item5">
                             <img src="src/assets/imgs/book-1.png" alt="image"
                                 className="featured__img" />
 
@@ -29,7 +29,7 @@ function Featured() {
 
                         </article>
 
-                        <article className="featured__card swiper-slide ">
+                        <article className="featured__card swiper-slide item item1">
                             <img src="src/assets/imgs/book-1.png" alt="image"
                                 className="featured__img" />
 
@@ -43,7 +43,33 @@ function Featured() {
 
                         </article>
 
-                        <article className="featured__card swiper-slide ">
+                        <article className="featured__card swiper-slide item item2">
+                            <img src="src/assets/imgs/book-1.png" alt="image"
+                                className="featured__img" />
+
+
+                            <h2 className="featured__title">title</h2>
+                            <div className="featured__prices">
+                                <span className="featured__prices">price</span>
+                            </div>
+
+                            <button className="button">Get Now!</button>
+
+                        </article>
+                        <article className="featured__card swiper-slide item item3">
+                            <img src="src/assets/imgs/book-1.png" alt="image"
+                                className="featured__img" />
+
+
+                            <h2 className="featured__title">title</h2>
+                            <div className="featured__prices">
+                                <span className="featured__prices">price</span>
+                            </div>
+
+                            <button className="button">Get Now!</button>
+
+                        </article>
+                        <article className="featured__card swiper-slide item item4">
                             <img src="src/assets/imgs/book-1.png" alt="image"
                                 className="featured__img" />
 
@@ -57,14 +83,7 @@ function Featured() {
 
                         </article>
                     </div>
-                    <div className="swiper-buttons">
-                        <div className="swiper-button-next">
-                            <FontAwesomeIcon icon={faArrowLeft} />
-                        </div>
-                        <div className="swiper-button-prev">
-                             <FontAwesomeIcon icon={faArrowRight} />
-                        </div>
-                    </div>
+               
                 </div>
             </div>
         </section>
