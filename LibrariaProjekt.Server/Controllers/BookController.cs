@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using LibrariaProjekt.Server.Models;
+﻿using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LibrariaProjekt.Server.Controllers
 {
@@ -30,6 +30,8 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpPost]
         public IActionResult Create(Book book, IFormFile? imageFile)
         {
+
+
             if (imageFile != null && imageFile.Length > 0)
             {
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
@@ -46,6 +48,7 @@ namespace LibrariaProjekt.Server.Controllers
                 // Ruaj path-in e imazhit në databazë
                 book.Image = "/images/" + uniqueFileName;
             }
+
 
             _bookRepository.Insert(book);
             return RedirectToAction("Index");
