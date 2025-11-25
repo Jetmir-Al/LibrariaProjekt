@@ -49,7 +49,10 @@ namespace LibrariaProjekt.Server.Controllers
                 book.Image = "/images/" + uniqueFileName;
             }
 
-
+            if (!ModelState.IsValid)
+            {
+                return View(book);
+            }
             _bookRepository.Insert(book);
             return RedirectToAction("Index");
         }
