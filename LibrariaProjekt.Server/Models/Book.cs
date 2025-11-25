@@ -18,5 +18,9 @@ namespace LibrariaProjekt.Server.Models
         public int Quantity { get; set; }
         [Required(ErrorMessage = "Shkruani Kategorin e Librit")]
         public string Category { get; set; }
+        [Required(ErrorMessage = "Ngarkoni Fotografinë e librit")]
+        public string Image { get; set; }
+
+
     }
 }
