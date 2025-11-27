@@ -4,6 +4,8 @@ using LibrariaProjekt.Server.Repositories;
 
 namespace LibrariaProjekt.Server.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UserController : Controller
     {
         private readonly IUserRepository _userRepository;

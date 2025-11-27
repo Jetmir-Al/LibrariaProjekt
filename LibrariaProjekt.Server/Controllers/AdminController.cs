@@ -5,6 +5,8 @@ using LibrariaProjekt.Server.Data;
 
 namespace LibrariaProjekt.Server.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AdminController : Controller
     {
         private readonly IAdminRepository _adminRepository;

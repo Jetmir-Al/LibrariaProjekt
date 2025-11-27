@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibrariaProjekt.Server.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
