@@ -11,7 +11,7 @@ import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
  * - onRetry: optional callback to attempt recovery
  * - onClose: optional callback to dismiss the error
  */
-export default function Error({ title, details, onRetry, onClose }) {
+export default function Error({ title, details }) {
   const [showDetails, setShowDetails] = useState(false);
 
     return (
@@ -26,22 +26,18 @@ export default function Error({ title, details, onRetry, onClose }) {
                 </div>
 
                 <div className="errorBtns" >
-                    {onRetry && (
+                    
                         <button
                             type="button"
-                            onClick={onRetry}
                             className="errorBtn">
                             Retry
                         </button>
-                    )}
 
-                    {onClose && (
+                  
                         <button className="errorCloseBtn"
-                            type="button"
-                            onClick={onClose}>
+                            type="button">
                             Close
                         </button>
-                    )}
                 </div>
             </div>
 
@@ -67,7 +63,7 @@ export default function Error({ title, details, onRetry, onClose }) {
 
 Error.defaultProps = {
   title: 'An error occurred',
-    details: "Dis is ",
+    details: "",
     onRetry: null,
     onClose: null
 };

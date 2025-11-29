@@ -2,11 +2,43 @@ import "./bookPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useState } from "react"; 
+import { useState, useEffect } from "react";
+import Loading from "../Components/Loading";
+import Error from "../Components/Error";
+import axios from "axios";
 
 const BookPage = () => {
 
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [toggleSortFilter, setToggleSortFilter] = useState(false);
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+
+        const fetchBooks = async () => {
+
+            try {
+                const res = await axios.get("https://localhost:7262/api/BookApi/books");
+                setBooks(res.data);
+                setIsLoading(false);
+            } catch (err) {
+                setError(err.message);
+            }
+        }
+        fetchBooks();
+
+    }, []);
+
+    if (isLoading) {
+        return <Loading />;
+    }
+    if (error) {
+        return <Error
+            title="Failed to load book details"
+            details={error}
+        />;
+    }
 
     return (
 
@@ -139,55 +171,30 @@ const BookPage = () => {
 
             <div className="bookDisplay-container">
 
-                <Link to="/bookdetails" className='new__card bookCard'>
-                    <img src="src/assets/imgs/book-10.png" alt='image'
-                        className='new__img' />
-                    <div className='bookCardContent'>
-                        <h3 className='new__title'>titull</h3>
-                        <p className='author'>by autor</p>
-                        <span className='price'>qmimi</span>
-                    </div>
-                </Link>
+                {
+                    books.length > 0 ? books.map((res, index) => (
 
-                <Link to="/bookdetails" className='new__card bookCard'>
-                    <img src="src/assets/imgs/book-10.png" alt='image'
-                        className='new__img' />
-                    <div className='bookCardContent'>
-                        <h3 className='new__title'>titull</h3>
-                        <p className='author'>by autor</p>
-                        <span className='price'>qmimi</span>
-                    </div>
-                </Link>
-
-                <Link to="/bookdetails" className='new__card bookCard'>
-                    <img src="src/assets/imgs/book-10.png" alt='image'
-                        className='new__img' />
-                    <div className='bookCardContent'>
-                        <h3 className='new__title'>titull</h3>
-                        <p className='author'>by autor</p>
-                        <span className='price'>qmimi</span>
-                    </div>
-                </Link>
-
-                <Link to="/bookdetails" className='new__card bookCard'>
-                    <img src="src/assets/imgs/book-10.png" alt='image'
-                        className='new__img' />
-                    <div className='bookCardContent'>
-                        <h3 className='new__title'>titull</h3>
-                        <p className='author'>by autor</p>
-                        <span className='price'>qmimi</span>
-                    </div>
-                </Link>
-
-                <Link to="/bookdetails" className='new__card bookCard'>
-                    <img src="src/assets/imgs/book-10.png" alt='image'
-                        className='new__img' />
-                    <div className='bookCardContent'>
-                        <h3 className='new__title'>titull</h3>
-                        <p className='author'>by autor</p>
-                        <span className='price'>qmimi</span>
-                    </div>
-                </Link>
+                       <Link to={`/bookdetails/${res.id}`}
+                            className='new__card bookCard'
+                            key={index}>
+                            <img
+                               src={`https://localhost:7262${res.image}`} alt={res.title}
+                               className='new__img' />
+                             <div className='bookCardContent'>
+                                <h3 className='new__title'>
+                                    {res.title}
+                                </h3>
+                                <p className='author'>
+                                    by {res.author}
+                                </p>
+                                <span className='price'>
+                                    {res.price}$
+                                </span>
+                            </div>
+                       </Link>
+                ))
+                        : null
+                }
 
 
             </div>
@@ -196,129 +203,3 @@ const BookPage = () => {
 };
 
 export default BookPage;
-
-
-//import React, { useEffect, useState } from 'react';
-//import { useParams, Link } from 'react-router-dom';
-
-//const BookPage = () => {
-//    const { id } = useParams();
-//    const [book, setBook] = useState(null);
-//    const [loading, setLoading] = useState(true);
-//    const [error, setError] = useState(null);
-//    const [reviewText, setReviewText] = useState('');
-//    const [submitting, setSubmitting] = useState(false);
-
-//    useEffect(() => {
-//        let mounted = true;
-//        const fetchBook = async () => {
-//            setLoading(true);
-//            setError(null);
-//            try {
-//                const res = await fetch(`/api/books/${encodeURIComponent(id)}`);
-//                if (!res.ok) throw new Error(`Failed to load book (${res.status})`);
-//                const data = await res.json();
-//                if (mounted) setBook(data);
-//            } catch (err) {
-//                if (mounted) setError(err.message || 'Unknown error');
-//            } finally {
-//                if (mounted) setLoading(false);
-//            }
-//        };
-
-//        fetchBook();
-//        return () => {
-//            mounted = false;
-//        };
-//    }, [id]);
-
-//    const handleSubmitReview = async (e) => {
-//        e.preventDefault();
-//        if (!reviewText.trim()) return;
-//        setSubmitting(true);
-//        try {
-//            const res = await fetch(`/api/books/${encodeURIComponent(id)}/reviews`, {
-//                method: 'POST',
-//                headers: { 'Content-Type': 'application/json' },
-//                body: JSON.stringify({ text: reviewText.trim() }),
-//            });
-//            if (!res.ok) throw new Error(`Failed to submit review (${res.status})`);
-//            const newReview = await res.json();
-//            setBook((b) => ({
-//                ...b,
-//                reviews: b.reviews ? [newReview, ...b.reviews] : [newReview],
-//            }));
-//            setReviewText('');
-//        } catch (err) {
-//            // keep error simple for the UI
-//            setError(err.message || 'Failed to submit review');
-//        } finally {
-//            setSubmitting(false);
-//        }
-//    };
-
-//    if (loading) return <div className="book-page">Loading book...</div>;
-//    if (error) return (
-//        <div className="book-page">
-//            <p className="error">Error: {error}</p>
-//            <p><Link to="/books">Back to list</Link></p>
-//        </div>
-//    );
-//    if (!book) return <div className="book-page">Book not found.</div>;
-
-//    return (
-//        <div className="book-page">
-//            <header className="book-header">
-//                <h1>{book.title}</h1>
-//                {book.author && <p className="book-author">by {book.author}</p>}
-//            </header>
-
-//            <section className="book-details">
-//                {book.coverUrl && (
-//                    <div className="book-cover">
-//                        <img src={book.coverUrl} alt={`Cover of ${book.title}`} />
-//                    </div>
-//                )}
-//                <div className="book-meta">
-//                    {book.genre && <p><strong>Genre:</strong> {book.genre}</p>}
-//                    {book.publishedYear && <p><strong>Published:</strong> {book.publishedYear}</p>}
-//                    {book.description && <p className="book-description">{book.description}</p>}
-//                </div>
-//            </section>
-
-//            <section className="book-reviews">
-//                <h2>Reviews</h2>
-//                <form onSubmit={handleSubmitReview} className="review-form">
-//                    <textarea
-//                        value={reviewText}
-//                        onChange={(e) => setReviewText(e.target.value)}
-//                        placeholder="Write a short review..."
-//                        rows={4}
-//                        disabled={submitting}
-//                    />
-//                    <div>
-//                        <button type="submit" disabled={submitting || !reviewText.trim()}>
-//                            {submitting ? 'Submitting...' : 'Add Review'}
-//                        </button>
-//                    </div>
-//                </form>
-
-//                {book.reviews && book.reviews.length > 0 ? (
-//                    <ul className="reviews-list">
-//                        {book.reviews.map((r) => (
-//                            <li key={r.id || r._id || r.createdAt}>
-//                                <div className="review-meta">
-//                                    <span className="review-author">{r.author || 'Anonymous'}</span>
-//                                    {r.createdAt && <span className="review-date"> — {new Date(r.createdAt).toLocaleString()}</span>}
-//                                </div>
-//                                <p className="review-text">{r.text}</p>
-//                            </li>
-//                        ))}
-//                    </ul>
-//                ) : (
-//                    <p>No reviews yet.</p>
-//                )}
-//            </section>
-
-//            <p><Link to="/books">Back to list</Link></p>
-//        </div>

@@ -2,9 +2,12 @@ import './bookDetails.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import StarRating from 'star-rating.js';
 import 'star-rating.js/dist/star-rating.css';
-
+import Loading from '../Components/Loading.jsx';
+import Error from '../Components/Error.jsx';
+import axios from 'axios';
 import Reviews from './Reviews/Reviews.jsx';
 
 function BookDetails() {
@@ -12,6 +15,10 @@ function BookDetails() {
     const [addReview, setAddReview] = useState(false);
     const [toggleBuy, setToggleBuy] = useState(false);
     const [toggleBorrow, setToggleBorrow] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [bookDetails, setBookDetails] = useState(null);
+    const { id } = useParams();
 
     useEffect(() => {
         //const rating
@@ -21,23 +28,47 @@ function BookDetails() {
         });
     }, []);
 
+    useEffect(() => {
+        const fetchBookDetails = async () => {
+            try {
+                const response = await axios.get(`https://localhost:7262/api/BookApi/books/${id}`);
+                setBookDetails(response.data);
+                setIsLoading(false);
+            } catch (error) {
+                setError(error.message);
+            }
+        }
+        fetchBookDetails();
+    }, [id]);
+    if (isLoading) {
+        return <Loading />;
+    }
+    if (error) {
+        return <Error
+            title="Failed to load book details"
+            details={error}
+        />;
+    }
     return (
 
         <div className="bookDetails-container">
 
             <div className="bookDetails">
-                {/*        include_once('./book/bookDetailsFunc.php');*/}
-
 
                 <div className='bookPresentation'>
-                    <img className='bookImg' src='src/assets/imgs/book-7.png' alt='img' />
-                    <h2 className='bookTitle'></h2>
+                    <img className='bookImg'
+                        src={`https://localhost:7262${bookDetails.image}`}
+                        alt={bookDetails.title} />
+                    <h2 className='bookTitle'>
+                        {bookDetails.title}
+                    </h2>
                 </div>
                 <div className='bookInfo'>
-                    <h4><span>Autori:</span> <span></span></h4>
-                    <h4><span>Kategori:</span> <span></span></h4>
-                    <h4><span>Price:</span> <span></span></h4>
-                    <h4><span>Sasia:</span> <span></span></h4>
+                    <h4><span>Autori:</span> <span>{bookDetails.author}</span></h4>
+                    <h4><span>Kategori:</span> <span>{bookDetails.category}</span></h4>
+                    <h4><span>Viti:</span> <span>{bookDetails.publishYear}</span></h4>
+                    <h4><span>Price:</span> <span>{bookDetails.price}$</span></h4>
+                    <h4><span>Sasia:</span> <span>{bookDetails.quantity}</span></h4>
 
                     <div className='bookBtns'>
                         <button type='button' id='buy'

@@ -26,7 +26,7 @@ function App() {
                         <Route path="/bookpage" element={
                             <BookPage />
                         } />
-                        <Route path="/bookdetails" element={
+                        <Route path="/bookdetails/:id" element={
                             <BookDetails />
                         } />
 

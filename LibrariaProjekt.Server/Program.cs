@@ -50,6 +50,9 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+// Enable CORS for react app
+app.UseCors("LibrariaPolicy");
+
 app.MapControllers();
 
 
@@ -62,7 +65,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Book}/{action=Index}/{id?}");
 
 
 
