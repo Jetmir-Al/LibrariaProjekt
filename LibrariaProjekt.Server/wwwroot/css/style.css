@@ -1,0 +1,11 @@
+﻿ .center-menu {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Logout icon design */
+        .logout-icon {
+            font-size: 1.6rem;
+            cursor: pointer;
+        }

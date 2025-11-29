@@ -1,0 +1,54 @@
+﻿@model Borrow
+@{
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h2>Edit Borrow</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group mb-3">
+                            <label asp-for="BorrowDate" class="form-label"></label>
+                            <input asp-for="BorrowDate" type="date" class="form-control" />
+                            <span asp-validation-for="BorrowDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ReturnDate" class="form-label"></label>
+                            <input asp-for="ReturnDate" type="date" class="form-control" />
+                            <span asp-validation-for="ReturnDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Total" class="form-label"></label>
+                            <input asp-for="Total" type="number" min="0" step="0.01" class="form-control" />
+                            <span asp-validation-for="Total" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="CardholderName" class="form-label"></label>
+                            <input asp-for="CardholderName" class="form-control" placeholder="Cardholder Name" />
+                            <span asp-validation-for="CardholderName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="CardNumber" class="form-label"></label>
+                            <input asp-for="CardNumber" class="form-control" placeholder="Card Number" />
+                            <span asp-validation-for="CardNumber" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a asp-controller="Borrow" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

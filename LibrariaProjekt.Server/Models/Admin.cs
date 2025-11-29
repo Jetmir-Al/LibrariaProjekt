@@ -5,11 +5,11 @@ namespace LibrariaProjekt.Server.Models
     public class Admin
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Shkruani Emrin")]
+        [Required(ErrorMessage = "Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Shkruani Email")]
+        [Required(ErrorMessage = "Email")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Shkruani Fjalëkalimin")]
+        [Required(ErrorMessage = "Password")]
         public string Password { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,14 +14,20 @@ namespace LibrariaProjekt.Server.Repositories
         {
             _context = context;
         }
+
         public List<User> GetAll()
         {
-            List<User> users = _context.Users.ToList();
-            return users;
+            return _context.Users.ToList();
         }
-        public void Save()
+
+        public User GetById(int id)
         {
-            _context.SaveChanges();
+            
+            return _context.Users
+                           .Include(u => u.Borrows)
+                           .Include(u => u.Purchases)
+                           .Include(u => u.Reviews)
+                           .FirstOrDefault(u => u.Id == id);
         }
 
         public void Insert(User user)
@@ -28,21 +35,25 @@ namespace LibrariaProjekt.Server.Repositories
             _context.Users.Add(user);
             Save();
         }
+
         public void Update(User user)
         {
             _context.Users.Update(user);
             Save();
         }
+
         public void Delete(User user)
         {
-            _context.Users.Remove(user);
-            Save();
+            if (user != null)
+            {
+                _context.Users.Remove(user);
+                Save(); 
+            }
         }
-        public User GetById(int id)
+
+        public void Save()
         {
-            User? user = _context.Users.Find(id);
-            Save();
-            return user;
+            _context.SaveChanges();
         }
     }
 }

@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibrariaProjekt.Server.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+   
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
@@ -37,7 +36,7 @@ namespace LibrariaProjekt.Server.Controllers
             if (imageFile != null && imageFile.Length > 0)
             {
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
-                Directory.CreateDirectory(uploadsFolder); // krijo folderin nëse nuk ekziston
+                Directory.CreateDirectory(uploadsFolder); 
 
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
@@ -47,7 +46,7 @@ namespace LibrariaProjekt.Server.Controllers
                     imageFile.CopyTo(fileStream);
                 }
 
-                // Ruaj path-in e imazhit në databazë
+               
                 book.Image = "/images/" + uniqueFileName;
             }
 
@@ -55,7 +54,9 @@ namespace LibrariaProjekt.Server.Controllers
             {
                 return View(book);
             }
+          
             _bookRepository.Insert(book);
+            
             return RedirectToAction("Index");
         }
 

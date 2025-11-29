@@ -4,8 +4,7 @@ using LibrariaProjekt.Server.Repositories;
 
 namespace LibrariaProjekt.Server.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+  
     public class ReviewController : Controller
     {
         private readonly IReviewRepository _reviewRepository;

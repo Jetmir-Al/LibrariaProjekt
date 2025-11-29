@@ -21,15 +21,36 @@ namespace LibrariaProjekt.Server.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            
+            modelBuilder.Entity<Borrow>()
+                .HasOne(b => b.User)
+                .WithMany(u => u.Borrows)
+                .HasForeignKey(b => b.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Purchase>()
+                .HasOne(p => p.User)
+                .WithMany(u => u.Purchases)
+                .HasForeignKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.User)
+                .WithMany(u => u.Reviews)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
            
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.Property(e => e.Price).HasPrecision(18, 2);
             });
+
             modelBuilder.Entity<Borrow>(entity =>
             {
                 entity.Property(e => e.Total).HasPrecision(18, 2);
             });
+
             modelBuilder.Entity<Purchase>(entity =>
             {
                 entity.Property(e => e.Total).HasPrecision(18, 2);

@@ -1,0 +1,63 @@
+﻿@model Purchase
+@{
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h2>Edit Purchase</h2>
+                </div>
+
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+
+                        <div class="form-group mb-3">
+                            <label asp-for="PurchaseDate" class="form-label"></label>
+                            <input asp-for="PurchaseDate" type="date" class="form-control" />
+                            <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Quantity" class="form-label"></label>
+                            <input asp-for="Quantity" type="number" min="1" class="form-control" placeholder="Quantity" />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Total" class="form-label"></label>
+                            <input asp-for="Total" type="number" min="0" step="0.01" class="form-control" placeholder="Total Amount" />
+                            <span asp-validation-for="Total" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CardholderName" class="form-label"></label>
+                            <input asp-for="CardholderName" class="form-control" placeholder="Cardholder Name" />
+                            <span asp-validation-for="CardholderName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CardNumber" class="form-label"></label>
+                            <input asp-for="CardNumber" class="form-control" placeholder="Card Number" />
+                            <span asp-validation-for="CardNumber" class="text-danger"></span>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a asp-controller="Purchase" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
