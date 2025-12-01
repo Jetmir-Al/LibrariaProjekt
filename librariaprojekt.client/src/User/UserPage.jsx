@@ -2,6 +2,8 @@ import './userPage.css';
 import Blerjet from './Blerjet.jsx';
 import Huazimet from './Huazimet.jsx';
 
+import { useContext } from "react"; 
+import { AuthContext } from "../Context/AuthContext.jsx";
 
 //Test component
 import Loading from '../Components/Loading.jsx';
@@ -10,20 +12,19 @@ import NoInfo from '../Components/NoInfo.jsx';
 
 function UserPage() {
 
+    const { user } = useContext(AuthContext);
+
     return (
         <div className="userPage-container">
             <div className="userInfo">
                 <div className="userCard">
 
                     <h2>
-                        Username:
-+                    </h2>
-                    <h2>
-                        Email:
+                        Username: {user.name}
                     </h2>
-                    <address>
-                        Address:
-                    </address>
+                    <h2>
+                        Email: {user.email}
+                    </h2>
 
                     <button className="logout-button">
                         Logout!
@@ -34,8 +35,7 @@ function UserPage() {
             <div className="bookReviews-container">
                 <h2 className="testimonial__title">Bought</h2>
                 <div className="bookReviews">
-                    {/*<Loading />*/}
-                    {/*<Error/>*/}
+
                     <NoInfo/>
                     {/*<Blerjet />*/}
                 </div>

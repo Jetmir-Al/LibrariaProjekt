@@ -1,25 +1,22 @@
 /* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { useState, useContext } from "react";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark} from "@fortawesome/free-solid-svg-icons";
+import { faSun, faUserGear, faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark} from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
 import SignUp from "../Account/SignUp";
 import LogIn from "../Account/LogIn";
 import { ToggleAccountContext, ToggleLightDarkContext } from "../Context/toggleContext";
+import { AuthContext } from "../Context/AuthContext";
 function Navbar() {
-    let location = useLocation();
-        //const navigate = useNavigate();
-    let accountLinks = null;
+    const navigate = useNavigate();
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
     const [toggleAccount, setToggleAccount] = useState(false);
-    //const { user, setUser } = useContext(UserContext);
 
     const { lightDark, setLightDark } = useContext(ToggleLightDarkContext);
 
-
-
+    const { isLoggedIn } = useContext(AuthContext);
       
     return (
         <>
@@ -60,11 +57,18 @@ function Navbar() {
                     <div className="nav__actions">
 
                         <div className="navAction" onClick={() => setIsAccountMenuOpen(a => !a)}>
-                        <FontAwesomeIcon className="icon" icon={faCircleUser} />
-                    </div>
+                        {
+                            isLoggedIn ?
+                                <FontAwesomeIcon icon={faUserGear} className="icon"
+                                    onClick={() => navigate("/user-profile")} />
+                                :
+                                <FontAwesomeIcon className="icon" icon={faCircleUser} />
+                        }
+                        </div>
 
                         <div className="navAction">
                             {
+                                
                                 lightDark ?
                                     <FontAwesomeIcon className="icon" icon={faSun}
                                         onClick={() => setLightDark(d => !d)} />
@@ -79,6 +83,7 @@ function Navbar() {
                 </nav>
             </header>
             {
+               
                 isAccountMenuOpen ? <ToggleAccountContext.Provider value={{setToggleAccount, setIsAccountMenuOpen}}>
                     {toggleAccount ?
                         <SignUp />

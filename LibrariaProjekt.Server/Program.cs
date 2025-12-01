@@ -1,5 +1,6 @@
 using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,12 +30,28 @@ builder.Services.AddCors(options =>
                           policy.WithOrigins("http://localhost:5173",
                                               "https://localhost:7173")
                                 .AllowAnyHeader()
-                                .AllowAnyMethod();
+                                .AllowAnyMethod()
+                                .AllowCredentials(); //per cookies
                       });
 }
     );
 
+
+//cokkies authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "UserSessionCookie";
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        options.Cookie.SameSite = SameSiteMode.Lax;
+        options.ExpireTimeSpan = TimeSpan.FromDays(6);
+        options.SlidingExpiration = true;
+    });
+
 var app = builder.Build();
+
+
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
@@ -48,10 +65,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 // Enable CORS for react app
 app.UseCors("LibrariaPolicy");
+
+
+//per authenticatikim edhe autorizim
+app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllers();
 

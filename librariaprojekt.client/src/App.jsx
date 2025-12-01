@@ -7,6 +7,7 @@ import BookDetails from './Book/BookDetails.jsx';
 import UserPage from './User/UserPage.jsx';
 import Footer from './Components/Footer.jsx';
 
+import { AuthContext, AuthProvider } from './Context/AuthContext.jsx'; 
 import { ToggleLightDarkContext } from './Context/toggleContext.jsx';
 
 import { useState } from 'react';
@@ -16,6 +17,7 @@ function App() {
     const [lightDark, setLightDark] = useState(false);
     return (
         <ToggleLightDarkContext.Provider value={{ lightDark, setLightDark }}>
+            <AuthProvider>
             <Router>
                 <div className={lightDark ? "body dark-theme" : "body"}>
                     <Navbar />
@@ -38,6 +40,7 @@ function App() {
                     <Footer />
                 </div>
             </Router>
+            </AuthProvider>
         </ToggleLightDarkContext.Provider>
     );
 }

@@ -5,9 +5,11 @@ namespace LibrariaProjekt.Server.Repositories
     {
         List<User> GetAll();
         User GetById(int id);
+        User GetByEmail(string username);
         void Insert(User user);
         void Update(User user);
         void Delete(User user);
+
         void Save();
     }
 }

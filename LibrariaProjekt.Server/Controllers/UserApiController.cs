@@ -1,8 +1,11 @@
 ﻿using LibrariaProjekt.Server.DTO;
 using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity; 
+using System.Security.Claims;
 
 namespace LibrariaProjekt.Server.Controllers
 {
@@ -16,7 +19,7 @@ namespace LibrariaProjekt.Server.Controllers
         public UserApiController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _passwordHasher = new PasswordHasher<User>(); 
+            _passwordHasher = new PasswordHasher<User>();
         }
 
         [HttpPost("createUser")]
@@ -42,6 +45,63 @@ namespace LibrariaProjekt.Server.Controllers
             _userRepository.Save();
 
             return Ok("User created successfully.");
+        }
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
+        {
+
+            if (dto == null)
+            {
+                return BadRequest("User data is null.");
+            }
+
+            var user = _userRepository.GetByEmail(dto.Email);
+
+            if (user == null)
+            {
+                return Unauthorized("Email or password incorrect.");
+            }
+            var res = _passwordHasher.VerifyHashedPassword(user, user.Password, dto.Password);
+
+            if (res == PasswordVerificationResult.Failed)
+            {
+                return Unauthorized("Email or password incorrect.");
+            }
+
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim("Id", user.Id.ToString())
+            };
+
+
+            var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddDays(7)
+            };
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
+
+
+
+            return Ok(new
+            {
+                message = "Login successful.",
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
+            });
         }
     }
 }

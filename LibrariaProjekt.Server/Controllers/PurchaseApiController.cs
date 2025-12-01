@@ -3,7 +3,6 @@ using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace LibrariaProjekt.Server.Controllers
 {
@@ -26,7 +25,7 @@ namespace LibrariaProjekt.Server.Controllers
             _bookRepository = bookRepository;
         }
 
-        
+
         [HttpPost("create/{bookId}")]
         public IActionResult CreatePurchase(int bookId, [FromBody] CreatePurchaseDto dto)
         {
@@ -47,8 +46,8 @@ namespace LibrariaProjekt.Server.Controllers
             {
                 UserId = userId,
                 BookId = bookId,
-                Quantity = dto.Quantity,
-                Total = dto.Quantity * book.Price,
+                //Quantity = dto.Quantity,
+                //Total = dto.Quantity * book.Price,
                 CardholderName = dto.CardholderName,
                 CardNumber = dto.CardNumber,
                 PurchaseDate = DateTime.Now

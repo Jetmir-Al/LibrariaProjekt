@@ -1,8 +1,6 @@
 ﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LibrariaProjekt.Server.Repositories
 {
@@ -22,12 +20,21 @@ namespace LibrariaProjekt.Server.Repositories
 
         public User GetById(int id)
         {
-            
+
             return _context.Users
                            .Include(u => u.Borrows)
                            .Include(u => u.Purchases)
                            .Include(u => u.Reviews)
                            .FirstOrDefault(u => u.Id == id);
+        }
+
+        public User GetByEmail(string email)
+        {
+            return _context.Users
+                           .Include(u => u.Borrows)
+                           .Include(u => u.Purchases)
+                           .Include(u => u.Reviews)
+                           .FirstOrDefault(u => u.Email == email);
         }
 
         public void Insert(User user)
@@ -47,7 +54,7 @@ namespace LibrariaProjekt.Server.Repositories
             if (user != null)
             {
                 _context.Users.Remove(user);
-                Save(); 
+                Save();
             }
         }
 
