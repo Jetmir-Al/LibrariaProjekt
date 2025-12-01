@@ -1,16 +1,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-/**
- * Error component
- *
- * Props:
- * - title: short title for the error box
- * - message: user-friendly message
- * - details: optional technical details or stack trace
- * - onRetry: optional callback to attempt recovery
- * - onClose: optional callback to dismiss the error
- */
+
 export default function Error({ title, details }) {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -23,21 +14,6 @@ export default function Error({ title, details }) {
 
                 <div className="errorInfo">
                     <div className="errorTitle">{title}</div>
-                </div>
-
-                <div className="errorBtns" >
-                    
-                        <button
-                            type="button"
-                            className="errorBtn">
-                            Retry
-                        </button>
-
-                  
-                        <button className="errorCloseBtn"
-                            type="button">
-                            Close
-                        </button>
                 </div>
             </div>
 

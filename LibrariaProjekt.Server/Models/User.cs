@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace LibrariaProjekt.Server.Models
 {
@@ -17,9 +15,9 @@ namespace LibrariaProjekt.Server.Models
         [Required(ErrorMessage = "Write Password")]
         public string Password { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-       
+
         public ICollection<Borrow> Borrows { get; set; }
         public ICollection<Purchase> Purchases { get; set; }
         public ICollection<Review> Reviews { get; set; }

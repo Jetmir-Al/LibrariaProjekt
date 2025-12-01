@@ -4,6 +4,7 @@ import { faMagnifyingGlass, faEllipsisVertical } from "@fortawesome/free-solid-s
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Loading from "../Components/Loading";
+import NoInfo from "../Components/NoInfo";
 import Error from "../Components/Error";
 import axios from "axios";
 
@@ -30,15 +31,6 @@ const BookPage = () => {
 
     }, []);
 
-    if (isLoading) {
-        return <Loading />;
-    }
-    if (error) {
-        return <Error
-            title="Failed to load book details"
-            details={error}
-        />;
-    }
 
     return (
 
@@ -172,6 +164,11 @@ const BookPage = () => {
             <div className="bookDisplay-container">
 
                 {
+                    isLoading ? <Loading /> : 
+                        error ? <Error
+                            title="Failed to load book details"
+                            details={error}
+                        /> :
                     books.length > 0 ? books.map((res, index) => (
 
                        <Link to={`/bookdetails/${res.id}`}
@@ -192,8 +189,8 @@ const BookPage = () => {
                                 </span>
                             </div>
                        </Link>
-                ))
-                        : null
+                    ))
+                        : <NoInfo />
                 }
 
 

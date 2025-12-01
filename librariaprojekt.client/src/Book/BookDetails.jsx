@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import StarRating from 'star-rating.js';
 import 'star-rating.js/dist/star-rating.css';
 import Loading from '../Components/Loading.jsx';
+import NoInfo from '../Components/NoInfo.jsx';
 import Error from '../Components/Error.jsx';
 import axios from 'axios';
 import Reviews from './Reviews/Reviews.jsx';
@@ -40,19 +41,16 @@ function BookDetails() {
         }
         fetchBookDetails();
     }, [id]);
-    if (isLoading) {
-        return <Loading />;
-    }
-    if (error) {
-        return <Error
-            title="Failed to load book details"
-            details={error}
-        />;
-    }
     return (
 
         <div className="bookDetails-container">
 
+            {
+                isLoading ? <Loading />
+                    : error ? <Error
+                        title="Failed to load book details"
+                        details={error}
+                    /> : <>
             <div className="bookDetails">
 
                 <div className='bookPresentation'>
@@ -210,6 +208,8 @@ function BookDetails() {
                 </form>
             </div>
 
+                    </>
+            }
         </div>
     );
 
