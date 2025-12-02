@@ -56,13 +56,14 @@ function Navbar() {
 
                     <div className="nav__actions">
 
-                        <div className="navAction" onClick={() => setIsAccountMenuOpen(a => !a)}>
+                        <div className="navAction">
                         {
                             isLoggedIn ?
                                 <FontAwesomeIcon icon={faUserGear} className="icon"
                                     onClick={() => navigate("/user-profile")} />
                                 :
-                                <FontAwesomeIcon className="icon" icon={faCircleUser} />
+                                    <FontAwesomeIcon className="icon" icon={faCircleUser}
+                                    onClick={() => setIsAccountMenuOpen(a => !a)}                                    />
                         }
                         </div>
 

@@ -1,11 +1,9 @@
 ﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LibrariaProjekt.Server.Repositories
 {
-    public class ReviewRepository :IReviewRepository
+    public class ReviewRepository : IReviewRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -17,6 +15,11 @@ namespace LibrariaProjekt.Server.Repositories
         public List<Review> GetAll()
         {
             List<Review> reviews = _context.Reviews.ToList();
+            return reviews;
+        }
+        public List<Review> GetReviewsByBookId(int bookId)
+        {
+            List<Review> reviews = _context.Reviews.Where(r => r.BookId == bookId).ToList();
             return reviews;
         }
         public void Save()
@@ -44,5 +47,6 @@ namespace LibrariaProjekt.Server.Repositories
             Save();
             return review;
         }
+
     }
 }

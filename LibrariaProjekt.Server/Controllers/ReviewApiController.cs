@@ -13,13 +13,19 @@ namespace LibrariaProjekt.Server.Controllers
         {
             _reviewRepository = reviewRepository;
         }
-        //masi te bahet login per me i pa review
 
-        [HttpGet("reviews")]
-        public IActionResult GetAllReviews()
+        [HttpPost("reviews")]
+        public async Task<IActionResult> GetReviews([FromBody] int bookId)
         {
-            var reviews = _reviewRepository.GetAll().ToList();
+            var reviews = _reviewRepository.GetReviewsByBookId(bookId);
             return Ok(reviews);
         }
+
+
+        //public async Task<IActionResult> CreateReview([FromBody] DTO.CreateReviewDto createReviewDto)
+        //{
+        //    var review = await _reviewRepository.CreateReviewAsync(createReviewDto);
+        //    return CreatedAtAction(nameof(GetReviewById), new { id = review.Id }, review);
+        //}
     }
 }

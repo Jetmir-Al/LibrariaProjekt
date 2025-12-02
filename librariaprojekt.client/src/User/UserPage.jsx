@@ -4,15 +4,26 @@ import Huazimet from './Huazimet.jsx';
 
 import { useContext } from "react"; 
 import { AuthContext } from "../Context/AuthContext.jsx";
+import { useNavigate } from "react-router-dom"; 
 
 //Test component
 import Loading from '../Components/Loading.jsx';
 import Error from '../Components/Error.jsx';
 import NoInfo from '../Components/NoInfo.jsx';
 
+
+
 function UserPage() {
 
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const handleLogout = async () => {
+        await logout();
+        navigate('/');
+    };
+    if (!user) {
+        return <Loading />;
+    }
 
     return (
         <div className="userPage-container">
@@ -26,7 +37,7 @@ function UserPage() {
                         Email: {user.email}
                     </h2>
 
-                    <button className="logout-button">
+                    <button className="logout-button" onClick={handleLogout}>
                         Logout!
                     </button>
                 </div>

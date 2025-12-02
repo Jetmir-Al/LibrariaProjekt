@@ -3,6 +3,7 @@ using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -102,6 +103,36 @@ namespace LibrariaProjekt.Server.Controllers
                 Name = user.Name,
                 Email = user.Email
             });
+        }
+
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+        [HttpGet("status")]
+        public IActionResult CheckStatus()
+        {
+            var userId = User.FindFirst("Id")?.Value;
+            var name = User.FindFirst(ClaimTypes.Name)?.Value;
+            var email = User.FindFirst(ClaimTypes.Email)?.Value;
+            if (userId == null || name == null || email == null)
+            {
+                return Unauthorized("User is not authenticated.");
+            }
+            return Ok(new
+            {
+                message = "User is authenticated.",
+                Id = userId,
+                Name = name,
+                Email = email
+            });
+        }
+
+
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme);
+            return Ok("Logout successful.");
         }
     }
 }
