@@ -9,6 +9,7 @@
         public decimal Total { get; set; }
         public DateTime PurchaseDate { get; set; }
         public string CardholderName { get; set; }
+        public string MaskedCardNumber { get; set; }
 
     }
 }
