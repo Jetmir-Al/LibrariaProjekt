@@ -1,0 +1,70 @@
+﻿@using LibrariaProjekt.Server.Models
+@model Borrow
+@{
+    Layout = "_Layout";
+}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-success">
+                    <h2>Add Borrow</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data">
+                        <div class="form-group mb-3">
+                            <label asp-for="UserId" class="form-label"></label>
+                            <input asp-for="UserId" class="form-control" placeholder="Write UserId" />
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="BookId" class="form-label"></label>
+                            <input asp-for="BookId" class="form-control" placeholder="Write BookId" />
+                            <span asp-validation-for="BookId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="BorrowDate" class="form-label"></label>
+                            <input asp-for="BorrowDate"  class="form-control" placeholder="Write BorrowDate" />
+                            <span asp-validation-for="BorrowDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="ReturnDate" class="form-label"></label>
+                            <input asp-for="ReturnDate"  class="form-control" placeholder="Write ReturnDate" />
+                            <span asp-validation-for="ReturnDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Total" class="form-label"></label>
+                            <input asp-for="Total" type="number" class="form-control" placeholder="Write Total" />
+                            <span asp-validation-for="Total" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CardholderName" class="form-label"></label>
+                            <input asp-for="CardholderName" class="form-control" placeholder="Write CardholderName" />
+                            <span asp-validation-for="CardholderName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CardNumber" class="form-label"></label>
+                            <input asp-for="CardNumber" type="number" class="form-control" placeholder="Write CardNumber" />
+                            <span asp-validation-for="CardNumber" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success">Create</button>
+                            <a asp-controller="Borrow" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
