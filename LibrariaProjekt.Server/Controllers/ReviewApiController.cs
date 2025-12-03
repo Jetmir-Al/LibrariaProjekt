@@ -30,8 +30,8 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpPost("create/{bookId}")]
         public IActionResult CreateReview(int bookId, [FromBody] CreateReviewDto dto)
         {
-            
-            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+          
+            var userIdClaim = User.FindFirst("Id");
             if (userIdClaim == null)
                 return Unauthorized("User is not logged in");
 
@@ -42,11 +42,11 @@ namespace LibrariaProjekt.Server.Controllers
             if (book == null)
                 return BadRequest("Book not found");
 
-            // Krijo review
+            
             var review = new Review
             {
                 UserId = userId,
-                BookId = bookId,      
+                BookId = bookId,
                 Rating = dto.Rating,
                 Comment = dto.Comment
             };
@@ -54,10 +54,10 @@ namespace LibrariaProjekt.Server.Controllers
             _reviewRepository.Insert(review);
             _reviewRepository.Save();
 
-            return Ok("Review created successfully");
+            return Ok("Review created successfully.");
         }
 
-        
+       
         [HttpGet("book/{bookId}")]
         public IActionResult GetReviewsByBook(int bookId)
         {
@@ -65,11 +65,12 @@ namespace LibrariaProjekt.Server.Controllers
                 .Select(r => new ReviewDto
                 {
                     Id = r.Id,
-                    UserName = r.User.Name,    
-                    BookTitle = r.Book.Title,  
+                    UserName = r.User.Name,
+                    BookTitle = r.Book.Title,
                     Rating = r.Rating,
                     Comment = r.Comment
-                }).ToList();
+                })
+                .ToList();
 
             return Ok(reviews);
         }

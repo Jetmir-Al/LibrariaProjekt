@@ -26,33 +26,34 @@ namespace LibrariaProjekt.Server.Controllers
             _bookRepository = bookRepository;
         }
 
-       
+        
         [HttpPost("create/{bookId}")]
         public IActionResult CreateBorrow(int bookId, [FromBody] CreateBorrowDto dto)
         {
             
-            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            var userIdClaim = User.FindFirst("Id");
             if (userIdClaim == null)
                 return Unauthorized("User is not logged in");
 
             int userId = int.Parse(userIdClaim.Value);
 
-          
+            
             var book = _bookRepository.GetById(bookId);
             if (book == null)
                 return BadRequest("Book not found");
 
+           
             if (dto.ReturnDate < dto.BorrowDate)
                 return BadRequest("Return date cannot be before borrow date");
 
-
+           
             var borrow = new Borrow
             {
                 UserId = userId,
                 BookId = bookId,
                 BorrowDate = dto.BorrowDate,
                 ReturnDate = dto.ReturnDate,
-                Total = book.Price, 
+                Total = book.Price,
                 CardholderName = dto.CardholderName,
                 CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber 
             };
@@ -60,10 +61,10 @@ namespace LibrariaProjekt.Server.Controllers
             _borrowRepository.Insert(borrow);
             _borrowRepository.Save();
 
-            return Ok("Borrow created successfully");
+            return Ok("Borrow created successfully.");
         }
 
-        
+       
         [HttpGet]
         public IActionResult GetBorrows()
         {
@@ -74,17 +75,16 @@ namespace LibrariaProjekt.Server.Controllers
                     UserName = b.User.Name,
                     BookTitle = b.Book.Title,
                     BorrowDate = b.BorrowDate,
-                    ReturnDate = b.ReturnDate ?? b.BorrowDate, 
+                    ReturnDate = b.ReturnDate ?? b.BorrowDate,
                     Total = b.Total,
                     CardholderName = b.CardholderName,
                     MaskedCardNumber = "**** **** **** " + b.CardNumber
-
-                }).ToList();
+                })
+                .ToList();
 
             return Ok(borrows);
         }
 
-       
         [HttpGet("{id}")]
         public IActionResult GetBorrowById(int id)
         {
@@ -102,7 +102,6 @@ namespace LibrariaProjekt.Server.Controllers
                 Total = borrow.Total,
                 CardholderName = borrow.CardholderName,
                 MaskedCardNumber = "**** **** **** " + borrow.CardNumber
-
             };
 
             return Ok(dto);

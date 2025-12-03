@@ -3,6 +3,7 @@ using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace LibrariaProjekt.Server.Controllers
 {
@@ -25,18 +26,18 @@ namespace LibrariaProjekt.Server.Controllers
             _bookRepository = bookRepository;
         }
 
-
+        
         [HttpPost("create/{bookId}")]
         public IActionResult CreatePurchase(int bookId, [FromBody] CreatePurchaseDto dto)
         {
-            
-            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+           
+            var userIdClaim = User.FindFirst("Id");
             if (userIdClaim == null)
                 return Unauthorized("User is not logged in");
 
             int userId = int.Parse(userIdClaim.Value);
 
-           
+            
             var book = _bookRepository.GetById(bookId);
             if (book == null)
                 return BadRequest("Book not found");
@@ -49,18 +50,17 @@ namespace LibrariaProjekt.Server.Controllers
                 Quantity = dto.Quantity,
                 Total = dto.Quantity * book.Price,
                 CardholderName = dto.CardholderName,
-                CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber,
+                CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber, 
                 PurchaseDate = DateTime.Now
             };
 
-           
             _purchaseRepository.Insert(purchase);
             _purchaseRepository.Save();
 
-            return Ok("Purchase created successfully");
+            return Ok("Purchase created successfully.");
         }
 
-      
+        
         [HttpGet]
         public IActionResult GetPurchases()
         {
@@ -74,11 +74,13 @@ namespace LibrariaProjekt.Server.Controllers
                     Total = p.Total,
                     PurchaseDate = p.PurchaseDate,
                     CardholderName = p.CardholderName,
-                    MaskedCardNumber = "**** **** **** " + p.CardNumber 
+                    MaskedCardNumber = "**** **** **** " + p.CardNumber
                 }).ToList();
 
             return Ok(purchases);
         }
+
+       
         [HttpGet("{id}")]
         public IActionResult GetPurchaseById(int id)
         {
@@ -97,6 +99,7 @@ namespace LibrariaProjekt.Server.Controllers
                 CardholderName = purchase.CardholderName,
                 MaskedCardNumber = "**** **** **** " + purchase.CardNumber
             };
+
             return Ok(dto);
         }
     }

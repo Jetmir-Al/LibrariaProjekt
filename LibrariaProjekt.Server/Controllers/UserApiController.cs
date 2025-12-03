@@ -15,7 +15,7 @@ namespace LibrariaProjekt.Server.Controllers
     public class UserApiController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        private readonly IPasswordHasher<User> _passwordHasher; // Pjesa per hash
+        private readonly IPasswordHasher<User> _passwordHasher; 
 
         public UserApiController(IUserRepository userRepository)
         {
@@ -39,7 +39,7 @@ namespace LibrariaProjekt.Server.Controllers
                 CreatedAt = DateTime.Now
             };
 
-            // HASH PASSWORD
+            
             user.Password = _passwordHasher.HashPassword(user, dto.Password);
 
             _userRepository.Insert(user);
