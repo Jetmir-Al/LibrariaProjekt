@@ -4,7 +4,7 @@ namespace LibrariaProjekt.Server.DTO
 {
     public class CreateReviewDto
     {
-      
+
         [Required]
         public int Rating { get; set; }
         [Required]

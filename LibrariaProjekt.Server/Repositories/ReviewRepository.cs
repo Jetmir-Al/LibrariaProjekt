@@ -1,5 +1,6 @@
 ﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibrariaProjekt.Server.Repositories
 {
@@ -19,7 +20,8 @@ namespace LibrariaProjekt.Server.Repositories
         }
         public List<Review> GetReviewsByBookId(int bookId)
         {
-            List<Review> reviews = _context.Reviews.Where(r => r.BookId == bookId).ToList();
+            // Include User shkaku me marr emrin e userit
+            List<Review> reviews = _context.Reviews.Where(r => r.BookId == bookId).Include(r => r.User).ToList();
             return reviews;
         }
         public void Save()
@@ -43,7 +45,10 @@ namespace LibrariaProjekt.Server.Repositories
         }
         public Review GetById(int id)
         {
-            Review? review = _context.Reviews.Find(id);
+            Review? review = _context.Reviews
+           .Include(r => r.User)
+           .Include(r => r.Book)
+           .FirstOrDefault(r => r.Id == id);
             Save();
             return review;
         }

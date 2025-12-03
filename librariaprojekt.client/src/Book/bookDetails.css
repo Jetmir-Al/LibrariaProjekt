@@ -194,6 +194,23 @@
     margin-bottom: 1.5rem;
 }
 
+.starRating {
+    display: flex;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 28px;
+    color: #ccc;
+    transition: 0.2s;
+}
+
+    .star.filled {
+        color: gold;
+    }
+
+
 
 .starIcons {
     color: gold;

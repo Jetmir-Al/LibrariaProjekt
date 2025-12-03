@@ -1,10 +1,9 @@
-import './bookDetails.css';
+﻿import './bookDetails.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faStar } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
-import StarRating from 'star-rating.js';
-import 'star-rating.js/dist/star-rating.css';
+
 import Loading from '../Components/Loading.jsx';
 import NoInfo from '../Components/NoInfo.jsx';
 import Error from '../Components/Error.jsx';
@@ -14,7 +13,7 @@ import { AuthContext } from '../Context/AuthContext.jsx';
 
 function BookDetails() {
 
-    const { isLogedIn } = useContext(AuthContext);
+    const { isLoggedIn, user } = useContext(AuthContext);
     const [addReview, setAddReview] = useState(false);
     const [toggleBuy, setToggleBuy] = useState(false);
     const [toggleBorrow, setToggleBorrow] = useState(false);
@@ -23,15 +22,42 @@ function BookDetails() {
     const [bookDetails, setBookDetails] = useState(null);
     const [reviews, setReviews] = useState(null);
     const { id } = useParams();
+    const [comment, setComment] = useState(null);
+    const [rating, setRating] = useState(null);
 
-    useEffect(() => {
-        //const rating
-        new StarRating('.star-rating', {
-            maxStars: 5,
-            starSize: 25
-        });
-    }, []);
 
+    const handleReviewSubmit = async (e) => {
+        e.preventDefault();
+        try {
+        //console.log('Submitting review:', { rating, comment });
+            await axios.post(
+                `https://localhost:7262/api/ReviewApi/create/${id}`, {
+                Rating: rating,
+                Comment: comment
+            }, { withCredentials: true });
+            setAddReview(false);
+            fetchReviews();
+        
+        } catch (error) {
+            console.error('Error submitting review:', error);
+            setError('Failed to submit review. Please try again later.');
+        }
+    }
+
+    const fetchReviews = async () => {
+        try {
+            const res = await axios.get(
+                `https://localhost:7262/api/ReviewApi/book/${id}`,
+                { withCredentials: true });
+            if (res.data.length !== 0) {
+                setReviews(res.data);
+            }
+            
+
+        } catch {
+            setReviews(null);
+        }
+    }
     useEffect(() => {
     const fetchBookDetails = async () => {
         try {
@@ -42,18 +68,9 @@ function BookDetails() {
             setError(error.message);
         }
     }
-    const fetchReviews = async () => {
-        try {
-            const res = await axios.post(`https://localhost:7262/api/ReviewApi/reviews/${id}`);
-            setReviews(res.data);
-
-        } catch (error) {
-            setError(error.message);
-        }
-    }
 
         fetchBookDetails();
-        //fetchReviews();
+        fetchReviews();
     }, [id]);
     return (
 
@@ -84,7 +101,7 @@ function BookDetails() {
                                 <h4><span>Sasia:</span> <span>{bookDetails.quantity}</span></h4>
 
 
-                                {isLogedIn &&
+                                    { isLoggedIn &&
                                     <div className='bookBtns'>
 
                                         <button type='button' id='buy'
@@ -99,7 +116,8 @@ function BookDetails() {
                                                 setToggleBuy(false);
                                             }}
                                         >Borrow</button>
-                                    </div>
+                                        </div>
+                                    
                                 }
                             </div>
 
@@ -110,9 +128,9 @@ function BookDetails() {
 
                                     <div className="login__group grid">
                                         <div>
-                                            <input type="hidden" name="libriID" value="" />
-                                            <input type="hidden" name="userID" value="" />
-                                            <input type="hidden" name="price" value="" />
+                                            <input type="hidden" name="libriID"/>
+                                            <input type="hidden" name="userID"/>
+                                            <input type="hidden" name="price"/>
 
                                         </div>
                                         <div>
@@ -147,9 +165,9 @@ function BookDetails() {
 
                                     <div className="login__group grid">
                                         <div>
-                                            <input type="hidden" name="libriID" value="" />
-                                            <input type="hidden" name="userID" value="" />
-                                            <input type="hidden" name="price" value="" />
+                                            <input type="hidden" name="libriID"  />
+                                            <input type="hidden" name="userID" />
+                                            <input type="hidden" name="price"  />
 
                                         </div>
                                         <div>
@@ -188,7 +206,8 @@ function BookDetails() {
 
 
                         <div className="bookReviews-container">
-                            <h2 className="testimonial__title">Reviews</h2>
+                                <h2 className="testimonial__title">Reviews</h2>
+                                <div className="bookReviews">
 
                                 {
                                     reviews === null || reviews.length === 0 ? 
@@ -196,42 +215,53 @@ function BookDetails() {
                                         reviews.map((rev, index) => (
                                             <Reviews key={index}
                                                 name={rev.name}
-                                                comment={rev.Comment}
-                                                stars={rev.Rating}
+                                                comment={rev.comment}
+                                                stars={rev.rating}
                                             />
                                         ))
-                                }
-
+                                    }
+                                </div>
                             {
-                                isLogedIn &&
+                                    isLoggedIn &&
                                 <>
 
                                     <button id="addReview" className="addReview" type="button"
                                         style={{ display: addReview ? 'none' : 'block' }}
                                         onClick={() => setAddReview(r => !r)}>ADD YOUR REVIEW</button>
 
-                                    <form className="bookReview-form" id="bookReview-form"
-                                        style={{ display: addReview ? 'flex' : 'none' }}>
+                                        <form className="bookReview-form" id="bookReview-form"
+                                            style={{ display: addReview ? 'flex' : 'none' }}
+                                            onSubmit={handleReviewSubmit}>
                                         <div className="bookReview-inputs">
                                             <h2 className="testimonial__title">
-                                                Emri i personit
+                                                    {user.name}
                                             </h2>
-                                            <input type="hidden" name="libriID" value="" />
-                                            <input type="hidden" name="userID" value="" />
 
                                             <label htmlFor="comment">
                                                 Comment: <br />
                                                 <textarea name="comment" id="comment"
-                                                    cols="28" rows="5" required></textarea>
+                                                        cols="28" rows="5" required
+                                                        onChange={(e) => setComment(e.target.value)}
+                                                    ></textarea>
                                             </label>
-                                            <select className="star-rating" name="rating" required>
-                                                <option value="">Select a rating</option>
-                                                <option value="5">Excellent</option>
-                                                <option value="4">Very Good</option>
-                                                <option value="3">Average</option>
-                                                <option value="2">Poor</option>
-                                                <option value="1">Terrible</option>
-                                            </select>
+                                                <div className="starRating">
+                                                    {[...Array(5)].map((_, index) => {
+                                                        const starValue = index + 1;
+
+                                                        return (
+                                                            <FontAwesomeIcon
+                                                                key={index}
+                                                                icon={faStar}
+                                                                className={
+                                                                    starValue <= (rating) ? "star filled" : "star"
+                                                                }
+                                                                onClick={() => setRating(starValue)}
+                                                                onMouseEnter={() => setRating(starValue)}
+                                                            />
+                                                        );
+                                                    })}
+                                                </div>
+
                                             <div className="bookReviewBtns">
                                                 <button type="submit">Submit</button>
                                                 <button type="button" id="cancelReview"

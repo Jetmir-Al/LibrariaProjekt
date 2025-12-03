@@ -4,7 +4,6 @@ import '../BookDetails.css';
 const Reviews = ({name, comment, stars}) => {
 
     return (
-        <div className="bookReviews">
             <div className='testimonial__card'>
                 <h2 className='testimonial__title'>{name}</h2>
                 <p className='testimonial__description'>
@@ -16,7 +15,6 @@ const Reviews = ({name, comment, stars}) => {
                     ))}
                 </div>
             </div>
-        </div>
     );
 
 }

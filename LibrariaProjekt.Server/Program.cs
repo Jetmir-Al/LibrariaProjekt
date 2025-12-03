@@ -44,7 +44,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Cookie.Name = "UserSessionCookie";
         options.Cookie.HttpOnly = true;
         options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-        options.Cookie.SameSite = SameSiteMode.Lax;
+        options.Cookie.SameSite = SameSiteMode.None;
         options.ExpireTimeSpan = TimeSpan.FromDays(6);
         options.SlidingExpiration = true;
     });
