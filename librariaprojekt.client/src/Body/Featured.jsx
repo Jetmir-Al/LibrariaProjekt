@@ -13,10 +13,16 @@ function Featured() {
 
     useEffect(() => {
         const fetchFeautred = async () => {
-            const response = await axios.get("https://localhost:7262/api/BookApi/featured");
-            if (response.data.length > 0) {
-                setFeatured(response.data);
+            try {
+
+                const response = await axios.get("https://localhost:7262/api/BookApi/featured");
+                if (response.data.length > 0) {
+                    setFeatured(response.data);
+                }
+            } catch (err) {
+                console.error("Diqka shkoj keq, ", err);
             }
+
         };
         fetchFeautred();
     }, []);

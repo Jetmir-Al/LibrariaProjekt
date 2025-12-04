@@ -139,6 +139,7 @@ function BookDetails() {
                                 <h4><span>Kategori:</span> <span>{bookDetails.category}</span></h4>
                                 <h4><span>Viti:</span> <span>{bookDetails.publishYear}</span></h4>
                                 <h4><span>Price:</span> <span>{bookDetails.price}$</span></h4>
+                                <h4><span>Borrow Price:</span> <span>{bookDetails.price / 2}$</span></h4>
                                 <h4><span>Sasia:</span> <span>{bookDetails.quantity}</span></h4>
 
 

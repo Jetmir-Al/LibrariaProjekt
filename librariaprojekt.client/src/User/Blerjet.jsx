@@ -1,28 +1,28 @@
 
 
-function Blerjet() {
+function Blerjet({img, title, cardName, cardNum, total, date}) {
     return (
         <div className='new__card swiper-slide boughtBooks'>
-            <img src='src/assets/imgs/book-9.png' alt='image' className='new__img' />
+            <img src={`https://localhost:7262${img}`} alt='image' className='new__img' />
             <div className='boughtInfo'>
                 <h2 className='testimonial__title'>
-                    'titulli'
+                    {title}
                 </h2>
                 <div className='boughtBookInfo'>
-                    <h4> Author:
-                        <span> 'autori'</span>
+                    <h4> Card Name:
+                        <span> {cardName}</span>
                     </h4>
                     <h4>
-                        Category:
-                        <span> 'kategoria'</span>
+                        Card Number:
+                        <span> {cardNum}</span>
                     </h4>
                     <h4>
-                        Price:
-                        <span > 'totali'$</span>
+                        Total:
+                        <span > {total}$</span>
                     </h4>
                     <h4>
                         Bought Date:
-                        <span> data_blerjes'</span>
+                        <span> {date}</span>
                     </h4>
 
                 </div>

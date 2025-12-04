@@ -3,7 +3,6 @@ using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace LibrariaProjekt.Server.Controllers
 {

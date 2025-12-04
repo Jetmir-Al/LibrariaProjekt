@@ -8,6 +8,7 @@
     border: 2px solid var(--border-color);
     transition: border .4s, background-color .4s;
     min-height: 150px;
+    cursor: pointer;
 }
 
     .new__card:hover {
