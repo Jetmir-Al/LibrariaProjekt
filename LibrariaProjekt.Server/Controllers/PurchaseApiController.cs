@@ -58,10 +58,10 @@ namespace LibrariaProjekt.Server.Controllers
         }
 
         // GET: api/purchase/book/{bookId}
-        [HttpGet("book/{bookId}")]
-        public IActionResult GetPurchaseByBook(int bookId)
+        [HttpGet("user/{userId}")]
+        public IActionResult GetPurchasesByUser(int userId)
         {
-            var purchases = _purchaseRepository.GetPurchaseByBookId(bookId)
+            var purchases = _purchaseRepository.GetPurchaseByUserId(userId)
                 .Select(p => new PurchaseDto
                 {
                     Id = p.Id,

@@ -5,7 +5,7 @@ namespace LibrariaProjekt.Server.Repositories
     {
         List<Purchase> GetAll();
         Purchase GetById(int id);
-        List<Purchase> GetPurchaseByBookId(int bookId);
+        List<Purchase> GetPurchaseByUserId(int userId);
         void Insert(Purchase purchase);
         void Update(Purchase purchase);
         void Delete(Purchase purchase);

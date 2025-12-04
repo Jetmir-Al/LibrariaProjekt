@@ -52,7 +52,7 @@ namespace LibrariaProjekt.Server.Controllers
                 BookId = bookId,
                 BorrowDate = dto.BorrowDate,
                 ReturnDate = dto.ReturnDate,
-                Total = book.Price / 2, //per borrow me ardh qmimi per gjys
+                Total = book.Price / 2, 
                 CardholderName = dto.CardholderName,
                 CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber
             };
@@ -64,10 +64,10 @@ namespace LibrariaProjekt.Server.Controllers
         }
 
 
-        [HttpGet("book/{bookId}")]
-        public IActionResult GetBorrowByBook(int bookId)
+        [HttpGet("user/{userId}")]
+        public IActionResult GetBorrowByUser(int userId)
         {
-            var borrows = _borrowRepository.GetBorrowByBookId(bookId)
+            var borrows = _borrowRepository.GetBorrowByUserId(userId)
                 .Select(b => new BorrowDto
                 {
                     Id = b.Id,

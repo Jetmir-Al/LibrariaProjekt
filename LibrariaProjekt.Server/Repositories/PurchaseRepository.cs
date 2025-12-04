@@ -47,6 +47,16 @@ namespace LibrariaProjekt.Server.Repositories
             _context.Purchases.Remove(purchase);
             Save();
         }
+
+        public List<Purchase> GetPurchaseByUserId(int userId)
+        {
+            return _context.Purchases
+                .Include(p => p.User)
+                .Include(p => p.Book)
+                .Where(p => p.UserId == userId)
+                .ToList();
+        }
+
         public Purchase GetById(int id)
         {
             return _context.Purchases

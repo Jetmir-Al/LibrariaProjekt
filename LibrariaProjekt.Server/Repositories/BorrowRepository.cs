@@ -47,6 +47,14 @@ namespace LibrariaProjekt.Server.Repositories
             _context.Borrows.Remove(borrow);
             Save();
         }
+        public List<Borrow> GetBorrowByUserId(int userId)
+        {
+            return _context.Borrows
+                .Include(p => p.User)
+                .Include(p => p.Book)
+                .Where(p => p.UserId == userId)
+                .ToList();
+        }
 
         public Borrow GetById(int id)
         {
