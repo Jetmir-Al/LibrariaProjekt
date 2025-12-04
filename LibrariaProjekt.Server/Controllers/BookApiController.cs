@@ -43,6 +43,15 @@ namespace LibrariaProjekt.Server.Controllers
 
             return Ok(books);
         }
+        [HttpGet("latest")]
+        public IActionResult GetLatestBooks()
+        {
+            var latestBooks = _bookRepository.GetAll()
+                .OrderByDescending(b => b.Id)
+                .Take(3)
+                .ToList();
 
+            return Ok(latestBooks);
+        }
     }
 }
