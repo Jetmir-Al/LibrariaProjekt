@@ -64,11 +64,11 @@ namespace LibrariaProjekt.Server.Controllers
             return Ok("Borrow created successfully.");
         }
 
-       
-        [HttpGet]
-        public IActionResult GetBorrows()
+
+        [HttpGet("book/{bookId}")]
+        public IActionResult GetBorrowByBook(int bookId)
         {
-            var borrows = _borrowRepository.GetAll()
+            var borrows = _borrowRepository.GetBorrowByBookId(bookId)
                 .Select(b => new BorrowDto
                 {
                     Id = b.Id,

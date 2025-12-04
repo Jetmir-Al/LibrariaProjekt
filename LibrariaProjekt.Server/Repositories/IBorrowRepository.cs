@@ -5,6 +5,7 @@ namespace LibrariaProjekt.Server.Repositories
     {
         List<Borrow> GetAll();
         Borrow GetById(int id);
+        List<Borrow> GetBorrowByBookId(int bookId);
         void Insert(Borrow borrow);
         void Update(Borrow borrow);
         void Delete(Borrow borrow);

@@ -34,5 +34,15 @@ namespace LibrariaProjekt.Server.Controllers
             }
             return Ok(book);
         }
+        [HttpGet("featured")]
+        public IActionResult GetEightBooks()
+        {
+            var books = _bookRepository.GetAll()
+                .Take(8)   
+                .ToList();
+
+            return Ok(books);
+        }
+
     }
 }

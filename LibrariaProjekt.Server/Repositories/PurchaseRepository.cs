@@ -1,5 +1,6 @@
 ﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,15 @@ namespace LibrariaProjekt.Server.Repositories
             List<Purchase> purchases = _context.Purchases.ToList();
             return purchases;
         }
-
+        public List<Purchase> GetPurchaseByBookId(int bookId)
+        {
+            // Include edhe User edhe Book
+            return _context.Purchases
+                .Where(r => r.BookId == bookId)
+                .Include(r => r.User)
+                .Include(r => r.Book)
+                .ToList();
+        }
         public void Save()
         {
             _context.SaveChanges();
@@ -40,9 +49,11 @@ namespace LibrariaProjekt.Server.Repositories
         }
         public Purchase GetById(int id)
         {
-            Purchase? purchase = _context.Purchases.Find(id);
-            Save();
-            return purchase;
+            return _context.Purchases
+                .Include(r => r.User)
+                .Include(r => r.Book)
+                .FirstOrDefault(r => r.Id == id);
         }
+
     }
 }

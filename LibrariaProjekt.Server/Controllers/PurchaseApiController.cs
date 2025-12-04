@@ -9,7 +9,7 @@ namespace LibrariaProjekt.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize] 
+    [Authorize]
     public class PurchaseApiController : ControllerBase
     {
         private readonly IPurchaseRepository _purchaseRepository;
@@ -26,23 +26,20 @@ namespace LibrariaProjekt.Server.Controllers
             _bookRepository = bookRepository;
         }
 
-        
+        // POST: api/purchase/create/{bookId}
         [HttpPost("create/{bookId}")]
         public IActionResult CreatePurchase(int bookId, [FromBody] CreatePurchaseDto dto)
         {
-           
             var userIdClaim = User.FindFirst("Id");
             if (userIdClaim == null)
                 return Unauthorized("User is not logged in");
 
             int userId = int.Parse(userIdClaim.Value);
 
-            
             var book = _bookRepository.GetById(bookId);
             if (book == null)
                 return BadRequest("Book not found");
 
-           
             var purchase = new Purchase
             {
                 UserId = userId,
@@ -50,7 +47,7 @@ namespace LibrariaProjekt.Server.Controllers
                 Quantity = dto.Quantity,
                 Total = dto.Quantity * book.Price,
                 CardholderName = dto.CardholderName,
-                CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber, 
+                CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber,
                 PurchaseDate = DateTime.Now
             };
 
@@ -60,11 +57,11 @@ namespace LibrariaProjekt.Server.Controllers
             return Ok("Purchase created successfully.");
         }
 
-        
-        [HttpGet]
-        public IActionResult GetPurchases()
+        // GET: api/purchase/book/{bookId}
+        [HttpGet("book/{bookId}")]
+        public IActionResult GetPurchaseByBook(int bookId)
         {
-            var purchases = _purchaseRepository.GetAll()
+            var purchases = _purchaseRepository.GetPurchaseByBookId(bookId)
                 .Select(p => new PurchaseDto
                 {
                     Id = p.Id,
@@ -75,12 +72,13 @@ namespace LibrariaProjekt.Server.Controllers
                     PurchaseDate = p.PurchaseDate,
                     CardholderName = p.CardholderName,
                     MaskedCardNumber = "**** **** **** " + p.CardNumber
-                }).ToList();
+                })
+                .ToList();
 
             return Ok(purchases);
         }
 
-       
+        // GET: api/purchase/{id}
         [HttpGet("{id}")]
         public IActionResult GetPurchaseById(int id)
         {
