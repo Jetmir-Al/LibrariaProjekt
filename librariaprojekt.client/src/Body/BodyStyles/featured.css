@@ -15,6 +15,7 @@
 .featured__img {
     width: 150px;
     margin: 0 auto .75rem;
+    object-fit: cover;
 }
 
 .featured__title {
@@ -100,27 +101,36 @@
 
 
 .item {
-    left: max(calc(300px * 5), 100%);
+    left: max(calc(300px * 8), 100%);
     position: absolute;
     animation: scrollLeft infinite 30s linear;
 }
 
 .item1 {
-    animation-delay: calc(30s / 5 * (5 - 1) * -1);
+    animation-delay: calc(30s / 8 * (8 - 1) * -1);
 }
 
 .item2 {
-    animation-delay: calc(30s / 5 * (5 - 2) * -1);
+    animation-delay: calc(30s / 8 * (8 - 2) * -1);
 }
 
 .item3 {
-    animation-delay: calc(30s / 5 * (5 - 3) * -1);
+    animation-delay: calc(30s / 8 * (8 - 3) * -1);
 }
 .item4 {
-    animation-delay: calc(30s / 5 * (5 - 4) * -1);
+    animation-delay: calc(30s / 8 * (8 - 4) * -1);
 }
-.item5{
-        animation-delay: calc(30s / 5 * (5 - 5) * -1);
+.item5 {
+    animation-delay: calc(30s / 8 * (8 - 5) * -1);
+}
+.item6 {
+    animation-delay: calc(30s / 8 * (8 - 6) * -1);
+}
+.item7 {
+    animation-delay: calc(30s / 8 * (8 - 7) * -1);
+}
+.item8 {
+    animation-delay: calc(30s / 8 * (8 - 8) * -1);
 }
 
 

@@ -1,8 +1,26 @@
 
 import './BodyStyles/featured.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Loading from "../Components/Loading";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"
+
 function Featured() {
+
+    const [featured, setFeatured] = useState([]);
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        const fetchFeautred = async () => {
+            const response = await axios.get("https://localhost:7262/api/BookApi/featured");
+            if (response.data.length > 0) {
+                setFeatured(response.data);
+            }
+        };
+        fetchFeautred();
+    }, []);
+
     return (
         <section className="featured section"
             id="featured">
@@ -15,73 +33,30 @@ function Featured() {
                 <div className="featured__swiper swiper">
                     <div className="swiperFeatured">
 
-                        <article className="featured__card swiper-slide item item5">
-                            <img src="src/assets/imgs/book-1.png" alt="image"
-                                className="featured__img" />
+                        {
+                            featured.map((f, index) => (
+                                <article className={`featured__card swiper-slide item item${index}`}
+                                        key={index}>
+                                    <img
+                                        src={`https://localhost:7262${f.image}`}
+                                            alt="image"
+                                            className="featured__img" />
 
 
-                            <h2 className="featured__title">title</h2>
-                            <div className="featured__prices">
-                                <span className="featured__prices">price</span>
-                            </div>
+                                        <h2 className="featured__title">{f.title}</h2>
+                                        <div className="featured__prices">
+                                        <span className="featured__prices">{f.price}$</span>
+                                        </div>
 
-                            <button className="button">Get Now!</button>
+                                    <button className="button"
+                                        onClick={() => navigate(`/bookdetails/${f.id}`)}>Get Now!</button>
 
-                        </article>
+                                    </article>
+                                ))
+                      
+                        }
 
-                        <article className="featured__card swiper-slide item item1">
-                            <img src="src/assets/imgs/book-1.png" alt="image"
-                                className="featured__img" />
-
-
-                            <h2 className="featured__title">title</h2>
-                            <div className="featured__prices">
-                                <span className="featured__prices">price</span>
-                            </div>
-
-                            <button className="button">Get Now!</button>
-
-                        </article>
-
-                        <article className="featured__card swiper-slide item item2">
-                            <img src="src/assets/imgs/book-1.png" alt="image"
-                                className="featured__img" />
-
-
-                            <h2 className="featured__title">title</h2>
-                            <div className="featured__prices">
-                                <span className="featured__prices">price</span>
-                            </div>
-
-                            <button className="button">Get Now!</button>
-
-                        </article>
-                        <article className="featured__card swiper-slide item item3">
-                            <img src="src/assets/imgs/book-1.png" alt="image"
-                                className="featured__img" />
-
-
-                            <h2 className="featured__title">title</h2>
-                            <div className="featured__prices">
-                                <span className="featured__prices">price</span>
-                            </div>
-
-                            <button className="button">Get Now!</button>
-
-                        </article>
-                        <article className="featured__card swiper-slide item item4">
-                            <img src="src/assets/imgs/book-1.png" alt="image"
-                                className="featured__img" />
-
-
-                            <h2 className="featured__title">title</h2>
-                            <div className="featured__prices">
-                                <span className="featured__prices">price</span>
-                            </div>
-
-                            <button className="button">Get Now!</button>
-
-                        </article>
+                        
                     </div>
                
                 </div>

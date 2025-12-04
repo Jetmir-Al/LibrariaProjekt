@@ -3,13 +3,12 @@ using LibrariaProjekt.Server.Models;
 using LibrariaProjekt.Server.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace LibrariaProjekt.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize] 
+    [Authorize]
     public class BorrowApiController : ControllerBase
     {
         private readonly IBorrowRepository _borrowRepository;
@@ -26,36 +25,36 @@ namespace LibrariaProjekt.Server.Controllers
             _bookRepository = bookRepository;
         }
 
-        
+
         [HttpPost("create/{bookId}")]
         public IActionResult CreateBorrow(int bookId, [FromBody] CreateBorrowDto dto)
         {
-            
+
             var userIdClaim = User.FindFirst("Id");
             if (userIdClaim == null)
                 return Unauthorized("User is not logged in");
 
             int userId = int.Parse(userIdClaim.Value);
 
-            
+
             var book = _bookRepository.GetById(bookId);
             if (book == null)
                 return BadRequest("Book not found");
 
-           
+
             if (dto.ReturnDate < dto.BorrowDate)
                 return BadRequest("Return date cannot be before borrow date");
 
-           
+
             var borrow = new Borrow
             {
                 UserId = userId,
                 BookId = bookId,
                 BorrowDate = dto.BorrowDate,
                 ReturnDate = dto.ReturnDate,
-                Total = book.Price,
+                Total = book.Price / 2, //per borrow me ardh qmimi per gjys
                 CardholderName = dto.CardholderName,
-                CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber 
+                CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber
             };
 
             _borrowRepository.Insert(borrow);

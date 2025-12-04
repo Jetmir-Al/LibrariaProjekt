@@ -25,6 +25,14 @@ function BookDetails() {
     const [comment, setComment] = useState(null);
     const [rating, setRating] = useState(null);
 
+    const [cardName, setCardName] = useState(null);
+    const [cardNumber, setCardNum] = useState(null);
+    const [borrowDate, setBorrowDate] = useState(null);
+    const [returnDate, setReturnDate] = useState(null);
+
+    const [bookQuantity, setBookQuantity] = useState(1);
+    
+    
 
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
@@ -39,10 +47,43 @@ function BookDetails() {
             fetchReviews();
         
         } catch (error) {
-            console.error('Error submitting review:', error);
-            setError('Failed to submit review. Please try again later.');
+            //console.error('Error submitting review:', error);
+            setError('Failed to submit review. Please try again later.', error);
         }
     }
+
+    const handleBuySubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post(`https://localhost:7262/api/PurchaseApi/create/${id}`, {
+                Quantity: bookQuantity,
+                CardholderName: cardName,
+                CardNumber: cardNumber
+            }, { withCredentials: true });
+            setToggleBuy(false);
+            //console.log(res.data);
+        } catch (err) {
+            setError('Failed to submit buy form. Please try again', err);
+        }
+
+    }
+
+    const handleBorrowSubmit = async (e) => {
+        e.preventDefault();
+        try {
+             await axios.post(`https://localhost:7262/api/BorrowApi/create/${id}`, {
+                BorrowDate: borrowDate,
+                ReturnDate: returnDate,
+                CardholderName: cardName,
+                CardNumber: cardNumber
+            }, { withCredentials: true });
+            setToggleBorrow(false);
+            //console.log(res.data);
+
+        } catch (error) {
+            setError('Failed to submit borrow. Please try again later.', error);
+        }
+    } 
 
     const fetchReviews = async () => {
         try {
@@ -123,29 +164,34 @@ function BookDetails() {
 
                             <div className="grid" id="buyContent"
                                 style={{ display: toggleBuy ? "flex" : "none" }}>
-                                <form className="login__form grid">
+                                    <form className="login__form grid"
+                                        onSubmit={handleBuySubmit}>
                                     <h3 className="login__title">Buy</h3>
 
                                     <div className="login__group grid">
+                                        
                                         <div>
-                                            <input type="hidden" name="libriID"/>
-                                            <input type="hidden" name="userID"/>
-                                            <input type="hidden" name="price"/>
-
-                                        </div>
-                                        <div>
-                                            <label htmlFor="login-email" className="login__label">Name:</label>
-                                            <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required />
+                                            <label className="login__label">Name:</label>
+                                                <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required
+                                                    onChange={(e) => setCardName(e.target.value)} />
                                         </div>
 
                                         <div>
-                                            <label htmlFor="login-pass" className="login__label">Card number:</label>
-                                            <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required />
+                                            <label className="login__label">Card number:</label>
+                                                <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required
+                                                    onChange={(e) => setCardNum(e.target.value)} />
                                         </div>
 
                                         <div>
-                                            <label htmlFor="login-pass" className="login__label">Password:</label>
-                                            <input type="password" placeholder="Enter your card password!" className="login__input" name="cardPsw" required />
+                                            <label className="login__label">Password:</label>
+                                                <input type="password" placeholder="Enter your card password!" className="login__input" name="cardPsw" required
+                                                     />
+                                        </div>
+                                            <div>
+                                                <label className="login__label">Quantity:</label>
+                                                <input type="number" min="1" max={bookDetails.quantity} className="login__input" required
+                                                    placeholder="Enter number of copies to buy!"
+                                                    onChange={(e) => setBookQuantity(e.target.value)} />
                                         </div>
                                     </div>
 
@@ -160,24 +206,23 @@ function BookDetails() {
 
                             <div className="grid" id="borrowContent"
                                 style={{ display: toggleBorrow ? "flex" : "none" }}>
-                                <form className="login__form grid" >
+                                    <form className="login__form grid"
+                                        onSubmit={handleBorrowSubmit}>   
+                                        
                                     <h3 className="login__title">Borrow</h3>
 
                                     <div className="login__group grid">
-                                        <div>
-                                            <input type="hidden" name="libriID"  />
-                                            <input type="hidden" name="userID" />
-                                            <input type="hidden" name="price"  />
-
-                                        </div>
+   
                                         <div>
                                             <label htmlFor="login-email" className="login__label">Name:</label>
-                                            <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required />
+                                                <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required
+                                                    onChange={(e) => setCardName(e.target.value)} />
                                         </div>
 
                                         <div>
                                             <label htmlFor="login-pass" className="login__label">Card number:</label>
-                                            <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required />
+                                                <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required
+                                                    onChange={(e) => setCardNum(e.target.value)} />
                                         </div>
                                         <div>
                                             <label htmlFor="login-pass" className="login__label">Password:</label>
@@ -185,12 +230,14 @@ function BookDetails() {
                                         </div>
                                         <div>
                                             <label className="login__label">Data e huazimit:</label>
-                                            <input type="date" className="login__input" name="data_huazimit" required />
+                                                <input type="date" className="login__input" name="data_huazimit" required
+                                                    onChange={(e) => setBorrowDate(e.target.value)} />
                                         </div>
 
                                         <div>
                                             <label className="login__label">Data e kthimit:</label>
-                                            <input type="date" className="login__input" name="data_kthimit" required />
+                                                <input type="date" className="login__input" name="data_kthimit" required
+                                                    onChange={(e) => setReturnDate(e.target.value)} />
                                         </div>
                                     </div>
 
@@ -210,7 +257,7 @@ function BookDetails() {
                                 <div className="bookReviews">
 
                                 {
-                                    reviews === null || reviews.length === 0 ? 
+                                    reviews === null  ? 
                                         <NoInfo /> :
                                         reviews.map((rev, index) => (
                                             <Reviews key={index}
