@@ -79,6 +79,12 @@ function UserPage() {
                     <h2>
                         Email: {user.email}
                     </h2>
+                    <cite>
+                        Number of books purchesed: {purchase.length}
+                    </cite>
+                    <cite>
+                        Number of books borrowed: {borrow.length}
+                    </cite>
 
                     <button className="logout-button" onClick={handleLogout}>
                         Logout!

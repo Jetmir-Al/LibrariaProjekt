@@ -12,7 +12,9 @@
                 </div>
                 <div class="card-body">
                     <form asp-action="Edit" method="post">
-                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="UserId" />
+                        <input type="hidden" asp-for="BookId" />
+
                         <div class="form-group mb-3">
                             <label asp-for="BorrowDate" class="form-label"></label>
                             <input asp-for="BorrowDate" type="date" class="form-control" />

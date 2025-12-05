@@ -14,14 +14,19 @@ function BorrowForm() {
     const [cardNumber, setCardNum] = useState(null);
 
     const { toggleBorrow, setToggleBorrow } = useContext(ToggleBorrow);
-    const today = new Date().toISOString().split("T")[0];
+
+    const formatDateTime = (date) =>
+        date.toISOString().slice(0, 16);
+
+    const today = new Date();
+    const todayDT = formatDateTime(today);
 
     const maxRange = new Date();
     maxRange.setDate(maxRange.getDate() + 14);
-    const maxDate = maxRange.toISOString().split("T")[0];
+    const maxDateDT = formatDateTime(maxRange);
 
-    const [borrowDate, setBorrowDate] = useState(today);
-    const [returnDate, setReturnDate] = useState(today);
+    const [borrowDate, setBorrowDate] = useState(todayDT);
+    const [returnDate, setReturnDate] = useState(todayDT);
 
     //Caktimi i dates per borrow
     useEffect(() => {
@@ -30,10 +35,9 @@ function BorrowForm() {
 
         const maxReturn = new Date(b);
         maxReturn.setDate(maxReturn.getDate() + 14);
-        const maxReturnStr = maxReturn.toISOString().split("T")[0];
 
         if (new Date(returnDate) < b) {
-            setReturnDate(borrowDate);
+            setReturnDate(formatDateTime(b));
         }
 
     }, [borrowDate]);
@@ -42,7 +46,7 @@ function BorrowForm() {
         const r = new Date(returnDate);
 
         if (new Date(borrowDate) > r) {
-            setBorrowDate(returnDate);
+            setBorrowDate(formatDateTime(r));
         }
 
     }, [returnDate]);
@@ -91,12 +95,12 @@ function BorrowForm() {
                     <div>
                         <label className="login__label">Data e huazimit:</label>
                         <input
-                            type="date"
+                            type="datetime-local"
                             className="login__input"
                             required
                             value={borrowDate}
-                            min={today}
-                            max={maxDate}
+                            min={todayDT}
+                            max={maxDateDT}
                             onChange={(e) => setBorrowDate(e.target.value)}
                         />
                     </div>
@@ -104,7 +108,7 @@ function BorrowForm() {
                     <div>
                         <label className="login__label">Data e kthimit:</label>
                         <input
-                            type="date"
+                            type="datetime-local"
                             className="login__input"
                             required
                             value={returnDate}

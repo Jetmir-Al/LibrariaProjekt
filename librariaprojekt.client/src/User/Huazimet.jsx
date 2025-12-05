@@ -2,6 +2,7 @@
 
 function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate }) {
 
+
     return (
         <div className='new__card swiper-slide boughtBooks'>
             <img src={`https://localhost:7262${img}`} alt='image' className='new__img'/>
@@ -23,11 +24,12 @@ function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate
                     </h4>
                     <h4>
                         Borrow Date:
-                        <span> {borrowDate} </span>
+
+                        <span> {new Date(borrowDate).toDateString()} </span>
                     </h4>
                     <h4>
                         Return Date:
-                        <span> {returnDate}</span>
+                        <span> {new Date(returnDate).toDateString()}</span>
                     </h4>
 
                 </div>

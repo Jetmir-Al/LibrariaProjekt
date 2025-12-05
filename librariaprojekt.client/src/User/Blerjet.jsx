@@ -1,6 +1,9 @@
 
 
 function Blerjet({img, title, cardName, cardNum, total, date}) {
+
+
+    
     return (
         <div className='new__card swiper-slide boughtBooks'>
             <img src={`https://localhost:7262${img}`} alt='image' className='new__img' />
@@ -22,7 +25,7 @@ function Blerjet({img, title, cardName, cardNum, total, date}) {
                     </h4>
                     <h4>
                         Bought Date:
-                        <span> {date}</span>
+                        <span> {new Date(date).toDateString()}</span>
                     </h4>
 
                 </div>
