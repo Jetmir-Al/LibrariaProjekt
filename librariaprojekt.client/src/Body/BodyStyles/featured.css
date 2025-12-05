@@ -7,7 +7,8 @@
     overflow: hidden;
     border: 2px solid var(--border-color);
     transition: border .4s, background-color .4s;
-    min-height: 400px;
+    min-height: 500px;
+    max-height: 500px;
     display: flex;
     flex-direction: column;
 }
@@ -47,19 +48,15 @@
 
 .featured__prices {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: baseline;
-    column-gap: .75rem;
+    align-items: center;
+    gap: .75rem;
     margin-bottom: 1.25rem;
-    margin-top: auto;
 }
 
 
 
-.featured__price {
-    font-size: var(--small-font-size);
-    text-decoration: line-through;
-}
 
 .featured__card .button {
     cursor: pointer;

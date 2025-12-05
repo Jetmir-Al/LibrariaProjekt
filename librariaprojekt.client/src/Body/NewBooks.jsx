@@ -1,13 +1,14 @@
 import './BodyStyles/new.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from '../Components/Loading';
 function NewBooks() {
 
     const [newBooks, setNewBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,6 +20,7 @@ function NewBooks() {
                 if (res.data.length > 0) {
                     setNewBooks(res.data);
                 }
+                setLoading(false);
             } catch (err) {
                 console.error("Diqka shkoj keq, ", err);
             }
@@ -38,6 +40,7 @@ function NewBooks() {
                 <div className="new__swiper swiper">
                     <div className="swiperNew">
                         {
+                            loading ? <Loading/> : 
                             newBooks.map((book, index) => (
 
                                 <div className="new__card swiper-slide" key={index}

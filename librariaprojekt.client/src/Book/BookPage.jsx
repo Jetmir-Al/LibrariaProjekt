@@ -166,7 +166,7 @@ const BookPage = () => {
                 {
                     isLoading ? <Loading /> : 
                         error ? <Error
-                            title="Failed to load book details"
+                            title="Failed to load the books"
                             details={error}
                         /> :
                     books.length > 0 ? books.map((res, index) => (

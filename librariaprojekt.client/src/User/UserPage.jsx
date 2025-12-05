@@ -121,7 +121,7 @@ function UserPage() {
                                     cardNum={b.maskedCardNumber}
                                     returnDate={b.returnDate}
                                     total={b.total}
-                                    img={b.img}
+                                    img={b.image}
                                 />
                             ))
                             :

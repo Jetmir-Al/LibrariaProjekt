@@ -9,6 +9,7 @@ function Featured() {
 
     const [featured, setFeatured] = useState([]);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
@@ -19,6 +20,7 @@ function Featured() {
                 if (response.data.length > 0) {
                     setFeatured(response.data);
                 }
+                setLoading(false);
             } catch (err) {
                 console.error("Diqka shkoj keq, ", err);
             }
@@ -40,6 +42,7 @@ function Featured() {
                     <div className="swiperFeatured">
 
                         {
+                            loading ? <Loading/> :
                             featured.map((f, index) => (
                                 <article className={`featured__card swiper-slide item item${index}`}
                                         key={index}>
@@ -51,7 +54,8 @@ function Featured() {
 
                                         <h2 className="featured__title">{f.title}</h2>
                                         <div className="featured__prices">
-                                        <span className="featured__prices">{f.price}$</span>
+                                        <span className="featured__price">{f.category}</span>
+                                        <span className="featured__price">{f.price}$</span>
                                         </div>
 
                                     <button className="button"

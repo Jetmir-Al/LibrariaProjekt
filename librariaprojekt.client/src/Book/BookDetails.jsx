@@ -1,6 +1,6 @@
 ﻿import './bookDetails.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
 
@@ -8,32 +8,30 @@ import Loading from '../Components/Loading.jsx';
 import NoInfo from '../Components/NoInfo.jsx';
 import Error from '../Components/Error.jsx';
 import axios from 'axios';
-import Reviews from './Reviews/Reviews.jsx';
+import Reviews from './BookComponents/Reviews.jsx';
+import BuyForm from './BookComponents/BuyForm.jsx';
+import BorrowForm from './BookComponents/BorrowForm.jsx';
 import { AuthContext } from '../Context/AuthContext.jsx';
+import { ToggleBuy, ToggleBorrow } from '../Context/toggleContext';
 
 function BookDetails() {
 
     const { isLoggedIn, user } = useContext(AuthContext);
     const [addReview, setAddReview] = useState(false);
+
     const [toggleBuy, setToggleBuy] = useState(false);
     const [toggleBorrow, setToggleBorrow] = useState(false);
+
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [bookDetails, setBookDetails] = useState(null);
+    const [bookDetailsQuantity, setBookDetailsQuantity] = useState(1);
     const [reviews, setReviews] = useState(null);
     const { id } = useParams();
     const [comment, setComment] = useState(null);
     const [rating, setRating] = useState(null);
 
-    const [cardName, setCardName] = useState(null);
-    const [cardNumber, setCardNum] = useState(null);
-    const [borrowDate, setBorrowDate] = useState(null);
-    const [returnDate, setReturnDate] = useState(null);
-
-    const [bookQuantity, setBookQuantity] = useState(1);
-    
-    
-
+   
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -52,38 +50,8 @@ function BookDetails() {
         }
     }
 
-    const handleBuySubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post(`https://localhost:7262/api/PurchaseApi/create/${id}`, {
-                Quantity: bookQuantity,
-                CardholderName: cardName,
-                CardNumber: cardNumber
-            }, { withCredentials: true });
-            setToggleBuy(false);
-            //console.log(res.data);
-        } catch (err) {
-            setError('Failed to submit buy form. Please try again', err);
-        }
+    
 
-    }
-
-    const handleBorrowSubmit = async (e) => {
-        e.preventDefault();
-        try {
-             await axios.post(`https://localhost:7262/api/BorrowApi/create/${id}`, {
-                BorrowDate: borrowDate,
-                ReturnDate: returnDate,
-                CardholderName: cardName,
-                CardNumber: cardNumber
-            }, { withCredentials: true });
-            setToggleBorrow(false);
-            //console.log(res.data);
-
-        } catch (error) {
-            setError('Failed to submit borrow. Please try again later.', error);
-        }
-    } 
 
     const fetchReviews = async () => {
         try {
@@ -105,6 +73,7 @@ function BookDetails() {
             const response = await axios.get(`https://localhost:7262/api/BookApi/books/${id}`);
             setBookDetails(response.data);
             setIsLoading(false);
+            setBookDetailsQuantity(response.data.quantity);
         } catch (error) {
             setError(error.message);
         }
@@ -161,96 +130,14 @@ function BookDetails() {
                                         </div>
                                     
                                 }
-                            </div>
-
-                            <div className="grid" id="buyContent"
-                                style={{ display: toggleBuy ? "flex" : "none" }}>
-                                    <form className="login__form grid"
-                                        onSubmit={handleBuySubmit}>
-                                    <h3 className="login__title">Buy</h3>
-
-                                    <div className="login__group grid">
-                                        
-                                        <div>
-                                            <label className="login__label">Name:</label>
-                                                <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required
-                                                    onChange={(e) => setCardName(e.target.value)} />
-                                        </div>
-
-                                        <div>
-                                            <label className="login__label">Card number:</label>
-                                                <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required
-                                                    onChange={(e) => setCardNum(e.target.value)} />
-                                        </div>
-
-                                        <div>
-                                            <label className="login__label">Password:</label>
-                                                <input type="password" placeholder="Enter your card password!" className="login__input" name="cardPsw" required
-                                                     />
-                                        </div>
-                                            <div>
-                                                <label className="login__label">Quantity:</label>
-                                                <input type="number" min="1" max={bookDetails.quantity} className="login__input" required
-                                                    placeholder="Enter number of copies to buy!"
-                                                    onChange={(e) => setBookQuantity(e.target.value)} />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <button type="submit" className="login__button button">Buy</button>
-                                    </div>
-                                </form>
-                                <FontAwesomeIcon icon={faXmark} className="login__close"
-                                    onClick={() => setToggleBuy(b => !b)}
-                                />
-                            </div>
-
-                            <div className="grid" id="borrowContent"
-                                style={{ display: toggleBorrow ? "flex" : "none" }}>
-                                    <form className="login__form grid"
-                                        onSubmit={handleBorrowSubmit}>   
-                                        
-                                    <h3 className="login__title">Borrow</h3>
-
-                                    <div className="login__group grid">
-   
-                                        <div>
-                                            <label htmlFor="login-email" className="login__label">Name:</label>
-                                                <input type="text" placeholder="Write the card holder's name!" className="login__input" name="cardName" required
-                                                    onChange={(e) => setCardName(e.target.value)} />
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="login-pass" className="login__label">Card number:</label>
-                                                <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required
-                                                    onChange={(e) => setCardNum(e.target.value)} />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="login-pass" className="login__label">Password:</label>
-                                            <input type="password" placeholder="Enter your card password!" className="login__input" name="cardPsw" required />
-                                        </div>
-                                        <div>
-                                            <label className="login__label">Data e huazimit:</label>
-                                                <input type="date" className="login__input" name="data_huazimit" required
-                                                    onChange={(e) => setBorrowDate(e.target.value)} />
-                                        </div>
-
-                                        <div>
-                                            <label className="login__label">Data e kthimit:</label>
-                                                <input type="date" className="login__input" name="data_kthimit" required
-                                                    onChange={(e) => setReturnDate(e.target.value)} />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <button type="submit" className="login__button button">Borrow</button>
-                                    </div>
-                                </form>
-                                <FontAwesomeIcon icon={faXmark} className="login__close"
-                                    onClick={() => setToggleBorrow(b => !b)}
-                                />
-                            </div>
-                        </div>
+                                </div>
+                                <ToggleBuy.Provider value={{ toggleBuy, setToggleBuy, bookDetailsQuantity }}>
+                                    <BuyForm />
+                                </ToggleBuy.Provider>
+                                <ToggleBorrow.Provider value={{ toggleBorrow, setToggleBorrow }}>
+                                    <BorrowForm/>
+                                </ToggleBorrow.Provider>
+                            </div >
 
 
                         <div className="bookReviews-container">
