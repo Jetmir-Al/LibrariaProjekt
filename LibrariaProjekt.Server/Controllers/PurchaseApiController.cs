@@ -70,7 +70,8 @@ namespace LibrariaProjekt.Server.Controllers
                     Total = p.Total,
                     PurchaseDate = p.PurchaseDate,
                     CardholderName = p.CardholderName,
-                    MaskedCardNumber = "**** **** **** " + p.CardNumber
+                    MaskedCardNumber = "**** **** **** " + p.CardNumber,
+                    Image = p.Book.Image
                 })
                 .ToList();
 

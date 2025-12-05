@@ -12,5 +12,6 @@ namespace LibrariaProjekt.Server.DTO
         public decimal Total { get; set; }
         public string CardholderName { get; set; }
         public string MaskedCardNumber { get; set; }
+        public string? Image { get; set; }
     }
 }

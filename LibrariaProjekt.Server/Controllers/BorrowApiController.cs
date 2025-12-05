@@ -77,7 +77,8 @@ namespace LibrariaProjekt.Server.Controllers
                     ReturnDate = b.ReturnDate ?? b.BorrowDate,
                     Total = b.Total,
                     CardholderName = b.CardholderName,
-                    MaskedCardNumber = "**** **** **** " + b.CardNumber
+                    MaskedCardNumber = "**** **** **** " + b.CardNumber,
+                    Image = b.Book.Image
                 })
                 .ToList();
 
