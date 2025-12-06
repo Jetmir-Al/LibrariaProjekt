@@ -105,6 +105,17 @@ namespace LibrariaProjekt.Server.Controllers
                 totalPages = (int)Math.Ceiling(totalBooks / (double)pageSize)
             });
         }
+        [HttpPost("buy")]
+        public IActionResult BuyBook(int id, int quantity)
+        {
+            var result = _bookRepository.ReduceQuantity(id, quantity);
+
+            if (!result)
+                return BadRequest("Nuk ka mjaftueshëm sasi!");
+
+            return Ok("Blerja u krye me sukses!");
+        }
+
     }
 }
     

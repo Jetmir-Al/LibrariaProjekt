@@ -17,16 +17,27 @@ namespace LibrariaProjekt.Server.Repositories
 
         public List<Borrow> GetAll()
         {
-            List<Borrow> Borrows = _context.Borrows.ToList();
-            return Borrows;
+            var borrows = _context.Borrows
+                .Include(b => b.User)
+                .Include(b => b.Book)
+                .ToList();
+
+            
+            borrows.ForEach(b => CalculateLateFee(b));
+
+            return borrows;
         }
+
         public List<Borrow> GetBorrowByBookId(int bookId)
         {
-            return _context.Borrows
+            var borrows = _context.Borrows
                 .Where(r => r.BookId == bookId)
                 .Include(r => r.User)
                 .Include(r => r.Book)
                 .ToList();
+
+            borrows.ForEach(b => CalculateLateFee(b));
+            return borrows;
         }
         public void Save()
         {
@@ -34,11 +45,13 @@ namespace LibrariaProjekt.Server.Repositories
         }
         public void Insert(Borrow borrow)
         {
+            CalculateLateFee(borrow);
             _context.Borrows.Add(borrow);
             Save();
         }
         public void Update(Borrow borrow)
         {
+            CalculateLateFee(borrow);
             _context.Borrows.Update(borrow);
             Save();
         }
@@ -49,19 +62,40 @@ namespace LibrariaProjekt.Server.Repositories
         }
         public List<Borrow> GetBorrowByUserId(int userId)
         {
-            return _context.Borrows
+            var borrows = _context.Borrows
                 .Include(p => p.User)
                 .Include(p => p.Book)
                 .Where(p => p.UserId == userId)
                 .ToList();
+
+            borrows.ForEach(b => CalculateLateFee(b));
+            return borrows;
         }
 
         public Borrow GetById(int id)
         {
-            return _context.Borrows
+            var borrow = _context.Borrows
                 .Include(r => r.User)
                 .Include(r => r.Book)
                 .FirstOrDefault(r => r.Id == id);
+
+            if (borrow != null)
+                CalculateLateFee(borrow);
+
+            return borrow;
+        }
+
+        public void CalculateLateFee(Borrow borrow)
+        {
+            if (borrow.ReturnDate.HasValue)
+            {
+                var overdueDays = (DateTime.Now.Date - borrow.ReturnDate.Value.Date).Days;
+                borrow.LateFee = overdueDays > 0 ? overdueDays * 1.5m : 0m; 
+            }
+            else
+            {
+                borrow.LateFee = 0m;
+            }
         }
     }
 }

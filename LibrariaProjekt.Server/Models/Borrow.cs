@@ -27,5 +27,8 @@ namespace LibrariaProjekt.Server.Models
 
         [Required(ErrorMessage = "Please enter the card number")]
         public string CardNumber { get; set; }
+        public bool Returned { get; set; } = false;
+        public decimal LateFee { get; set; } = 0;
+
     }
 }

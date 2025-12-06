@@ -9,7 +9,7 @@ namespace LibrariaProjekt.Server.DTO
         public DateTime BorrowDate { get; set; }
 
         [Required]
-        public DateTime ReturnDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
 
         [Required]
         public string CardholderName { get; set; }

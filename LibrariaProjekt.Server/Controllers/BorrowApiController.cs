@@ -29,30 +29,36 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpPost("create/{bookId}")]
         public IActionResult CreateBorrow(int bookId, [FromBody] CreateBorrowDto dto)
         {
-
             var userIdClaim = User.FindFirst("Id");
             if (userIdClaim == null)
                 return Unauthorized("User is not logged in");
 
             int userId = int.Parse(userIdClaim.Value);
 
-
             var book = _bookRepository.GetById(bookId);
             if (book == null)
                 return BadRequest("Book not found");
 
+            DateTime borrowDate = dto.BorrowDate;
+            DateTime maxReturnDate = borrowDate.AddDays(14); 
+            DateTime actualReturnDate = dto.ReturnDate ?? maxReturnDate;
 
-            if (dto.ReturnDate < dto.BorrowDate)
+            if (actualReturnDate > maxReturnDate)
+                actualReturnDate = maxReturnDate;
+
+            if (actualReturnDate < borrowDate)
                 return BadRequest("Return date cannot be before borrow date");
 
+            decimal totalPrice = book.Price / 2;
 
             var borrow = new Borrow
             {
                 UserId = userId,
                 BookId = bookId,
-                BorrowDate = dto.BorrowDate,
-                ReturnDate = dto.ReturnDate,
-                Total = book.Price / 2, 
+                BorrowDate = borrowDate,
+                ReturnDate = actualReturnDate,
+                Total = totalPrice,
+                Returned = false, 
                 CardholderName = dto.CardholderName,
                 CardNumber = dto.CardNumber.Length >= 4 ? dto.CardNumber[^4..] : dto.CardNumber
             };
@@ -63,22 +69,26 @@ namespace LibrariaProjekt.Server.Controllers
             return Ok("Borrow created successfully.");
         }
 
-
         [HttpGet("user/{userId}")]
         public IActionResult GetBorrowByUser(int userId)
         {
             var borrows = _borrowRepository.GetBorrowByUserId(userId)
-                .Select(b => new BorrowDto
+                .Select(b =>
                 {
-                    Id = b.Id,
-                    UserName = b.User.Name,
-                    BookTitle = b.Book.Title,
-                    BorrowDate = b.BorrowDate,
-                    ReturnDate = b.ReturnDate ?? b.BorrowDate,
-                    Total = b.Total,
-                    CardholderName = b.CardholderName,
-                    MaskedCardNumber = "**** **** **** " + b.CardNumber,
-                    Image = b.Book.Image
+                    _borrowRepository.CalculateLateFee(b); 
+                    return new BorrowDto
+                    {
+                        Id = b.Id,
+                        UserName = b.User.Name,
+                        BookTitle = b.Book.Title,
+                        BorrowDate = b.BorrowDate,
+                        ReturnDate = b.ReturnDate ?? b.BorrowDate,
+                        Total = b.Total,
+                        CardholderName = b.CardholderName,
+                        MaskedCardNumber = "**** **** **** " + b.CardNumber,
+                        LateFee = b.LateFee,
+                        Image = b.Book.Image
+                    };
                 })
                 .ToList();
 
@@ -92,6 +102,8 @@ namespace LibrariaProjekt.Server.Controllers
             if (borrow == null)
                 return NotFound();
 
+            _borrowRepository.CalculateLateFee(borrow); 
+
             var dto = new BorrowDto
             {
                 Id = borrow.Id,
@@ -101,7 +113,8 @@ namespace LibrariaProjekt.Server.Controllers
                 ReturnDate = borrow.ReturnDate ?? borrow.BorrowDate,
                 Total = borrow.Total,
                 CardholderName = borrow.CardholderName,
-                MaskedCardNumber = "**** **** **** " + borrow.CardNumber
+                MaskedCardNumber = "**** **** **** " + borrow.CardNumber,
+                LateFee = borrow.LateFee
             };
 
             return Ok(dto);

@@ -47,5 +47,21 @@ namespace LibrariaProjekt.Server.Repositories
             Save();
             return book;
         }
+        public bool ReduceQuantity(int bookId, int quantity)
+        {
+            var book = _context.Books.Find(bookId);
+
+            if (book == null)
+                return false;
+
+            if (book.Quantity < quantity)
+                return false; // nuk ka mjaftueshëm sasi
+
+            book.Quantity -= quantity;
+
+            _context.SaveChanges();
+            return true;
+        }
+
     }
 }

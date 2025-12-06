@@ -10,5 +10,6 @@ namespace LibrariaProjekt.Server.Repositories
         void Update(Book book);
         void Delete(Book book);
         void Save();
+        bool ReduceQuantity(int bookId, int quantity);
     }
 }

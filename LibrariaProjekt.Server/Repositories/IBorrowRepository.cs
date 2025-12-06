@@ -3,6 +3,7 @@ namespace LibrariaProjekt.Server.Repositories
 {
     public interface IBorrowRepository
     {
+        void CalculateLateFee(Borrow borrow);
         List<Borrow> GetAll();
         Borrow GetById(int id);
         List<Borrow> GetBorrowByUserId(int userId);

@@ -49,6 +49,7 @@ namespace LibrariaProjekt.Server.Data
             modelBuilder.Entity<Borrow>(entity =>
             {
                 entity.Property(e => e.Total).HasPrecision(18, 2);
+                entity.Property(e => e.LateFee).HasPrecision(18, 2);
             });
 
             modelBuilder.Entity<Purchase>(entity =>
