@@ -86,6 +86,11 @@
     border: 2px solid var(--border-color);
     background-color: var(--white-color);
 }
+.active {
+    border: 2px solid var(--border-color);
+    background-color: var(--first-color);
+    color: var(--white-color);
+}
 
 .new__img {
     height: 200px;

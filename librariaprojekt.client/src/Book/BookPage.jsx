@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Loading from "../Components/Loading";
 import NoInfo from "../Components/NoInfo";
 import Error from "../Components/Error";
@@ -13,23 +14,70 @@ const BookPage = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [toggleSortFilter, setToggleSortFilter] = useState(false);
+
+    const [sortValue, setSortValue] = useState("");
+    const [searchInput, setSearchInput] = useState("");
+    const [selectedCategories, setSelectedCategories] = useState([]);
+
     const [books, setBooks] = useState([]);
+    const [totalPages, setTotalPages] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const [params, setParams] = useSearchParams();
+    const page = params.get("page") || 1;
+    const pageSize = params.get("pageSize") || 20;
+    const search = params.get("search") || null;
+    //const categories = params.getAll("categories");
+    const sort = params.get("sort") || null;
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        setParams(s => ({
+            ...s,
+            search: searchInput,
+            page: 1,
+            sort: sortValue
+        }))
+    }
+
+    const handleSortFilter = (e) => {
+        e.preventDefault();
+        console.log(searchInput, selectedCategories, sortValue);
+        setParams(s => ({
+            ...s,
+            search: searchInput,
+            page: 1,
+            categories: selectedCategories,
+            sort: sortValue
+        }));
+        setToggleSortFilter(false);
+    }
 
     useEffect(() => {
 
         const fetchBooks = async () => {
 
             try {
-                const res = await axios.get("https://localhost:7262/api/BookApi/books");
-                setBooks(res.data);
+                const res = await axios.get("https://localhost:7262/api/BookApi/advanced", {
+                    params: {
+                        page,
+                        pageSize,
+                        ...(search && { search }),
+                        ...(sort && { sort })
+                    }
+                });
+                setBooks(res.data.data);
+                setCurrentPage(res.data.page);
+                setTotalPages(res.data.totalPages);
                 setIsLoading(false);
+                console.log("render")
             } catch (err) {
                 setError(err.message);
             }
         }
         fetchBooks();
 
-    }, []);
+    }, [page, search, sort]);
 
 
     return (
@@ -37,13 +85,14 @@ const BookPage = () => {
         <main className="main">
 
             <div className="bookSearch-container">
-                <form className="bookSearch-form">
+                <form className="bookSearch-form" onSubmit={handleSearch}>
                     <FontAwesomeIcon
                         className="search__icon"
                         icon={faMagnifyingGlass} />
                     <input type="text" placeholder="What are you looking?"
                         className="search-input" name="search"
-                        value="" />
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        />
                 </form>
 
                 <div className="sortFilter-Container">
@@ -56,24 +105,31 @@ const BookPage = () => {
                         id="sortFilter-field"
                         style={{ display: toggleSortFilter ? 'flex' : 'none' }}
                     >
-                        <form className="sortForm">
+                        <form
+                            className="sortForm"
+                            onSubmit={handleSortFilter}
+                        >
                             <h4>Sort by: </h4>
                             <div className="sortForm-inputs">
                                 <label htmlFor="name">Name
                                     <input type="radio" name="sort" id="name"
-                                        value="name" />
+                                        value="name"
+                                        onChange={(e) => setSortValue(e.target.value)} />
                                 </label>
                                 <label htmlFor="price">Price
                                     <input type="radio" name="sort" id="price"
-                                        value="price" />
+                                        value="price"
+                                    onChange={(e) => setSortValue(e.target.value)}                                    />
                                 </label>
                                 <label htmlFor="new">New
                                     <input type="radio" name="sort" id="new"
-                                        value="new" />
+                                        value="new"
+                                    onChange={(e) => setSortValue(e.target.value)}                                    />
                                 </label>
                                 <label htmlFor="old">Old
                                     <input type="radio" name="sort" id="old"
-                                        value="old" />
+                                        value="old"
+                                    onChange={(e) => setSortValue(e.target.value)}                                    />
                                 </label>
                             </div>
 
@@ -81,70 +137,190 @@ const BookPage = () => {
                             <div className="filterForm">
 
                                 <label><input type="checkbox" name="letersi" id="letersi"
-                                    value="letersi" /> Letersi</label>
+                                    value="letersi"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                /> Letersi</label>
                                 <label><input type="checkbox" name="biografi" id="biografi"
-                                    value="biografi" /> Biografi</label>
+                                    value="biografi"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                /> Biografi</label>
                                 <label><input type="checkbox" name="histori" id="histori"
-                                    value="histori" /> Histori</label>
+                                    value="histori"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                /> Histori</label>
                                 <label><input type="checkbox" name="politik" id="politik"
-                                    value="plotik" /> Politik</label>
+                                    value="plotik"
+                                onChange={(e) => setSelectedCategories(
+                                    selected => selected.includes(e.target.value) ?
+                                        selected.filter(s => s !== e.target.value) :
+                                        [...selected, e.target.value]
+                                )}
+                                /> Politik</label>
                                 <label><input type="checkbox" name="ese" id="ese"
-                                    value="ese" /> Ese</label>
+                                    value="ese"
+                                onChange={(e) => setSelectedCategories(
+                                    selected => selected.includes(e.target.value) ?
+                                        selected.filter(s => s !== e.target.value) :
+                                        [...selected, e.target.value]
+                                )}
+                                /> Ese</label>
                                 <label><input type="checkbox" name="filozofi" id="filozofi"
-                                    value="filozofi" /> Filozofi</label>
+                                    value="filozofi"
+                                onChange={(e) => setSelectedCategories(
+                                    selected => selected.includes(e.target.value) ?
+                                        selected.filter(s => s !== e.target.value) :
+                                        [...selected, e.target.value]
+                                )}
+                                /> Filozofi</label>
                                 <label><input type="checkbox" name="tregimeTeShkurta" id="tregimeTeShkurta"
-                                    value="tregimeTeShkurta" /> Tregime te shkurta</label>
+                                    value="tregimeTeShkurta"
+                                onChange={(e) => setSelectedCategories(
+                                    selected => selected.includes(e.target.value) ?
+                                        selected.filter(s => s !== e.target.value) :
+                                        [...selected, e.target.value]
+                                )}
+                                /> Tregime te shkurta</label>
                                 <label>
                                     <input type="checkbox" name="roman" id="roman"
-                                        value="roman" /> Roman
+                                        value="roman"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Roman
                                 </label>
                                 <label>
                                     <input type="checkbox" name="romance" id="romance"
-                                        value="romance" /> Romance
+                                        value="romance"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Romance
                                 </label>
                                 <label>
                                     <input type="checkbox" name="ekonomi" id="ekonomi"
-                                        value="ekonomi" /> Ekonomi
+                                        value="ekonomi"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Ekonomi
                                 </label>
                                 <label>
                                     <input type="checkbox" name="triller" id="triller"
-                                        value="triller" /> Triller
+                                        value="triller"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Triller
                                 </label>
                                 <label>
                                     <input type="checkbox" name="biznes" id="biznes"
-                                        value="biznes" /> Biznes
+                                        value="biznes"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Biznes
                                 </label>
                                 <label>
                                     <input type="checkbox" name="psikologji" id="psikologji"
-                                        value="psikologji" /> Psikologji
+                                        value="psikologji"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Psikologji
                                 </label>
                                 <label>
                                     <input type="checkbox" name="motivim" id="motivim"
-                                        value="motivim" /> Motivim
+                                        value="motivim"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Motivim
                                 </label>
                                 <label>
                                     <input type="checkbox" name="zhvillimPersonal" id="zhvillimPersonal"
-                                        value="zhvillimPersonal" /> Zhvillim personal
+                                        value="zhvillimPersonal"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Zhvillim personal
                                 </label>
                                 <label>
                                     <input type="checkbox" name="sociologji" id="sociologji"
-                                        value="sociologji" /> Sociologji
+                                        value="sociologji"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Sociologji
                                 </label>
                                 <label>
                                     <input type="checkbox" name="poezi" id="poezi"
-                                        value="poezi" /> Poezi
+                                        value="poezi"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Poezi
                                 </label>
                                 <label>
                                     <input type="checkbox" name="tregime" id="tregime"
-                                        value="tregime" /> Tregime
+                                        value="tregime"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Tregime
                                 </label>
                                 <label>
                                     <input type="checkbox" name="perralla" id="perralla"
-                                        value="perralla" /> Perralla
+                                        value="perralla"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Perralla
                                 </label>
                                 <label>
                                     <input type="checkbox" name="pedagogji" id="pedagogji"
-                                        value="pedagogji" /> Pedagogji
+                                        value="pedagogji"
+                                    onChange={(e) => setSelectedCategories(
+                                        selected => selected.includes(e.target.value) ?
+                                            selected.filter(s => s !== e.target.value) :
+                                            [...selected, e.target.value]
+                                    )}
+                                    /> Pedagogji
                                 </label>
 
 
@@ -193,8 +369,26 @@ const BookPage = () => {
                         : <NoInfo />
                 }
 
-
             </div>
+                <div className="pageNumbers-container">
+                {
+                    Array.from({ length: totalPages }, (_, index) => (
+                        <button
+                            key={index}
+                            className={`pageLink  ${currentPage == index + 1 ? "active" : ""}`}
+                            onClick={() => setParams({
+                                page: index + 1,
+                                pageSize,
+                                ...(search && { search }),
+                                ...(sort && { sort })
+                            
+                            })}
+                        >
+                            {index + 1}
+                        </button>
+                    ))
+                }
+                </div>
         </main>
     );
 };
