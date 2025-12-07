@@ -3,8 +3,6 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Error from '../../Components/Error.jsx';
-import { AuthContext } from '../../Context/AuthContext.jsx';
 import { ToggleBorrow } from '../../Context/toggleContext.jsx';
 
 function BorrowForm() {
@@ -21,41 +19,40 @@ function BorrowForm() {
     const today = new Date();
     const todayDT = formatDateTime(today);
 
-    const maxRange = new Date();
-    maxRange.setDate(maxRange.getDate() + 14);
-    const maxDateDT = formatDateTime(maxRange);
 
     const [borrowDate, setBorrowDate] = useState(todayDT);
     const [returnDate, setReturnDate] = useState(todayDT);
+    const maxRange = new Date(borrowDate);
+    maxRange.setDate(maxRange.getDate() + 14);
+    const maxDateDT = formatDateTime(maxRange);
 
-    //Caktimi i dates per borrow
     useEffect(() => {
+        const b = new Date(borrowDate).getTime();
+        const r = new Date(returnDate).getTime();
 
-        const b = new Date(borrowDate);
+        if (b > r) setBorrowDate(returnDate);
+    }, [returnDate]);
 
-        const maxReturn = new Date(b);
-        maxReturn.setDate(maxReturn.getDate() + 14);
+    useEffect(() => {
+        const b = new Date(borrowDate).getTime();
+        const r = new Date(returnDate).getTime();
 
-        if (new Date(returnDate) < b) {
-            setReturnDate(formatDateTime(b));
-        }
+        if (r < b) setReturnDate(borrowDate);
 
     }, [borrowDate]);
 
-    useEffect(() => {
-        const r = new Date(returnDate);
 
-        if (new Date(borrowDate) > r) {
-            setBorrowDate(formatDateTime(r));
-        }
-
-    }, [returnDate]);
     const handleBorrowSubmit = async (e) => {
         e.preventDefault();
+
+        //formatim te dates per databaze
+        const format = dt => new Date(dt).toISOString();
+
+
         try {
             await axios.post(`https://localhost:7262/api/BorrowApi/create/${id}`, {
-                BorrowDate: borrowDate,
-                ReturnDate: returnDate,
+                BorrowDate: format(borrowDate),
+                ReturnDate: format(returnDate),
                 CardholderName: cardName,
                 CardNumber: cardNumber
             }, { withCredentials: true });
@@ -100,7 +97,7 @@ function BorrowForm() {
                             required
                             value={borrowDate}
                             min={todayDT}
-                            max={maxDateDT}
+                            
                             onChange={(e) => setBorrowDate(e.target.value)}
                         />
                     </div>
@@ -113,11 +110,7 @@ function BorrowForm() {
                             required
                             value={returnDate}
                             min={borrowDate}
-                            max={(() => {
-                                const b = new Date(borrowDate);
-                                b.setDate(b.getDate() + 14);
-                                return b.toISOString().split("T")[0];
-                            })()}
+                            max={maxDateDT}
                             onChange={(e) => setReturnDate(e.target.value)}
                         />
                     </div>

@@ -79,12 +79,12 @@ function UserPage() {
                     <h2>
                         Email: {user.email}
                     </h2>
-                    <cite>
+                    <em>
                         Number of books purchesed: {purchase.length}
-                    </cite>
-                    <cite>
+                    </em>
+                    <em>
                         Number of books borrowed: {borrow.length}
-                    </cite>
+                    </em>
 
                     <button className="logout-button" onClick={handleLogout}>
                         Logout!
@@ -128,6 +128,8 @@ function UserPage() {
                                     returnDate={b.returnDate}
                                     total={b.total}
                                     img={b.image}
+                                    lateFee={b.lateFee}
+
                                 />
                             ))
                             :

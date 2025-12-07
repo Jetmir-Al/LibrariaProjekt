@@ -38,7 +38,7 @@ namespace LibrariaProjekt.Server.Controllers
         public IActionResult GetEightBooks()
         {
             var books = _bookRepository.GetAll()
-                .Take(8)   
+                .Take(8)
                 .ToList();
 
             return Ok(books);
@@ -118,5 +118,5 @@ namespace LibrariaProjekt.Server.Controllers
 
     }
 }
-    
+
 
