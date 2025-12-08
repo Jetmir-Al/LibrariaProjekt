@@ -25,7 +25,7 @@ namespace LibrariaProjekt.Server.Controllers
             _bookRepository = bookRepository;
         }
 
-        // POST: api/purchase/create/{bookId}
+        
         [HttpPost("create/{bookId}")]
         public IActionResult CreatePurchase(int bookId, [FromBody] CreatePurchaseDto dto)
         {
@@ -39,6 +39,15 @@ namespace LibrariaProjekt.Server.Controllers
             if (book == null)
                 return BadRequest("Book not found");
 
+            
+            if (book.Quantity < dto.Quantity)
+                return BadRequest("Nuk ka sasi të mjaftueshme!");
+
+           
+            book.Quantity -= dto.Quantity;
+            _bookRepository.Save();
+
+           
             var purchase = new Purchase
             {
                 UserId = userId,
@@ -56,7 +65,8 @@ namespace LibrariaProjekt.Server.Controllers
             return Ok("Purchase created successfully.");
         }
 
-        // GET: api/purchase/book/{bookId}
+
+        
         [HttpGet("user/{userId}")]
         public IActionResult GetPurchasesByUser(int userId)
         {
@@ -78,7 +88,7 @@ namespace LibrariaProjekt.Server.Controllers
             return Ok(purchases);
         }
 
-        // GET: api/purchase/{id}
+       
         [HttpGet("{id}")]
         public IActionResult GetPurchaseById(int id)
         {
