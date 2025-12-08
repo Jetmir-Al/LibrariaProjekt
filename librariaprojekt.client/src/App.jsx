@@ -12,6 +12,7 @@ import { ToggleLightDarkContext } from './Context/toggleContext.jsx';
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import ProtectedRoutes from './Route/ProtectedRoutes.jsx';
 function App() {
 
     const [lightDark, setLightDark] = useState(false);
@@ -32,9 +33,12 @@ function App() {
                             <BookDetails />
                         } />
 
-                        <Route path="/user-profile" element={
-                            <UserPage />
-                        } />
+                        <Route element={<ProtectedRoutes />}>
+                            <Route path="/user-profile" element={
+                                <UserPage />
+                            } />
+                        </Route>
+                         
 
                     </Routes>
                     <Footer />

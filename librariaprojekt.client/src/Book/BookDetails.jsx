@@ -35,7 +35,6 @@ function BookDetails() {
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
         try {
-        //console.log('Submitting review:', { rating, comment });
             await axios.post(
                 `https://localhost:7262/api/ReviewApi/create/${id}`, {
                 Rating: rating,
@@ -67,7 +66,6 @@ function BookDetails() {
             setReviews(null);
         }
     }
-    useEffect(() => {
     const fetchBookDetails = async () => {
         try {
             const response = await axios.get(`https://localhost:7262/api/BookApi/books/${id}`);
@@ -78,7 +76,8 @@ function BookDetails() {
             setError(error.message);
         }
     }
-
+    useEffect(() => {
+        console.log("render");
         fetchBookDetails();
         fetchReviews();
     }, [id]);
@@ -104,15 +103,15 @@ function BookDetails() {
                             </div>
 
                             <div className='bookInfo'>
-                                <h4><span>Autori:</span> <span>{bookDetails.author}</span></h4>
-                                <h4><span>Kategori:</span> <span>{bookDetails.category}</span></h4>
-                                <h4><span>Viti:</span> <span>{bookDetails.publishYear}</span></h4>
+                                <h4><span>Author:</span> <span>{bookDetails.author}</span></h4>
+                                <h4><span>Category:</span> <span>{bookDetails.category}</span></h4>
+                                <h4><span>Year:</span> <span>{bookDetails.publishYear}</span></h4>
                                 <h4><span>Price:</span> <span>{bookDetails.price}$</span></h4>
                                 <h4><span>Borrow Price:</span> <span>{bookDetails.price / 2}$</span></h4>
-                                <h4><span>Sasia:</span> <span>{bookDetails.quantity}</span></h4>
+                                <h4><span>Quantity:</span> <span>{bookDetails.quantity}</span></h4>
 
 
-                                    { isLoggedIn &&
+                                    {isLoggedIn && bookDetails.quantity > 0 ?
                                     <div className='bookBtns'>
 
                                         <button type='button' id='buy'
@@ -128,13 +127,13 @@ function BookDetails() {
                                             }}
                                         >Borrow</button>
                                         </div>
-                                    
+                                        : <h4><span>Unable to buy or borrow this book</span></h4>
                                 }
                                 </div>
-                                <ToggleBuy.Provider value={{ toggleBuy, setToggleBuy, bookDetailsQuantity }}>
+                                <ToggleBuy.Provider value={{ toggleBuy, setToggleBuy, bookDetailsQuantity, fetchBookDetails }}>
                                     <BuyForm />
                                 </ToggleBuy.Provider>
-                                <ToggleBorrow.Provider value={{ toggleBorrow, setToggleBorrow }}>
+                                <ToggleBorrow.Provider value={{ toggleBorrow, setToggleBorrow, fetchBookDetails }}>
                                     <BorrowForm/>
                                 </ToggleBorrow.Provider>
                             </div >

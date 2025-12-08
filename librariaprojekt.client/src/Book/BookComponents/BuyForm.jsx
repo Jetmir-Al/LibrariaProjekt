@@ -13,7 +13,7 @@ function BuyForm() {
     const { id } = useParams();
     const [bookQuantity, setBookQuantity] = useState(1);
 
-    const { toggleBuy, setToggleBuy, bookDetailsQuantity } = useContext(ToggleBuy);
+    const { toggleBuy, setToggleBuy, bookDetailsQuantity, fetchBookDetails } = useContext(ToggleBuy);
 
     const handleBuySubmit = async (e) => {
         e.preventDefault();
@@ -25,6 +25,7 @@ function BuyForm() {
             }, { withCredentials: true });
             setToggleBuy(false);
             //console.log(res.data);
+            fetchBookDetails();
         } catch (err) {
             console.error(err.message);
         }

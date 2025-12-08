@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
                     setUser(null);
                     setIsLoggedIn(false);
                 }
-                setLoading(false);
                 
             } catch (error) {
                     setUser(null);
@@ -54,6 +53,7 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         try {
             await axios.post("https://localhost:7262/api/UserApi/logout",
+                {},
                 { withCredentials: true });
             setUser(null);
             setIsLoggedIn(false);

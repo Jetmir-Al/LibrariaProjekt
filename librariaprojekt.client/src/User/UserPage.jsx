@@ -17,7 +17,7 @@ import NoInfo from '../Components/NoInfo.jsx';
 
 function UserPage() {
 
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout, isLoggedIn } = useContext(AuthContext);
     const [purchase, setPurchase] = useState([]);
     const [borrow, setBorrow] = useState([]);
     const navigate = useNavigate();
@@ -64,9 +64,9 @@ function UserPage() {
 
     }, [user.id]);
 
-    if (!user) {
-        return <Loading />;
-    }
+    //if (!isLoggedIn) {
+    //    return <Loading />;
+    //}
 
     return (
         <div className="userPage-container">

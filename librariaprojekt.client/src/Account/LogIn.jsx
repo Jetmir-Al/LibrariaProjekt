@@ -15,6 +15,12 @@ function LogIn() {
 
     const LoginUser = async (e) => {
         e.preventDefault();
+
+        if (email.includes("@admin.com")) {
+                window.location = "https://localhost:7262/Book";
+            
+        } else {
+
         try {
             const res = await axios.post(
                 'https://localhost:7262/api/UserApi/login', {
@@ -34,6 +40,7 @@ function LogIn() {
         }
         catch (err) {
             console.log(err);
+        }
         }
     }
     return (
