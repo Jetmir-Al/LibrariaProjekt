@@ -30,9 +30,9 @@ namespace LibrariaProjekt.Server.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Admin obj)
+        public IActionResult Create(Admin admin)
         {
-            _adminRepository.Insert(obj);
+            _adminRepository.Insert(admin);
             return RedirectToAction("Index");
         }
 
@@ -40,8 +40,8 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            Admin s1 = _adminRepository.GetById(id);
-            return View(s1);
+            Admin admin = _adminRepository.GetById(id);
+            return View(admin);
         }
 
         [HttpPost]
@@ -53,14 +53,18 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            Admin s1 = _adminRepository.GetById(id);
-            return View(s1);
+            Admin admin = _adminRepository.GetById(id);
+            return View(admin);
         }
 
         [HttpPost]
-        public IActionResult Delete(Admin admin)
+        public IActionResult DeleteConfirmed(int id)
         {
-            _adminRepository.Delete(admin);
+            Admin admin = _adminRepository.GetById(id);
+            if (admin != null)
+            {
+                _adminRepository.Delete(admin);
+            }
             return RedirectToAction("Index");
         }
     }

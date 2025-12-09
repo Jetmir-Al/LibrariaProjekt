@@ -1,5 +1,5 @@
 ﻿@using LibrariaProjekt.Server.Models
-@model User
+@model Admin
 @{
     Layout = "_Layout";
 }
@@ -10,7 +10,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header bg-success">
-                    <h2>Add User</h2>
+                    <h2>Add Admin</h2>
                 </div>
                 <div class="card-body">
                     <form asp-action="Create" method="post" enctype="multipart/form-data">
@@ -32,16 +32,9 @@
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label asp-for="CreatedAt" class="form-label"></label>
-                            <input asp-for="CreatedAt" type="number" step="0.01" class="form-control" placeholder="Write CreatedAt" />
-                            <span asp-validation-for="CreatedAt" class="text-danger"></span>
-                        </div>
-
-
                         <div>
                             <button type="submit" class="btn btn-success">Create</button>
-                            <a asp-controller="User" asp-action="Index" class="btn btn-danger">Cancel</a>
+                            <a asp-controller="Admin" asp-action="Index" class="btn btn-danger">Cancel</a>
                         </div>
                     </form>
                 </div>
