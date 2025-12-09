@@ -14,10 +14,10 @@ namespace LibrariaProjekt.Server.Models
         public Book Book { get; set; } 
 
         [Required(ErrorMessage = "Please enter the borrow date")]
-        public DateTime BorrowDate { get; set; }
+        public DateOnly BorrowDate { get; set; }
 
         [Required(ErrorMessage = "Please enter the return date")]
-        public DateTime? ReturnDate { get; set; }
+        public DateOnly? ReturnDate { get; set; }
 
         [Required(ErrorMessage = "Please enter the total number of books")]
         public decimal Total { get; set; }

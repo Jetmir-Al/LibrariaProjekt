@@ -89,8 +89,9 @@ namespace LibrariaProjekt.Server.Repositories
         {
             if (borrow.ReturnDate.HasValue)
             {
-                var overdueDays = (DateTime.Now.Date - borrow.ReturnDate.Value.Date).Days;
-                borrow.LateFee = overdueDays > 0 ? overdueDays * 1.5m : 0m; 
+                var today = DateOnly.FromDateTime(DateTime.Today);
+                var overdueDays = today.DayNumber - borrow.ReturnDate.Value.DayNumber;
+                borrow.LateFee = overdueDays > 0 ? overdueDays * 0.5m : 0m;
             }
             else
             {

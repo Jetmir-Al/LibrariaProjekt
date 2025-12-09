@@ -6,10 +6,10 @@ namespace LibrariaProjekt.Server.DTO
     public class CreateBorrowDto
     {
         [Required]
-        public DateTime BorrowDate { get; set; }
+        public DateOnly BorrowDate { get; set; }
 
         [Required]
-        public DateTime? ReturnDate { get; set; }
+        public DateOnly? ReturnDate { get; set; }
 
         [Required]
         public string CardholderName { get; set; }

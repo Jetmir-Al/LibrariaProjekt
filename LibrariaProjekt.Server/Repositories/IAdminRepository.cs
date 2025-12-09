@@ -6,6 +6,7 @@ namespace LibrariaProjekt.Server.Repositories
     {
         List<Admin> GetAll();
         Admin GetById(int id);
+        Admin GetByEmail(string email);
         void Insert(Admin admin);
         void Update(Admin admin);
         void Delete(Admin admin);

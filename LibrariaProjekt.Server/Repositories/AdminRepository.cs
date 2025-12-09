@@ -44,8 +44,14 @@ namespace LibrariaProjekt.Server.Repositories
         public Admin GetById(int id)
         {
             Admin? admin = _context.Admins.Find(id);
-            Save();
             return admin;
         }
+        public Admin GetByEmail(string email)
+        {
+            Admin? admin = _context.Admins.FirstOrDefault(a => a.Email == email);
+            return admin;
+        }
+
+
     }
 }

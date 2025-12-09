@@ -21,7 +21,7 @@ namespace LibrariaProjekt.Server.Repositories
         }
         public List<Purchase> GetPurchaseByBookId(int bookId)
         {
-            // Include edhe User edhe Book
+         
             return _context.Purchases
                 .Where(r => r.BookId == bookId)
                 .Include(r => r.User)

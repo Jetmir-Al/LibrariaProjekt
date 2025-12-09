@@ -39,9 +39,12 @@ namespace LibrariaProjekt.Server.Controllers
             if (book == null)
                 return BadRequest("Book not found");
 
-            DateTime borrowDate = dto.BorrowDate;
-            DateTime maxReturnDate = borrowDate.AddDays(14); 
-            DateTime actualReturnDate = dto.ReturnDate ?? maxReturnDate;
+            if (book.Quantity < 1)
+                return BadRequest("This book is not available for borrowing");
+
+            DateOnly borrowDate = dto.BorrowDate;
+            DateOnly maxReturnDate = borrowDate.AddDays(14);
+            DateOnly actualReturnDate = dto.ReturnDate ?? maxReturnDate;
 
             if (actualReturnDate > maxReturnDate)
                 actualReturnDate = maxReturnDate;
@@ -65,6 +68,10 @@ namespace LibrariaProjekt.Server.Controllers
 
             _borrowRepository.Insert(borrow);
             _borrowRepository.Save();
+
+            book.Quantity -= 1;
+            _bookRepository.Update(book);
+            _bookRepository.Save();
 
             return Ok("Borrow created successfully.");
         }
