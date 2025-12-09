@@ -12,7 +12,7 @@ function SignUp() {
     const [name, setName] = useState(null);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
-    //const [address, setAddress] = useState(null);
+    const [badInfo, setBadInfo] = useState(false);
 
     async function handleSignUp(e) {
         e.preventDefault();
@@ -29,6 +29,7 @@ function SignUp() {
             setToggleAccount(t => !t);
         }catch (error) {
             console.error("Error during sign up:", error);
+            setBadInfo(true);
         }
     }
 
@@ -66,13 +67,12 @@ function SignUp() {
                             onChange={(e) => setPassword(e.target.value)} />
                     </div>
 
-                    {/*<div>*/}
-                    {/*    <label className="signup__label">Address</label>*/}
-                    {/*    <div className="addressZip">*/}
-                    {/*        <input type="text" placeholder="Address" id="signup-address" className="signup__input" name="adresa" required/>*/}
-                    {/*        <input type="text" placeholder="ZIP" id="signup-zip" className="signup__input" name="signup-zip" required/>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                    {
+                        badInfo &&
+                        <div>
+                            <h5 className="badInfo">Try a diffrent email or password!</h5>
+                        </div>
+                    }
 
                     <div>
 

@@ -12,35 +12,50 @@ function LogIn() {
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const [badInfo, setBadInfo] = useState(false);
 
     const LoginUser = async (e) => {
         e.preventDefault();
 
         if (email.includes("@admin.com")) {
-                window.location = "https://localhost:7262/Book";
-            
+
+            try {
+                await axios.post(`https://localhost:7262/api/AdminApi/loginAdmin`, {
+                    Email: email,
+                    Password: password
+                });
+
+                console.log("Loged in as admin");
+
+                window.location = "https://localhost:7262/Book/Index";
+            } catch (e) {
+                console.log("Admin is wrong", e);
+                setBadInfo(true);
+            }
+
         } else {
 
-        try {
-            const res = await axios.post(
-                'https://localhost:7262/api/UserApi/login', {
-                Email: email,
-                Password: password
-            }, { withCredentials: true });
+            try {
+                const res = await axios.post(
+                    'https://localhost:7262/api/UserApi/login', {
+                    Email: email,
+                    Password: password
+                }, { withCredentials: true });
 
-            setUser({
-                id: res.data.id,
-                name: res.data.name,
-                email: res.data.email
-            });
-            setIsLoggedIn(true);
+                setUser({
+                    id: res.data.id,
+                    name: res.data.name,
+                    email: res.data.email
+                });
+                setIsLoggedIn(true);
 
-            setIsAccountMenuOpen(false);
-            console.log("loged in");
-        }
-        catch (err) {
-            console.log(err);
-        }
+                setIsAccountMenuOpen(false);
+                console.log("loged in");
+            }
+            catch (err) {
+                console.log(err);
+                setBadInfo(true);
+            }
         }
     }
     return (
@@ -50,6 +65,7 @@ function LogIn() {
                     <h3 className="login__title">Login</h3>
 
                     <div className="login__group grid">
+                        
                         <div>
                             <label htmlFor="login-email" className="login__label">Email</label>
                             <input type="email" placeholder="Write your email" id="login-email"
@@ -64,7 +80,12 @@ function LogIn() {
                                 onChange={(e) => setPassword(e.target.value)} />
                         </div>
                     </div>
-
+                    {
+                        badInfo && 
+                    <div>
+                        <h5 className="badInfo">Email or password is wrong!</h5>
+                    </div>
+                    }
                     <div>
                         <span className="login__signup">
                             You do not have an account? <a onClick={() => setToggleAccount(t => !t)}>Sign up</a>

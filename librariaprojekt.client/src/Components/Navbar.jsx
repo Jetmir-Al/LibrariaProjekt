@@ -1,9 +1,8 @@
-/* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faUserGear, faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark} from "@fortawesome/free-solid-svg-icons";
+import { faSun, faUserGear, faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark, faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
 import SignUp from "../Account/SignUp";
 import LogIn from "../Account/LogIn";
@@ -49,6 +48,13 @@ function Navbar() {
                                 <a href="/#testimonial" className="nav__link">
                                     <FontAwesomeIcon className="icon" icon={faReply} />
                                     <span>Testimonial</span>
+                                </a>
+                            </li>
+                            <li className="nav__item">
+
+                                <a href="/#ruleSection" className="nav__link">
+                                    <FontAwesomeIcon className="icon" icon={faNewspaper} />
+                                    <span>Rules</span>
                                 </a>
                             </li>
                         </ul>

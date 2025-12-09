@@ -1,0 +1,21 @@
+.rulesSection{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.rulesContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.rulesDescription {
+    white-space: pre-wrap;
+}
+
+.rulesCard{
+    max-width: 300px;
+}

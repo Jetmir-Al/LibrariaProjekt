@@ -44,14 +44,12 @@ function BorrowForm() {
     const handleBorrowSubmit = async (e) => {
         e.preventDefault();
 
-        //formatim te dates per databaze
-        const format = dt => new Date(dt).toISOString();
-
+       
 
         try {
             await axios.post(`https://localhost:7262/api/BorrowApi/create/${id}`, {
-                BorrowDate: format(borrowDate),
-                ReturnDate: format(returnDate),
+                BorrowDate: borrowDate,
+                ReturnDate: returnDate,
                 CardholderName: cardName,
                 CardNumber: cardNumber
             }, { withCredentials: true });
@@ -97,7 +95,6 @@ function BorrowForm() {
                             required
                             value={borrowDate}
                             min={today}
-                            
                             onChange={(e) => setBorrowDate(e.target.value)}
                         />
                     </div>

@@ -1,9 +1,10 @@
 import './BodyStyles/body.css';
 import { Link } from 'react-router-dom';
-import Services from './Services';
-import Featured from './Featured';
-import NewBooks from './NewBooks';
-import NewReviews from './NewReviews';
+import Services from './Services.jsx';
+import Featured from './Featured.jsx';
+import NewBooks from './NewBooks.jsx';
+import NewReviews from './NewReviews.jsx';
+import Rules from './Rules.jsx';
 
 function Body() {
 
@@ -55,6 +56,7 @@ function Body() {
             <Featured />
             <NewBooks />
             <NewReviews />
+            <Rules/>
         </main>
     );
 }

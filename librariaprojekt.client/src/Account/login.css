@@ -80,7 +80,9 @@
     color: var(--title-color);
     cursor: pointer;
 }
-
+.badInfo{
+    color: red;
+}
 
 @media screen and (max-width: 768px) {
     .login__form {
