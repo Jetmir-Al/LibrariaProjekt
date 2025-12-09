@@ -1,5 +1,6 @@
 ﻿using LibrariaProjekt.Server.Data;
 using LibrariaProjekt.Server.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibrariaProjekt.Server.Repositories
@@ -7,6 +8,7 @@ namespace LibrariaProjekt.Server.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly ApplicationDbContext _context;
+        private readonly PasswordHasher<User> _passwordHasher = new PasswordHasher<User>();
 
         public UserRepository(ApplicationDbContext context)
         {
@@ -39,6 +41,7 @@ namespace LibrariaProjekt.Server.Repositories
 
         public void Insert(User user)
         {
+            user.Password = _passwordHasher.HashPassword(user, user.Password);
             _context.Users.Add(user);
             Save();
         }

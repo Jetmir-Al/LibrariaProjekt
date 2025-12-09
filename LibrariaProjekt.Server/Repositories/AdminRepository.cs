@@ -2,12 +2,14 @@
 using LibrariaProjekt.Server.Data;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
 
 namespace LibrariaProjekt.Server.Repositories
 {
     public class AdminRepository : IAdminRepository
     {
         private readonly ApplicationDbContext _context;
+        private readonly PasswordHasher<Admin> _passwordHasher = new PasswordHasher<Admin>();
         public AdminRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -25,6 +27,8 @@ namespace LibrariaProjekt.Server.Repositories
 
         public void Insert(Admin admin)
         {
+            admin.Password = _passwordHasher.HashPassword(admin, admin.Password);
+
             _context.Admins.Add(admin);
             Save();
         }
