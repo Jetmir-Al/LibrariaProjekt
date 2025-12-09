@@ -9,7 +9,7 @@ const Reviews = ({name, comment, stars}) => {
                 <p className='testimonial__description'>
                     {comment}
                 </p>
-                <div className='testimonial__stars'>
+            <div className='testimonial__stars'>
                     {Array.from({ length: stars }).map((_, index) => (
                         <FontAwesomeIcon key={index} icon={faStar} className="starIcons" />
                     ))}

@@ -53,7 +53,7 @@ function LogIn() {
                 console.log("loged in");
             }
             catch (err) {
-                console.log(err);
+                console.log("User problem", err);
                 setBadInfo(true);
             }
         }

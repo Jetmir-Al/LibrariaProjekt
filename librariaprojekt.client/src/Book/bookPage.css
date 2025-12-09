@@ -185,7 +185,7 @@
     width: 100%;
 }
 
-    .sortFilter-btns button {
+    .sortFilter-btns,  button {
         cursor: pointer;
         color: var(--text-color);
         background-color: var(--border-color);
@@ -195,6 +195,7 @@
     .sortFilter-btns :first-child {
         background-color: var(--first-color);
         color: var(--white-color);
+        cursor: pointer;
     }
 
 

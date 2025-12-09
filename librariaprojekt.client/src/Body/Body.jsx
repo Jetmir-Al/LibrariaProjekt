@@ -55,8 +55,8 @@ function Body() {
             <Services />
             <Featured />
             <NewBooks />
-            <NewReviews />
             <Rules/>
+            <NewReviews />
         </main>
     );
 }

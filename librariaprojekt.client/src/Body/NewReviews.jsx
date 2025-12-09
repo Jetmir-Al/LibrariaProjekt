@@ -12,7 +12,7 @@ function NewReviews() {
                     <div className="swiper-wrapper testimonial-container">
                         <article className="testimonial__card swiper-slide">
 
-                            <h2 className="testimonial__title">Rial Loz</h2>
+                            <h2 className="testimonial__title">Dion</h2>
                             <p className="testimonial__description">
                                 "I absolutely love this book website! The selection is
                                 fantastic, and I always find something new and exciting
@@ -29,7 +29,7 @@ function NewReviews() {
                         </article>
                         <article className="testimonial__card swiper-slide">
 
-                            <h2 className="testimonial__title">Rial Loz</h2>
+                            <h2 className="testimonial__title">Skifter</h2>
                             <p className="testimonial__description">
                                 "This website makes finding books so easy! I always discover
                                 interesting reads, and the variety keeps me coming back." </p>
@@ -45,7 +45,7 @@ function NewReviews() {
                         </article>
                         <article className="testimonial__card swiper-slide">
 
-                            <h2 className="testimonial__title">Rial Loz</h2>
+                            <h2 className="testimonial__title">Perparim Rama</h2>
                             <p className="testimonial__description">
                                 "I really enjoy using this book platform!
                                 The collection is amazing, and I always find

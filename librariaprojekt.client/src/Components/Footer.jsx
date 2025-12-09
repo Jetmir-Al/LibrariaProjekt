@@ -70,14 +70,14 @@ function Footer() {
                         <ul className="footer__links">
                             <li>
                                 <address className="footer__info">
-                                    London 1143 <br />
-                                    Hampton Hill TW12J
+                                    Kososva 10000 <br />
+                                    Sheshi Nena Terez
                                 </address>
                             </li>
 
                             <li>
                                 <address className="footer__info">
-                                    e.book@email.com <br />
+                                    Ebook@email.com <br />
                                     0987-654-321
                                 </address>
                             </li>

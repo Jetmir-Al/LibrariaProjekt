@@ -77,7 +77,7 @@ function BookDetails() {
         }
     }
     useEffect(() => {
-        console.log("render");
+        
         fetchBookDetails();
         fetchReviews();
     }, [id]);
