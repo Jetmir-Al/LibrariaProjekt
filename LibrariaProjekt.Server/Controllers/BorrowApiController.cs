@@ -126,5 +126,31 @@ namespace LibrariaProjekt.Server.Controllers
 
             return Ok(dto);
         }
+
+        [HttpPut("return/{id}")]
+        public IActionResult MarkAsReturned(int id)
+        {
+            var borrow = _borrowRepository.GetById(id);
+            if (borrow == null)
+                return NotFound("Borrow record not found.");
+
+            if (borrow.Returned)
+                return BadRequest("This book is already marked as returned.");
+
+            borrow.Returned = true;
+            borrow.LateFee = 0;
+
+            _borrowRepository.Update(borrow);
+
+            var book = _bookRepository.GetById(borrow.BookId);
+            if (book != null)
+            {
+                book.Quantity += 1;
+                _bookRepository.Update(book);
+            }
+
+            return Ok("Book marked as returned successfully.");
+        }
+
     }
 }

@@ -63,7 +63,7 @@ namespace LibrariaProjekt.Server.Controllers
         {
             var query = _bookRepository.GetAll().AsQueryable();
 
-            // 🔍 SEARCH
+            
             if (!string.IsNullOrEmpty(search))
             {
                 query = query.Where(b =>
@@ -71,14 +71,14 @@ namespace LibrariaProjekt.Server.Controllers
                     b.Author.Contains(search));
             }
 
-            // 🏷 FILTER BY MULTIPLE CATEGORIES
+          
             if (!string.IsNullOrEmpty(categories))
             {
                 var list = categories.Split(',').ToList();
                 query = query.Where(b => list.Contains(b.Category));
             }
 
-            // ↕ SORTING
+            
             query = sort switch
             {
                 "name" => query.OrderBy(b => b.Title),
@@ -88,10 +88,10 @@ namespace LibrariaProjekt.Server.Controllers
                 _ => query.OrderBy(b => b.Id)
             };
 
-            // TOTAL BEFORE PAGING
+            
             var totalBooks = query.Count();
 
-            // PAGING
+           
             var books = query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)

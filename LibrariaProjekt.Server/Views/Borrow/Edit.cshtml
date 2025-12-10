@@ -40,6 +40,12 @@
                             <input asp-for="CardNumber" class="form-control" placeholder="Card Number" />
                             <span asp-validation-for="CardNumber" class="text-danger"></span>
                         </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Returned" class="form-label">Returned</label>
+                            <input asp-for="Returned" type="checkbox" placeholder="Returned" />
+                            <span asp-validation-for="Returned" class="text-danger"></span>
+                        </div>
+                       
                         <div>
                             <button type="submit" class="btn btn-success">Save</button>
                             <a asp-controller="Borrow" asp-action="Index" class="btn btn-danger">Cancel</a>

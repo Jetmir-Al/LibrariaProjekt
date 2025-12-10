@@ -20,7 +20,6 @@ namespace LibrariaProjekt.Server.Repositories
         }
         public List<Review> GetReviewsByBookId(int bookId)
         {
-            // Include User shkaku me marr emrin e userit
             List<Review> reviews = _context.Reviews.Where(r => r.BookId == bookId).Include(r => r.User).ToList();
             return reviews;
         }

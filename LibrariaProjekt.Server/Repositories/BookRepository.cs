@@ -55,7 +55,7 @@ namespace LibrariaProjekt.Server.Repositories
                 return false;
 
             if (book.Quantity < quantity)
-                return false; // nuk ka mjaftueshëm sasi
+                return false;
 
             book.Quantity -= quantity;
 

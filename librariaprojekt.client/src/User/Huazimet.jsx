@@ -35,7 +35,7 @@ function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate
                         Late Fee:
                         <span> {
                             lateFee > 0 ?
-                                `Extra pay: ${lateFee}` :
+                                `Extra pay: ${lateFee}$` :
                                 "No extra pay!"
                             }
                         </span>

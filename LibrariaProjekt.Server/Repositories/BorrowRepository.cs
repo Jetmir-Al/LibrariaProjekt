@@ -87,6 +87,12 @@ namespace LibrariaProjekt.Server.Repositories
 
         public void CalculateLateFee(Borrow borrow)
         {
+            if (borrow.Returned)
+            {
+                borrow.LateFee = 0m;
+                return;
+            }
+
             if (borrow.ReturnDate.HasValue)
             {
                 var today = DateOnly.FromDateTime(DateTime.Today);

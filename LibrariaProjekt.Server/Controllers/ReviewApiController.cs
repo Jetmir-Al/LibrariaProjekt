@@ -69,9 +69,6 @@ namespace LibrariaProjekt.Server.Controllers
                     {
                         Name = r.User.Name
                     },
-                    //Problem se sun e merr titullin e librit
-                    //shkaku qe ne Repository nuk e kemi perfshire Book ne Include
-                    //BookTitle = r.Book.Title,
                     Rating = r.Rating,
                     Comment = r.Comment
                 })
