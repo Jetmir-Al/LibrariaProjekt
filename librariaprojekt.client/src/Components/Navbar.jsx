@@ -45,16 +45,16 @@ function Navbar() {
 
                             <li className="nav__item">
 
-                                <a href="/#testimonial" className="nav__link">
-                                    <FontAwesomeIcon className="icon" icon={faReply} />
-                                    <span>Testimonial</span>
+                                <a href="/#ruleSection" className="nav__link">
+                                    <FontAwesomeIcon className="icon" icon={faNewspaper} />
+                                    <span>Rules</span>
                                 </a>
                             </li>
                             <li className="nav__item">
 
-                                <a href="/#ruleSection" className="nav__link">
-                                    <FontAwesomeIcon className="icon" icon={faNewspaper} />
-                                    <span>Rules</span>
+                                <a href="/#testimonial" className="nav__link">
+                                    <FontAwesomeIcon className="icon" icon={faReply} />
+                                    <span>Testimonial</span>
                                 </a>
                             </li>
                         </ul>
