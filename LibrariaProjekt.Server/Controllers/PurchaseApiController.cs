@@ -87,28 +87,5 @@ namespace LibrariaProjekt.Server.Controllers
 
             return Ok(purchases);
         }
-
-       
-        [HttpGet("{id}")]
-        public IActionResult GetPurchaseById(int id)
-        {
-            var purchase = _purchaseRepository.GetById(id);
-            if (purchase == null)
-                return NotFound();
-
-            var dto = new PurchaseDto
-            {
-                Id = purchase.Id,
-                UserName = purchase.User.Name,
-                BookTitle = purchase.Book.Title,
-                Quantity = purchase.Quantity,
-                Total = purchase.Total,
-                PurchaseDate = purchase.PurchaseDate,
-                CardholderName = purchase.CardholderName,
-                MaskedCardNumber = "**** **** **** " + purchase.CardNumber
-            };
-
-            return Ok(dto);
-        }
     }
 }

@@ -102,55 +102,6 @@ namespace LibrariaProjekt.Server.Controllers
             return Ok(borrows);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetBorrowById(int id)
-        {
-            var borrow = _borrowRepository.GetById(id);
-            if (borrow == null)
-                return NotFound();
-
-            _borrowRepository.CalculateLateFee(borrow); 
-
-            var dto = new BorrowDto
-            {
-                Id = borrow.Id,
-                UserName = borrow.User.Name,
-                BookTitle = borrow.Book.Title,
-                BorrowDate = borrow.BorrowDate,
-                ReturnDate = borrow.ReturnDate ?? borrow.BorrowDate,
-                Total = borrow.Total,
-                CardholderName = borrow.CardholderName,
-                MaskedCardNumber = "**** **** **** " + borrow.CardNumber,
-                LateFee = borrow.LateFee
-            };
-
-            return Ok(dto);
-        }
-
-        [HttpPut("return/{id}")]
-        public IActionResult MarkAsReturned(int id)
-        {
-            var borrow = _borrowRepository.GetById(id);
-            if (borrow == null)
-                return NotFound("Borrow record not found.");
-
-            if (borrow.Returned)
-                return BadRequest("This book is already marked as returned.");
-
-            borrow.Returned = true;
-            borrow.LateFee = 0;
-
-            _borrowRepository.Update(borrow);
-
-            var book = _bookRepository.GetById(borrow.BookId);
-            if (book != null)
-            {
-                book.Quantity += 1;
-                _bookRepository.Update(book);
-            }
-
-            return Ok("Book marked as returned successfully.");
-        }
-
+        
     }
 }
