@@ -1,6 +1,6 @@
 
 
-function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate, lateFee }) {
+function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate, lateFee, returned }) {
 
 
     return (
@@ -30,6 +30,12 @@ function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate
                     <h4>
                         Return Date:
                         <span> {new Date(returnDate).toDateString()}</span>
+                    </h4>
+                    <h4>
+                        Satatus:
+                        {
+                            returned === true ? <span> Book Returned </span> : <span> Book Not Returned </span> 
+                        }
                     </h4>
                     <h4>
                         Late Fee:

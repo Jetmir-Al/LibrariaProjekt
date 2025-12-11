@@ -1,6 +1,6 @@
 
 
-function Blerjet({img, title, cardName, cardNum, total, date}) {
+function Blerjet({ img, title, cardName, cardNum, total, date, quantity }) {
 
 
     
@@ -18,6 +18,10 @@ function Blerjet({img, title, cardName, cardNum, total, date}) {
                     <h4>
                         Card Number:
                         <span> {cardNum}</span>
+                    </h4>
+                    <h4>
+                        Books Bought:
+                        <span > {quantity}</span>
                     </h4>
                     <h4>
                         Total:

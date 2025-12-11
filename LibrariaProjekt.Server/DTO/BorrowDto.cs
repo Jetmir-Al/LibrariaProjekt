@@ -11,7 +11,7 @@ namespace LibrariaProjekt.Server.DTO
         public DateOnly ReturnDate { get; set; }
         public decimal Total { get; set; }
         public decimal LateFee { get; set; }
-
+        public bool Returned { get; set; }
         public string CardholderName { get; set; }
         public string MaskedCardNumber { get; set; }
         public string? Image { get; set; }

@@ -17,7 +17,7 @@ import NoInfo from '../Components/NoInfo.jsx';
 
 function UserPage() {
 
-    const { user, logout, isLoggedIn } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     const [purchase, setPurchase] = useState([]);
     const [borrow, setBorrow] = useState([]);
     const navigate = useNavigate();
@@ -105,6 +105,7 @@ function UserPage() {
                                     title={p.bookTitle}
                                     date={p.purchaseDate}
                                     total={p.total}
+                                    quantity={p.quantity }
                                 />
                             ))
                             :
@@ -129,7 +130,7 @@ function UserPage() {
                                     total={b.total}
                                     img={b.image}
                                     lateFee={b.lateFee}
-
+                                    returned={b.returned }
                                 />
                             ))
                             :

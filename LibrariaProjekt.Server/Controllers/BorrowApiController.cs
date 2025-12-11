@@ -93,6 +93,7 @@ namespace LibrariaProjekt.Server.Controllers
                         Total = b.Total,
                         CardholderName = b.CardholderName,
                         MaskedCardNumber = "**** **** **** " + b.CardNumber,
+                        Returned = b.Returned,
                         LateFee = b.LateFee,
                         Image = b.Book.Image
                     };
