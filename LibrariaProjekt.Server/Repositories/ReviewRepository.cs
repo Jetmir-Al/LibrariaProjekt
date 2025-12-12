@@ -48,7 +48,6 @@ namespace LibrariaProjekt.Server.Repositories
            .Include(r => r.User)
            .Include(r => r.Book)
            .FirstOrDefault(r => r.Id == id);
-            Save();
             return review;
         }
 

@@ -22,7 +22,6 @@ namespace LibrariaProjekt.Server.Repositories
 
         public User GetById(int id)
         {
-
             return _context.Users
                            .Include(u => u.Borrows)
                            .Include(u => u.Purchases)

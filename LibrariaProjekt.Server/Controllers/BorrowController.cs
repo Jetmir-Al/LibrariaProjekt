@@ -26,8 +26,6 @@ namespace LibrariaProjekt.Server.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-
-
             return View();
         }
 
