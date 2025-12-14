@@ -19,7 +19,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddControllersWithViews();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
@@ -31,13 +31,13 @@ builder.Services.AddCors(options =>
                                               "https://localhost:7173")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod()
-                                .AllowCredentials(); //per cookies
+                                .AllowCredentials(); 
                       });
 }
     );
 
 
-//cokkies authentication
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -56,7 +56,7 @@ var app = builder.Build();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -65,11 +65,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Enable CORS for react app
+
 app.UseCors("LibrariaPolicy");
 
 
-//per authenticatikim edhe autorizim
+
 app.UseAuthentication();
 app.UseAuthorization();
 
