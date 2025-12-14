@@ -36,9 +36,9 @@ namespace LibrariaProjekt.Server.Controllers
             {
                 Name = dto.Name,
                 Email = dto.Email,
-                Password = dto.Password, 
                 CreatedAt = DateTime.Now
             };
+            user.Password = _passwordHasher.HashPassword(user, dto.Password);
 
             _userRepository.Insert(user);
             _userRepository.Save();

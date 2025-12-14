@@ -186,8 +186,8 @@ const BookPage = () => {
                                         [...selected, e.target.value]
                                 )}
                                 /> Filozofi</label>
-                                <label><input type="checkbox" name="tregimeTeShkurta" id="tregimeTeShkurta"
-                                    value="TregimeTeShkurta"
+                                <label><input type="checkbox" name="Tregime te shkurta" id="Tregime te shkurta"
+                                    value="Tregime te shkurta"
                                 onChange={(e) => setSelectedCategories(
                                     selected => selected.includes(e.target.value) ?
                                         selected.filter(s => s !== e.target.value) :
@@ -265,8 +265,8 @@ const BookPage = () => {
                                     /> Motivim
                                 </label>
                                 <label>
-                                    <input type="checkbox" name="zhvillimPersonal" id="zhvillimPersonal"
-                                        value="ZhvillimPersonal"
+                                    <input type="checkbox" name="Zhvillim personal" id="Zhvillim personal"
+                                        value="Zhvillim personal"
                                     onChange={(e) => setSelectedCategories(
                                         selected => selected.includes(e.target.value) ?
                                             selected.filter(s => s !== e.target.value) :
