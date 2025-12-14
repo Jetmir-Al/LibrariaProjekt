@@ -1,4 +1,3 @@
-
 import './BodyStyles/featured.css';
 import Loading from "../Components/Loading";
 import axios from "axios";

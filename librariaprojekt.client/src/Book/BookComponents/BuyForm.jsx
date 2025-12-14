@@ -24,7 +24,6 @@ function BuyForm() {
                 CardNumber: cardNumber
             }, { withCredentials: true });
             setToggleBuy(false);
-            //console.log(res.data);
             fetchBookDetails();
         } catch (err) {
             console.error(err.message);

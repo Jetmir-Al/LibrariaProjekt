@@ -25,7 +25,6 @@ function LogIn() {
                     Password: password
                 });
 
-                console.log("Loged in as admin");
 
                 window.location = "https://localhost:7262/Book/Index";
             } catch (e) {
@@ -50,7 +49,6 @@ function LogIn() {
                 setIsLoggedIn(true);
 
                 setIsAccountMenuOpen(false);
-                console.log("loged in");
             }
             catch (err) {
                 console.log("User problem", err);

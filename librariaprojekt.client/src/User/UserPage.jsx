@@ -1,19 +1,12 @@
 import './userPage.css';
 import Blerjet from './Blerjet.jsx';
 import Huazimet from './Huazimet.jsx';
+import NoInfo from '../Components/NoInfo.jsx';
 
 import { useContext, useState, useEffect } from "react"; 
 import { AuthContext } from "../Context/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-
-//Test component
-import Loading from '../Components/Loading.jsx';
-import Error from '../Components/Error.jsx';
-import NoInfo from '../Components/NoInfo.jsx';
-
-
 
 function UserPage() {
 
@@ -37,7 +30,6 @@ function UserPage() {
                         { withCredentials: true });
 
                     setPurchase(res.data);
-                    //console.log(res.data);
                 }
                 catch (err) {
                     console.error(err);
@@ -52,7 +44,6 @@ function UserPage() {
                         { withCredentials: true });
 
                     setBorrow(res.data);
-                    //console.log(res.data);
                 }
                 catch (err) {
                     console.error(err);
@@ -63,10 +54,6 @@ function UserPage() {
         fetchBorrow();
 
     }, [user.id]);
-
-    //if (!isLoggedIn) {
-    //    return <Loading />;
-    //}
 
     return (
         <div className="userPage-container">

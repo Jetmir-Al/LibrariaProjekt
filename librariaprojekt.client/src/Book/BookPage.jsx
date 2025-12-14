@@ -73,7 +73,6 @@ const BookPage = () => {
                 setCurrentPage(res.data.page);
                 setTotalPages(res.data.totalPages);
                 setIsLoading(false);
-                console.log("render")
             } catch (err) {
                 setError(err.message);
             }

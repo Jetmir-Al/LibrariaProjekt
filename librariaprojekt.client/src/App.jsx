@@ -7,7 +7,7 @@ import BookDetails from './Book/BookDetails.jsx';
 import UserPage from './User/UserPage.jsx';
 import Footer from './Components/Footer.jsx';
 
-import { AuthProvider } from './Context/AuthContext.jsx'; 
+import { AuthProvider } from './Context/AuthProvider.jsx'; 
 import { ToggleLightDarkContext } from './Context/toggleContext.jsx';
 
 import { useState } from 'react';
