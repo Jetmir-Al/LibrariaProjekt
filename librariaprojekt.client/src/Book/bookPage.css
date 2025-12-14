@@ -78,7 +78,7 @@
     color: var(--text-color);
     background-color: var(--border-color);
     padding: 1rem 0.7rem;
-    margin-top: 20px;
+    margin: 5rem 0;
 }
 
 .pageLink {
@@ -137,14 +137,6 @@
     padding-block: 1rem;
 }
 
-#overlay {
-    background: rgb(0, 0, 0, 0.5);
-    position: fixed;
-    z-index: 9;
-    inset: 0;
-    display: none;
-}
-
 .sortForm {
     width: 100%;
     display: flex;
@@ -185,7 +177,7 @@
     width: 100%;
 }
 
-    .sortFilter-btns,  button {
+    .sortFilter-btns button {
         cursor: pointer;
         color: var(--text-color);
         background-color: var(--border-color);
