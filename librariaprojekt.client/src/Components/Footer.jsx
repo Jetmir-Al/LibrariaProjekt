@@ -70,7 +70,7 @@ function Footer() {
                         <ul className="footer__links">
                             <li>
                                 <address className="footer__info">
-                                    Kososva 10000 <br />
+                                    Kosova 10000 <br />
                                     Sheshi Nena Terez
                                 </address>
                             </li>
