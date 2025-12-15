@@ -63,7 +63,7 @@ function SignUp() {
                     <div>
                         <label htmlFor="signup-pass" className="signup__label">Password</label>
                         <input type="password" placeholder="Create a password"
-                            id="signup-pass" className="signup__input" name="fjalekalimi" required
+                            id="signup-pass" className="signup__input" name="fjalekalimi" required 
                             onChange={(e) => setPassword(e.target.value)} />
                     </div>
 

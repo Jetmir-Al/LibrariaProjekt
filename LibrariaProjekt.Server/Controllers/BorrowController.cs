@@ -54,8 +54,6 @@ namespace LibrariaProjekt.Server.Controllers
 
            
             borrow.Returned = borrowFromForm.Returned;
-            borrow.CardholderName = borrowFromForm.CardholderName;
-            borrow.CardNumber = borrowFromForm.CardNumber;
             borrow.ReturnDate = borrowFromForm.ReturnDate;
 
            
