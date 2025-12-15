@@ -13,23 +13,33 @@ function SignUp() {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [badInfo, setBadInfo] = useState(false);
+    const [badEmail, setBadEmail] = useState(false);
 
     async function handleSignUp(e) {
         e.preventDefault();
 
-        try {
-            await axios.post(
-                'https://localhost:7262/api/UserApi/createUser',
-                {
-                    Name: name,
-                    Email: email,
-                    Password: password
-                }
-            ); 
-            setToggleAccount(t => !t);
-        }catch (error) {
-            console.error("Error during sign up:", error);
-            setBadInfo(true);
+        const regex = /.*\.com$/;
+
+
+        if (!regex.test(email)) {
+            setBadEmail(true);
+        } else {
+
+
+            try {
+                await axios.post(
+                    'https://localhost:7262/api/UserApi/createUser',
+                    {
+                        Name: name,
+                        Email: email,
+                        Password: password
+                    }
+                );
+                setToggleAccount(t => !t);
+            } catch (error) {
+                console.error("Error during sign up:", error);
+                setBadInfo(true);
+            }
         }
     }
 
@@ -71,6 +81,12 @@ function SignUp() {
                         badInfo &&
                         <div>
                             <h5 className="badInfo">Try a diffrent email or password!</h5>
+                        </div>
+                    }
+                    {
+                        badEmail &&
+                        <div>
+                            <h5 className="badInfo">Try a useing .com at the end of the Email!</h5>
                         </div>
                     }
 
