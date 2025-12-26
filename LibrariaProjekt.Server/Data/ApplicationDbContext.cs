@@ -21,7 +21,7 @@ namespace LibrariaProjekt.Server.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            
+
             modelBuilder.Entity<Borrow>()
                 .HasOne(b => b.User)
                 .WithMany(u => u.Borrows)
@@ -40,7 +40,7 @@ namespace LibrariaProjekt.Server.Data
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-           
+
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.Property(e => e.Price).HasPrecision(18, 2);

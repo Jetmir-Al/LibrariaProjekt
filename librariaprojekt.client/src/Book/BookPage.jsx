@@ -363,6 +363,9 @@ const BookPage = () => {
                                     by {res.author}
                                 </p>
                                 <span className='price'>
+                                    {res.category}
+                                </span>
+                                <span className='price'>
                                     {res.price}$
                                 </span>
                             </div>
