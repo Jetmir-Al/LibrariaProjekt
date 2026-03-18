@@ -4,7 +4,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
 import { ToggleAccountContext } from "../Context/toggleContext";
 import { AuthContext } from '../Context/AuthContext';
-import axios from "axios";
+import { loginAdmin, loginUser } from '../api/authApi.js'; 
 function LogIn() {
 
     const { setToggleAccount, setIsAccountMenuOpen } = useContext(ToggleAccountContext);
@@ -20,38 +20,29 @@ function LogIn() {
         if (email.includes("@admin.com")) {
 
             try {
-                await axios.post(`https://localhost:7262/api/AdminApi/loginAdmin`, {
-                    Email: email,
-                    Password: password
-                });
+                await loginAdmin({Email: email, Password: password});
 
 
-                window.location = "https://localhost:7262/Book/Index";
-            } catch (e) {
-                console.log("Admin is wrong", e);
+                window.location = import.meta.env.VITE_API_URL + "/Book/Index";
+            } catch {
                 setBadInfo(true);
             }
 
         } else {
 
             try {
-                const res = await axios.post(
-                    'https://localhost:7262/api/UserApi/login', {
-                    Email: email,
-                    Password: password
-                }, { withCredentials: true });
+                const res = await loginUser({ Email: email, Password: password });
 
                 setUser({
-                    id: res.data.id,
-                    name: res.data.name,
-                    email: res.data.email
+                    id: res.id,
+                    name: res.name,
+                    email: res.email
                 });
                 setIsLoggedIn(true);
 
                 setIsAccountMenuOpen(false);
             }
-            catch (err) {
-                console.log("User problem", err);
+            catch {
                 setBadInfo(true);
             }
         }

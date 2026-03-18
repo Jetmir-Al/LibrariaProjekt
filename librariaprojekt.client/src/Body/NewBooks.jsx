@@ -1,8 +1,8 @@
 import './BodyStyles/new.css';
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from '../Components/Loading';
+import { getImageUrl, getLatestBooks } from '../api/bookApi';
 function NewBooks() {
 
     const [newBooks, setNewBooks] = useState([]);
@@ -14,10 +14,11 @@ function NewBooks() {
         const fetchNewBooks = async () => {
             try {
 
-                const res = await axios.get("https://localhost:7262/api/BookApi/latest");
-                if (res.data.length > 0) {
-                    setNewBooks(res.data);
+                const res = await getLatestBooks();
+                if (res) {
+                setNewBooks(res);
                 }
+                
                 setLoading(false);
             } catch (err) {
                 console.error("Diqka shkoj keq, ", err);
@@ -39,12 +40,12 @@ function NewBooks() {
                     <div className="swiperNew">
                         {
                             loading ? <Loading/> : 
-                            newBooks.map((book, index) => (
+                            newBooks.map((book) => (
 
-                                <div className="new__card swiper-slide" key={index}
+                                <div className="new__card swiper-slide" key={book.id}
                                     onClick={() => navigate(`/bookdetails/${book.id}`)}>
                                     <img
-                                        src={`https://localhost:7262${book.image}`}
+                                        src={getImageUrl(book.image)}
                                         alt="image"
                                     className="new__img" />
                                 

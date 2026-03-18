@@ -1,3 +1,4 @@
+import { getImageUrl } from "../api/bookApi";
 
 
 function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate, lateFee, returned }) {
@@ -5,7 +6,7 @@ function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate
 
     return (
         <div className='new__card swiper-slide boughtBooks'>
-            <img src={`https://localhost:7262${img}`} alt='image' className='new__img'/>
+            <img src={getImageUrl(img)} alt='image' className='new__img' />
             <div className='boughtInfo'>
                 <h2 className='testimonial__title'>
                     {title}

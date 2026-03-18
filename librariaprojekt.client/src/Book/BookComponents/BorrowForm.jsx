@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { ToggleBorrow } from '../../Context/toggleContext.jsx';
+import { borrowBook } from "../../api/borrowApi.js";
 
 function BorrowForm() {
 
@@ -13,8 +13,7 @@ function BorrowForm() {
 
     const { toggleBorrow, setToggleBorrow, fetchBookDetails } = useContext(ToggleBorrow);
 
-    const formatDate = (date) =>
-        date.toISOString().split("T")[0];
+    const formatDate = (date) => date.toISOString().split("T")[0];
 
     const today = formatDate(new Date());
 
@@ -43,18 +42,15 @@ function BorrowForm() {
 
     const handleBorrowSubmit = async (e) => {
         e.preventDefault();
-
-       
-
         try {
-            await axios.post(`https://localhost:7262/api/BorrowApi/create/${id}`, {
+            await borrowBook({
+                id,
                 BorrowDate: borrowDate,
                 ReturnDate: returnDate,
                 CardholderName: cardName,
                 CardNumber: cardNumber
-            }, { withCredentials: true });
+            });
             setToggleBorrow(false);
-            //console.log(res.data);
             fetchBookDetails();
 
         } catch (error) {
@@ -81,6 +77,7 @@ function BorrowForm() {
                     <div>
                         <label htmlFor="login-pass" className="login__label">Card number:</label>
                         <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required
+                            maxLength={16} minLength={13}
                             onChange={(e) => setCardNum(e.target.value)} />
                     </div>
                     <div>

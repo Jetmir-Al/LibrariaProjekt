@@ -7,7 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import Loading from "../Components/Loading";
 import NoInfo from "../Components/NoInfo";
 import Error from "../Components/Error";
-import axios from "axios";
+import { getImageUrl, getBooksAdvanced } from "../api/bookApi";
 
 const BookPage = () => {
 
@@ -44,7 +44,6 @@ const BookPage = () => {
 
     const handleSortFilter = (e) => {
         e.preventDefault();
-        console.log(searchInput, selectedCategories, sortValue);
         setParams(s => ({
             ...s,
             search: searchInput,
@@ -60,18 +59,21 @@ const BookPage = () => {
         const fetchBooks = async () => {
 
             try {
-                const res = await axios.get("https://localhost:7262/api/BookApi/advanced", {
-                    params: {
-                        page,
-                        pageSize,
-                        ...(search && { search }),
-                        ...(sort && { sort }),
-                        ...(categories.length > 0 && { categories })
+                const res = await getBooksAdvanced(
+                    {
+                        params: {
+
+                            page,
+                            pageSize,
+                            ...(search && { search }),
+                            ...(sort && { sort }),
+                            ...(categories.length > 0 && { categories })
+                        }
                     }
-                });
-                setBooks(res.data.data);
-                setCurrentPage(res.data.page);
-                setTotalPages(res.data.totalPages);
+                );
+                setBooks(res.data);
+                setCurrentPage(res.page);
+                setTotalPages(res.totalPages);
                 setIsLoading(false);
             } catch (err) {
                 setError(err.message);
@@ -353,7 +355,7 @@ const BookPage = () => {
                             className='new__card bookCard'
                             key={index}>
                             <img
-                               src={`https://localhost:7262${res.image}`} alt={res.title}
+                                src={getImageUrl(res.image)} alt={res.title}
                                className='new__img' />
                              <div className='bookCardContent'>
                                 <h3 className='new__title'>

@@ -1,3 +1,4 @@
+import { getImageUrl } from "../api/bookApi";
 
 
 function Blerjet({ img, title, cardName, cardNum, total, date, quantity }) {
@@ -6,7 +7,7 @@ function Blerjet({ img, title, cardName, cardNum, total, date, quantity }) {
     
     return (
         <div className='new__card swiper-slide boughtBooks'>
-            <img src={`https://localhost:7262${img}`} alt='image' className='new__img' />
+            <img src={getImageUrl(img)} alt='image' className='new__img' />
             <div className='boughtInfo'>
                 <h2 className='testimonial__title'>
                     {title}

@@ -1,8 +1,8 @@
 import './BodyStyles/featured.css';
 import Loading from "../Components/Loading";
-import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { getFeaturedBooks, getImageUrl } from "../api/bookApi";
 
 function Featured() {
 
@@ -15,9 +15,9 @@ function Featured() {
         const fetchFeautred = async () => {
             try {
 
-                const response = await axios.get("https://localhost:7262/api/BookApi/featured");
-                if (response.data.length > 0) {
-                    setFeatured(response.data);
+                const response = await getFeaturedBooks();
+                if (response.length > 0) {
+                    setFeatured(response);
                 }
                 setLoading(false);
             } catch (err) {
@@ -44,9 +44,9 @@ function Featured() {
                             loading ? <Loading/> :
                             featured.map((f, index) => (
                                 <article className={`featured__card swiper-slide item item${index}`}
-                                        key={index}>
+                                        key={f.id}>
                                     <img
-                                        src={`https://localhost:7262${f.image}`}
+                                        src={getImageUrl(f.image)}
                                             alt="image"
                                             className="featured__img" />
 

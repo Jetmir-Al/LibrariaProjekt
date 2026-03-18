@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import Error from '../../Components/Error.jsx';
 import { ToggleBuy } from '../../Context/toggleContext.jsx';
+import { buyBook } from "../../api/buyApi.js";
 
 function BuyForm() {
 
@@ -18,11 +18,12 @@ function BuyForm() {
     const handleBuySubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`https://localhost:7262/api/PurchaseApi/create/${id}`, {
-                Quantity: bookQuantity,
+            await buyBook({
+                bookId: id,
                 CardholderName: cardName,
-                CardNumber: cardNumber
-            }, { withCredentials: true });
+                CardNumber: cardNumber,
+                Quantity: bookQuantity
+            });
             setToggleBuy(false);
             fetchBookDetails();
         } catch (err) {
@@ -49,6 +50,7 @@ function BuyForm() {
                     <div>
                         <label className="login__label">Card number:</label>
                         <input type="number" placeholder="Enter your card number!" className="login__input" name="cardNumber" required
+                            maxLength={16} minLength={13}
                             onChange={(e) => setCardNum(e.target.value)} />
                     </div>
 

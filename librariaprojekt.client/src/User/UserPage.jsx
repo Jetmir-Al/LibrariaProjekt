@@ -6,7 +6,8 @@ import NoInfo from '../Components/NoInfo.jsx';
 import { useContext, useState, useEffect } from "react"; 
 import { AuthContext } from "../Context/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { getUserPurchases } from '../api/buyApi';
+import { getUserBorrows } from '../api/borrowApi';
 
 function UserPage() {
 
@@ -26,10 +27,9 @@ function UserPage() {
             if (user.id) {
                 try {
 
-                    const res = await axios.get(`https://localhost:7262/api/PurchaseApi/user/${user.id}`,
-                        { withCredentials: true });
+                    const res = await getUserPurchases(user.id);
 
-                    setPurchase(res.data);
+                    setPurchase(res);
                 }
                 catch (err) {
                     console.error(err);
@@ -40,10 +40,9 @@ function UserPage() {
             if (user.id) {
                 try {
 
-                    const res = await axios.get(`https://localhost:7262/api/BorrowApi/user/${user.id}`,
-                        { withCredentials: true });
+                    const res = await getUserBorrows(user.id);
 
-                    setBorrow(res.data);
+                    setBorrow(res);
                 }
                 catch (err) {
                     console.error(err);

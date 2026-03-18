@@ -1,19 +1,18 @@
-import axios from 'axios';
 import {useEffect, useState } from 'react';
 import Loading from '../Components/Loading';
 import { AuthContext } from "./AuthContext";
+import { status, logoutFunc } from '../api/authApi';
 
 
 
 const getProtectedData = async () => {
     try {
-        const response = await axios.get("https://localhost:7262/api/UserApi/status", { withCredentials: true });
-        return response.data;
+        const response = await status();
+        return response;
     } catch (error) {
         if (error.response && error.response.status === 401) {
             return null;
         }
-        console.error('Error fetching protected data:', error);
         return null;
     }
 };
@@ -37,10 +36,9 @@ export const AuthProvider = ({ children }) => {
                     setIsLoggedIn(false);
                 }
 
-            } catch (error) {
+            } catch {
                 setUser(null);
                 setIsLoggedIn(false);
-                console.error('Error checking auth status:', error);
             }
             setLoading(false);
 
@@ -54,9 +52,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await axios.post("https://localhost:7262/api/UserApi/logout",
-                {},
-                { withCredentials: true });
+            await logoutFunc();
             setUser(null);
             setIsLoggedIn(false);
         } catch (error) {

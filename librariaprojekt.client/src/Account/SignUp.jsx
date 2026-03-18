@@ -4,7 +4,7 @@ import './signUp.css';
 import { useContext } from "react";
 import { ToggleAccountContext } from "../Context/toggleContext";
 import { useState } from "react";
-import axios from "axios";
+import { registerUser } from "../api/authApi.js"; 
 
 function SignUp() {
 
@@ -27,17 +27,9 @@ function SignUp() {
 
 
             try {
-                await axios.post(
-                    'https://localhost:7262/api/UserApi/createUser',
-                    {
-                        Name: name,
-                        Email: email,
-                        Password: password
-                    }
-                );
+                await registerUser({ Name: name, Email: email, Password: password });
                 setToggleAccount(t => !t);
-            } catch (error) {
-                console.error("Error during sign up:", error);
+            } catch {
                 setBadInfo(true);
             }
         }

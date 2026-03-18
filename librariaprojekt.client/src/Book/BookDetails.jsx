@@ -7,12 +7,13 @@ import { useParams } from 'react-router-dom';
 import Loading from '../Components/Loading.jsx';
 import NoInfo from '../Components/NoInfo.jsx';
 import Error from '../Components/Error.jsx';
-import axios from 'axios';
 import Reviews from './BookComponents/Reviews.jsx';
 import BuyForm from './BookComponents/BuyForm.jsx';
 import BorrowForm from './BookComponents/BorrowForm.jsx';
 import { AuthContext } from '../Context/AuthContext.jsx';
 import { ToggleBuy, ToggleBorrow } from '../Context/toggleContext';
+import { getBookById, getImageUrl } from '../api/bookApi';
+import { submitReview, getReviews } from '../api/reviewApi';
 
 function BookDetails() {
 
@@ -35,16 +36,11 @@ function BookDetails() {
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(
-                `https://localhost:7262/api/ReviewApi/create/${id}`, {
-                Rating: rating,
-                Comment: comment
-            }, { withCredentials: true });
+            await submitReview({ id, Rating: rating, Comment: comment });
             setAddReview(false);
             fetchReviews();
         
         } catch (error) {
-            //console.error('Error submitting review:', error);
             setError('Failed to submit review. Please try again later.', error);
         }
     }
@@ -54,11 +50,9 @@ function BookDetails() {
 
     const fetchReviews = async () => {
         try {
-            const res = await axios.get(
-                `https://localhost:7262/api/ReviewApi/book/${id}`,
-                { withCredentials: true });
-            if (res.data.length !== 0) {
-                setReviews(res.data);
+            const res = await getReviews(id);
+            if (res.length !== 0) {
+                setReviews(res);
             }
             
 
@@ -68,10 +62,10 @@ function BookDetails() {
     }
     const fetchBookDetails = async () => {
         try {
-            const response = await axios.get(`https://localhost:7262/api/BookApi/books/${id}`);
-            setBookDetails(response.data);
+            const response = await getBookById(id);
+            setBookDetails(response);
             setIsLoading(false);
-            setBookDetailsQuantity(response.data.quantity);
+            setBookDetailsQuantity(response.quantity);
         } catch (error) {
             setError(error.message);
         }
@@ -94,8 +88,8 @@ function BookDetails() {
                         <div className="bookDetails">
 
                             <div className='bookPresentation'>
-                                <img className='bookImg'
-                                    src={`https://localhost:7262${bookDetails.image}`}
+                                    <img className='bookImg'
+                                        src={getImageUrl(bookDetails.image)}
                                     alt={bookDetails.title} />
                                 <h2 className='bookTitle'>
                                     {bookDetails.title}
