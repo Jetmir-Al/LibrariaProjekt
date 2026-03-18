@@ -62,12 +62,11 @@ const BookPage = () => {
                 const res = await getBooksAdvanced(
                     {
                         params: {
-
-                            page,
-                            pageSize,
+                            page: page,
+                            pageSize: pageSize,
                             ...(search && { search }),
-                            ...(sort && { sort }),
-                            ...(categories.length > 0 && { categories })
+                            ...(categories.length > 0 && { categories }),
+                            ...(sort && { sort })
                         }
                     }
                 );
