@@ -36,3 +36,8 @@ export const getBooksAdvanced = async ({ params  }) => {
     });
     return res.data;
 }
+
+export const getBookCategories = async () => {
+    const res = await api.get("/BookApi/categories");
+    return res.data;
+}

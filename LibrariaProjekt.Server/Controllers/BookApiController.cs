@@ -1,6 +1,6 @@
 ﻿using LibrariaProjekt.Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
-
+using LibrariaProjekt.Server.DTO;
 
 namespace LibrariaProjekt.Server.Controllers
 {
@@ -53,6 +53,17 @@ namespace LibrariaProjekt.Server.Controllers
 
             return Ok(latestBooks);
         }
+        [HttpGet("categories")]
+        public IActionResult GetBookCategories()
+        {
+            var books = _bookRepository.GetAll()
+               .Select(b => new BookCategoriesDTO
+               {
+                   Categories = b.Category
+               }).DistinctBy(b => b.Categories).ToList();
+            return Ok(books);
+        }
+
         [HttpGet("advanced")]
         public IActionResult GetBooksAdvanced(
             int page = 1,

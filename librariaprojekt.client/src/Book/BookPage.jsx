@@ -7,7 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import Loading from "../Components/Loading";
 import NoInfo from "../Components/NoInfo";
 import Error from "../Components/Error";
-import { getImageUrl, getBooksAdvanced } from "../api/bookApi";
+import { getImageUrl, getBooksAdvanced, getBookCategories } from "../api/bookApi";
 
 const BookPage = () => {
 
@@ -20,6 +20,7 @@ const BookPage = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     const [books, setBooks] = useState([]);
+    const [bookCategories, setBookCategories] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -55,7 +56,14 @@ const BookPage = () => {
     }
 
     useEffect(() => {
-
+        const fetchCategories = async () => {
+            try {
+                const res = await getBookCategories();
+                setBookCategories(res);
+            } catch {
+                // Handle error if needed
+            }
+        }
         const fetchBooks = async () => {
 
             try {
@@ -78,6 +86,7 @@ const BookPage = () => {
                 setError(err.message);
             }
         }
+        fetchCategories();
         fetchBooks();
 
     }, [page, search, sort, categories]);
@@ -138,195 +147,20 @@ const BookPage = () => {
 
                             <h4>Filter by:</h4>
                             <div className="filterForm">
-
-                                <label><input type="checkbox" name="letersi" id="letersi"
-                                    value="Letersi"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                /> Letersi</label>
-                                <label><input type="checkbox" name="biografi" id="biografi"
-                                    value="Biografi"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                /> Biografi</label>
-                                <label><input type="checkbox" name="histori" id="histori"
-                                    value="Histori"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                /> Histori</label>
-                                <label><input type="checkbox" name="politik" id="politik"
-                                    value="Politik"
-                                onChange={(e) => setSelectedCategories(
-                                    selected => selected.includes(e.target.value) ?
-                                        selected.filter(s => s !== e.target.value) :
-                                        [...selected, e.target.value]
-                                )}
-                                /> Politik</label>
-                                <label><input type="checkbox" name="ese" id="ese"
-                                    value="Ese"
-                                onChange={(e) => setSelectedCategories(
-                                    selected => selected.includes(e.target.value) ?
-                                        selected.filter(s => s !== e.target.value) :
-                                        [...selected, e.target.value]
-                                )}
-                                /> Ese</label>
-                                <label><input type="checkbox" name="filozofi" id="filozofi"
-                                    value="Filozofi"
-                                onChange={(e) => setSelectedCategories(
-                                    selected => selected.includes(e.target.value) ?
-                                        selected.filter(s => s !== e.target.value) :
-                                        [...selected, e.target.value]
-                                )}
-                                /> Filozofi</label>
-                                <label><input type="checkbox" name="Tregime te shkurta" id="Tregime te shkurta"
-                                    value="Tregime te shkurta"
-                                onChange={(e) => setSelectedCategories(
-                                    selected => selected.includes(e.target.value) ?
-                                        selected.filter(s => s !== e.target.value) :
-                                        [...selected, e.target.value]
-                                )}
-                                /> Tregime te shkurta</label>
-                                <label>
-                                    <input type="checkbox" name="roman" id="roman"
-                                        value="Roman"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Roman
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="romance" id="romance"
-                                        value="Romance"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Romance
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="ekonomi" id="ekonomi"
-                                        value="Ekonomi"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Ekonomi
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="triller" id="triller"
-                                        value="Triller"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Triller
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="biznes" id="biznes"
-                                        value="Biznes"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Biznes
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="psikologji" id="psikologji"
-                                        value="Psikologji"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Psikologji
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="motivim" id="motivim"
-                                        value="Motivim"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Motivim
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="Zhvillim personal" id="Zhvillim personal"
-                                        value="Zhvillim personal"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Zhvillim personal
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="sociologji" id="sociologji"
-                                        value="Sociologji"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Sociologji
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="poezi" id="poezi"
-                                        value="Poezi"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Poezi
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="tregime" id="tregime"
-                                        value="Tregime"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Tregime
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="perralla" id="perralla"
-                                        value="Perralla"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Perralla
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="pedagogji" id="pedagogji"
-                                        value="Pedagogji"
-                                    onChange={(e) => setSelectedCategories(
-                                        selected => selected.includes(e.target.value) ?
-                                            selected.filter(s => s !== e.target.value) :
-                                            [...selected, e.target.value]
-                                    )}
-                                    /> Pedagogji
-                                </label>
-
-
+                                {
+                                    bookCategories.map((res) => (
+                                        <label>
+                                            <input type="checkbox" name={res.categories} id={res.categories}
+                                                value={res.categories}
+                                                onChange={(e) => setSelectedCategories(
+                                                    selected => selected.includes(e.target.value) ?
+                                                        selected.filter(s => s !== e.target.value) :
+                                                        [...selected, e.target.value]
+                                                )}
+                                            /> {res.categories}
+                                        </label>  
+                                    ))
+                                }                                                                
                             </div>
 
                             <div className="sortFilter-btns">
