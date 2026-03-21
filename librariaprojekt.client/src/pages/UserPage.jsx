@@ -1,17 +1,17 @@
 import './userPage.css';
-import Blerjet from './Blerjet.jsx';
-import Huazimet from './Huazimet.jsx';
-import NoInfo from '../Components/NoInfo.jsx';
+import Blerjet from '../Components/buy/Blerjet.jsx';
+import Huazimet from '../Components/borrow/Huazimet.jsx';
+import NoInfo from '../utils/NoInfo.jsx';
 
-import { useContext, useState, useEffect } from "react"; 
-import { AuthContext } from "../Context/AuthContext.jsx";
+import { useState, useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";
 import { getUserPurchases } from '../api/buyApi';
 import { getUserBorrows } from '../api/borrowApi';
+import { useAuthHook } from '../hooks/useAuthHook';
 
 function UserPage() {
 
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout } = useAuthHook();
     const [purchase, setPurchase] = useState([]);
     const [borrow, setBorrow] = useState([]);
     const navigate = useNavigate();

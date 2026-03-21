@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import './signUp.css';
 import { useContext } from "react";
-import { ToggleAccountContext } from "../Context/toggleContext";
+import { ToggleAccountContext } from "../../context/toggleContext";
 import { useState } from "react";
-import { registerUser } from "../api/authApi.js"; 
+import { registerUser } from "../../api/authApi.js"; 
 
 function SignUp() {
 

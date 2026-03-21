@@ -1,8 +1,8 @@
 import './BodyStyles/new.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Loading from '../Components/Loading';
-import { getImageUrl, getLatestBooks } from '../api/bookApi';
+import Loading from '../../utils/Loading';
+import { getImageUrl, getLatestBooks } from '../../api/bookApi';
 function NewBooks() {
 
     const [newBooks, setNewBooks] = useState([]);

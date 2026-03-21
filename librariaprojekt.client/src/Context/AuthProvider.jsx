@@ -1,5 +1,5 @@
 import {useEffect, useState } from 'react';
-import Loading from '../Components/Loading';
+import Loading from '../utils/Loading';
 import { AuthContext } from "./AuthContext";
 import { status, logoutFunc } from '../api/authApi';
 

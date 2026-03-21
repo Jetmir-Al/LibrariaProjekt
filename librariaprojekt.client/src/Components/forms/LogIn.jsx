@@ -2,13 +2,13 @@ import './login.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
-import { ToggleAccountContext } from "../Context/toggleContext";
-import { AuthContext } from '../Context/AuthContext';
-import { loginAdmin, loginUser } from '../api/authApi.js'; 
+import { ToggleAccountContext } from "../../context/toggleContext";
+import { loginAdmin, loginUser } from '../../api/authApi.js'; 
+import { useAuthHook } from '../../hooks/useAuthHook';
 function LogIn() {
 
     const { setToggleAccount, setIsAccountMenuOpen } = useContext(ToggleAccountContext);
-    const { setUser, setIsLoggedIn } = useContext(AuthContext); 
+    const { setUser, setIsLoggedIn } = useAuthHook(); 
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);

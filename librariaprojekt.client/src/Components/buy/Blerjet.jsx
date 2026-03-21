@@ -1,4 +1,4 @@
-import { getImageUrl } from "../api/bookApi";
+import { getImageUrl } from "../../api/bookApi";
 
 
 function Blerjet({ img, title, cardName, cardNum, total, date, quantity }) {

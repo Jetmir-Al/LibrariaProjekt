@@ -1,10 +1,10 @@
-import './BodyStyles/body.css';
+import './body.css';
 import { Link } from 'react-router-dom';
-import Services from './Services.jsx';
-import Featured from './Featured.jsx';
-import NewBooks from './NewBooks.jsx';
-import NewReviews from './NewReviews.jsx';
-import Rules from './Rules.jsx';
+import Services from '../Components/Body/Services.jsx';
+import Featured from '../Components/Body/Featured.jsx';
+import NewBooks from '../Components/Body/NewBooks.jsx';
+import NewReviews from '../Components/Body/NewReviews.jsx';
+import Rules from '../Components/Body/Rules.jsx';
 
 function Body() {
 

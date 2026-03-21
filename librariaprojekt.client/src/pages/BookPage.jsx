@@ -4,9 +4,9 @@ import { faMagnifyingGlass, faEllipsisVertical } from "@fortawesome/free-solid-s
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import Loading from "../Components/Loading";
-import NoInfo from "../Components/NoInfo";
-import Error from "../Components/Error";
+import Loading from "../utils/Loading";
+import NoInfo from "../utils/NoInfo";
+import Error from "../utils/Error";
 import { getImageUrl, getBooksAdvanced, getBookCategories } from "../api/bookApi";
 
 const BookPage = () => {
@@ -148,8 +148,8 @@ const BookPage = () => {
                             <h4>Filter by:</h4>
                             <div className="filterForm">
                                 {
-                                    bookCategories.map((res) => (
-                                        <label>
+                                    bookCategories.map((res, index) => (
+                                        <label key={index}>
                                             <input type="checkbox" name={res.categories} id={res.categories}
                                                 value={res.categories}
                                                 onChange={(e) => setSelectedCategories(

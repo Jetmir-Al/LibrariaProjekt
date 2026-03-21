@@ -1,26 +1,23 @@
 import React from 'react';
-import Navbar from './Components/Navbar.jsx';
+import Navbar from './Components/layout/Navbar.jsx';
 import './App.css';
-import Body from './Body/Body.jsx';
-import BookPage from './Book/BookPage.jsx';
-import BookDetails from './Book/BookDetails.jsx';
-import UserPage from './User/UserPage.jsx';
-import Footer from './Components/Footer.jsx';
+import Body from './pages/Body.jsx';
+import BookPage from './pages/BookPage.jsx';
+import BookDetails from './Components/book/BookDetails.jsx';
+import UserPage from './pages/UserPage.jsx';
+import Footer from './utils/Footer.jsx';
 
-import { AuthProvider } from './Context/AuthProvider.jsx'; 
-import { ToggleLightDarkContext } from './Context/toggleContext.jsx';
+import { AuthProvider } from './context/AuthProvider.jsx';
+import { useLightDarkHook } from './hooks/useLightDarkHook.jsx';
 
-import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ProtectedRoutes from './Route/ProtectedRoutes.jsx';
 function App() {
-
-    const [lightDark, setLightDark] = useState(false);
+    const { mode } = useLightDarkHook();
     return (
-        <ToggleLightDarkContext.Provider value={{ lightDark, setLightDark }}>
             <AuthProvider>
-            <Router>
-                <div className={lightDark ? "body dark-theme" : "body"}>
+                <Router>
+                    <div className={mode ? "body dark-theme" : "body"}>
                     <Navbar />
                     <Routes>
                         <Route path="/" element={
@@ -45,7 +42,6 @@ function App() {
                 </div>
             </Router>
             </AuthProvider>
-        </ToggleLightDarkContext.Provider>
     );
 }
 

@@ -1,23 +1,23 @@
 ﻿import './bookDetails.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 
-import Loading from '../Components/Loading.jsx';
-import NoInfo from '../Components/NoInfo.jsx';
-import Error from '../Components/Error.jsx';
-import Reviews from './BookComponents/Reviews.jsx';
-import BuyForm from './BookComponents/BuyForm.jsx';
-import BorrowForm from './BookComponents/BorrowForm.jsx';
-import { AuthContext } from '../Context/AuthContext.jsx';
-import { ToggleBuy, ToggleBorrow } from '../Context/toggleContext';
-import { getBookById, getImageUrl } from '../api/bookApi';
-import { submitReview, getReviews } from '../api/reviewApi';
+import Loading from '../../utils/Loading.jsx';
+import NoInfo from '../../utils/NoInfo.jsx';
+import Error from '../../utils/Error.jsx';
+import Reviews from '../reviews/Reviews.jsx';
+import BuyForm from '../buy/BuyForm.jsx';
+import BorrowForm from '../borrow/BorrowForm.jsx';
+import { ToggleBuy, ToggleBorrow } from '../../context/toggleContext';
+import { getBookById, getImageUrl } from '../../api/bookApi';
+import { submitReview, getReviews } from '../../api/reviewApi';
+import { useAuthHook } from '../../hooks/useAuthHook';
 
 function BookDetails() {
 
-    const { isLoggedIn, user } = useContext(AuthContext);
+    const { isLoggedIn, user } = useAuthHook();
     const [addReview, setAddReview] = useState(false);
 
     const [toggleBuy, setToggleBuy] = useState(false);

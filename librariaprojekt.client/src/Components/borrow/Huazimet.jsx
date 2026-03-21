@@ -1,4 +1,4 @@
-import { getImageUrl } from "../api/bookApi";
+import { getImageUrl } from "../../api/bookApi";
 
 
 function Huazimet({ img, title, cardName, cardNum, total, borrowDate, returnDate, lateFee, returned }) {

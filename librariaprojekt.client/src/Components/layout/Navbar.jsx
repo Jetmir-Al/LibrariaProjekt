@@ -1,21 +1,22 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faUserGear, faBook, faCircleUser, faMoon, faReply, faBookBookmark, faBookmark, faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
-import SignUp from "../Account/SignUp";
-import LogIn from "../Account/LogIn";
-import { ToggleAccountContext, ToggleLightDarkContext } from "../Context/toggleContext";
-import { AuthContext } from "../Context/AuthContext";
+import SignUp from "../forms/SignUp";
+import LogIn from "../forms/LogIn";
+import { ToggleAccountContext } from "../../context/toggleContext";
+import { useAuthHook } from "../../hooks/useAuthHook";
+import { useLightDarkHook } from "../../hooks/useLightDarkHook";
 function Navbar() {
     const navigate = useNavigate();
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
     const [toggleAccount, setToggleAccount] = useState(false);
 
-    const { lightDark, setLightDark } = useContext(ToggleLightDarkContext);
+    const { mode, toggleMode } = useLightDarkHook();
 
-    const { isLoggedIn } = useContext(AuthContext);
+    const { isLoggedIn } = useAuthHook();
       
     return (
         <>
@@ -75,13 +76,13 @@ function Navbar() {
 
                         <div className="navAction">
                             {
-                                
-                                lightDark ?
+
+                                mode ?
                                     <FontAwesomeIcon className="icon" icon={faSun}
-                                        onClick={() => setLightDark(d => !d)} />
+                                        onClick={() => toggleMode()} />
                                     :
                                     <FontAwesomeIcon className="icon" icon={faMoon}
-                                        onClick={() => setLightDark(d => !d)} />
+                                        onClick={() => toggleMode()} />
                                            
                             }
                     </div>

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import Error from '../../Components/Error.jsx';
+import Error from '../../utils/Error.jsx';
 import { ToggleBuy } from '../../Context/toggleContext.jsx';
 import { buyBook } from "../../api/buyApi.js";
 

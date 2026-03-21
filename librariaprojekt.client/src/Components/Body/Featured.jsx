@@ -1,8 +1,8 @@
 import './BodyStyles/featured.css';
-import Loading from "../Components/Loading";
+import Loading from "../../utils/Loading";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getFeaturedBooks, getImageUrl } from "../api/bookApi";
+import { getFeaturedBooks, getImageUrl } from "../../api/bookApi";
 
 function Featured() {
 
